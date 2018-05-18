@@ -2,59 +2,52 @@
 $white: #ffffff;
 $black: #000000;
 $gray-base: #676767;
-$gray-darker: #676767;
-$gray-dark: #8b8d8d;
-$gray: #cccccc;
-$gray-light: #efefee;
-$gray-lighter: #eeeeee;
-$gray-lightest: #f9f6f6;
-$concrete: #F2F2F2;
-$grayChateau: #A3A3A3;
-$anotherGray: #e7e7e7;
 
-$brand-primary: #d71f85;
-$brand-secondary: #470649;
+// Background Colours
+$base-background: #252628;
+$back-vari-1: #2F2E35;
+$back-vari-2: #37383F;
+$back-vari-3: #373C3F;
+$back-vari-4: #2E3435;
+
+// Flat Colours
+$emerald: #2ecc71;
+$nephritis: #27ae60;
+$turquoise: #1abc9c;
+$green-sea: #16a085;
+$peter-river: #3498db;
+$belize-hole: #2980b9;
+$amethyst: #9b59b6;
+$wisteria: #8e44ad;
+$wet-asphalt: #34495e;
+$midnight-blue: #2c3e50;
+$sun-flower: #f1c40f;
+$orange: #f39c12;
+$carrot: #e67e22;
+$pumpkin: #d35400;
+$alizarin: #e74c3c;
+$pomergranate: #c0392b;
+$clouds: #ecf0f1;
+$silver: #bdc3c7;
+$concrete: #95a5a6;
+$asbestos: #7f8c8d;
+
+// Neon Colours
+$neon-green: #ADFF2F; // should be header tags color
+$neon-blue: #52e3f6;
+$neon-pink: #FF007F;
+
+$brand-primary: #ADFF2F;
+$brand-secondary: #52e3f6;
+$brand-primary-hover: #22FF33; // need to recheck this
+$brand-secondary-hover: #3FDFC6; // need to recheck this
+
 $brand-success: #4cd964;
 $brand-warning: #fc0;
 $brand-danger: #ff3b30;
 $brand-info: #34aadc;
-$brand-blue: #dae5f8;
-
-$brand-primary-hover: #9b1665;
-$brand-primary-active: #6f164e;
 
 $brand-facebook: #3764a3;
 $brand-google: #850f08;
 $brand-twitter: #588eca;
 
-$body-bg: #ececec;
-$app-bg: #fff;
-
-//
-//// Layout
-//$mainWidth: 1200px;
-//
-//// Typography
-//$font-path: '../fonts/';
-//$font-family-base: 'Gotham Rounded Book';
-//$font-family-secondary: 'Gotham Rounded';
-//$font-family-light: 'Gotham Rounded Light';
-//
-//
-//// v Accordion
-//$v-accordion-default-theme:         true !default;
-//
-//
-//// Accordion
-//// -------------------------------------
-//
-//$v-accordion-spacing:               20px !default;
-//
-//$v-pane-border-color:               $brand-primary !default;
-//$v-pane-expanded-border-color:      $brand-secondary !default;
-//$v-pane-icon-color:                 $brand-primary !default;
-//$v-pane-hover-color:                $brand-secondary !default;
-//$v-pane-disabled-opacity:           0.6 !default;
-//
-//$v-pane-expand-animation-duration:  0.5s  !default;
-//$v-pane-hover-animation-duration:   0.25s !default;
