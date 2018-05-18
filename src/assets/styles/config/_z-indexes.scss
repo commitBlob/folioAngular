@@ -1,0 +1,14 @@
+// Map of z-index values, keyed by their indended areas of use
+$z-layers: (
+  "disclaimer-popup":     1500,
+  "modal":                1000,
+  "lightbox":             500,
+  "overlay":              200,
+  "mobile-menu":          180,
+  "sticky-menu":          150,
+  "above-siblings":       10,
+  "above-default":        5,
+  "default":              1,
+  "below-siblings":       -1,
+  "behind-all":           -9999,
+);
