@@ -7,7 +7,7 @@ import { PageNotFoundComponent } from './404-page/page-not-found.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '',
+    redirectTo: 'about',
     pathMatch: 'full',
     data: { animation: 'home' }
   },
@@ -30,6 +30,11 @@ export const routes: Routes = [
     path: 'skills',
     loadChildren: 'app/+skills-page/skills-page.module#SkillsPageModule',
     data: { animation: 'skills' }
+  },
+  {
+    path: 'experience',
+    loadChildren: 'app/+experience-page/experience-page.module#ExperiencePageModule',
+    data: { animation: 'experience' }
   },
   {
     path: '**',
