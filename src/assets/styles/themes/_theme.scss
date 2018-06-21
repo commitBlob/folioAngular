@@ -1,0 +1,89 @@
+@import '~@angular/material/_theming';
+// Plus imports for other components in your app.
+
+// Include the base styles for Angular Material core. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+@include mat-core();
+
+$neo-palette-primary: (
+  50 : #ffffff,
+  100 : #d4e9f7,
+  200 : #a5d1ef,
+  300 : #68b2e4,
+  400 : #4ea5e0,
+  500 : #3498db,
+  600 : #2489cc,
+  700 : #2077b2,
+  800 : #1b6698,
+  900 : #16557e,
+  A100 : #ffffff,
+  A200 : #a9dcff,
+  A400 : #51b1f1,
+  A700 : #44a4e4,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: $white-87-opacity,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+$neo-palette-secondary: (
+  50 : #95c6e5,
+  100 : #57a5d6,
+  200 : #308bc6,
+  300 : #22638c,
+  400 : #1c5174,
+  500 : #16405b,
+  600 : #102f42,
+  700 : #0a1d2a,
+  800 : #040c11,
+  900 : #000000,
+  A100 : #77c6f9,
+  A200 : #169df4,
+  A400 : #146090,
+  A700 : #174f73,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: white,
+    400: white,
+    500: $white-87-opacity,
+    600: $white-87-opacity,
+    700: $white-87-opacity,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+$neo-app-primary: mat-palette($neo-palette-primary);
+$neo-app-accent: mat-palette($neo-palette-secondary, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$neo-app-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$neo-app-theme: mat-light-theme($neo-app-primary, $neo-app-accent, $neo-app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($neo-app-theme);
