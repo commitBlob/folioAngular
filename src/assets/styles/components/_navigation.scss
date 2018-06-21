@@ -1,0 +1,15 @@
+.navigation-wrapper {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(0, -100%);
+  transition: 1s all cubic-bezier(.05, 1.1, .38, .99);
+  z-index: z(above-default);
+  background-color: $base-background;
+
+  &.menu-open {
+    transform: translate(0, 0);
+  }
+}

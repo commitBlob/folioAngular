@@ -1,0 +1,11 @@
+@function z($layer)
+{
+  // Make sure $layer exists
+  @if map-has-key($z-layers, $layer) {
+    @return map-get($z-layers, $layer);
+  } @else {
+    @error "z: Unrecognised key `#{$layer}` in $z-layers map.";
+  }
+
+  @return map-get($z-layers, $layer);
+}

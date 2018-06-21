@@ -10,6 +10,12 @@ import { routerAnimation } from './animations';
   animations: [routerAnimation]
 })
 export class AppComponent {
+  menuOpen = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
   constructor() {}
 
   getRouteAnimation(outlet) {

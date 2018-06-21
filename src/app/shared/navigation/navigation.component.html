@@ -1,0 +1,11 @@
+<div class="navigation-wrapper" [ngClass]="{'menu-open': menuOpen}">
+  <nav role="navigation" class="navigation">
+    <ul>
+      <li *ngFor="let element of navigationElements">
+        <a [routerLink]="element.linkPath">
+          <i class="" [ngClass]="element.linkIcon"></i> {{element.linkName}}
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

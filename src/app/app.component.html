@@ -1,3 +1,10 @@
+<div class="header-bar">
+  <folio-navigation [menuOpen]="menuOpen"></folio-navigation>
+  <div class="burger" (click)="toggleMenu()" [ngClass]="{'cross': menuOpen}">
+    <span></span>
+  </div>
+</div>
+<div class="content-wrapper">
 <nav>
   <a routerLink="">home</a>
   <a routerLink="about">about</a>
@@ -11,3 +18,4 @@
   <router-outlet #route="outlet"></router-outlet>
 </div>
 
+</div>

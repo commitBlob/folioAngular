@@ -1,8 +1,12 @@
+// Core
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// App specific
 import { MaterialModule } from './materialModule';
+import { NavigationModule } from './navigation/navigation.module';
 
 @NgModule({
   imports: [
@@ -14,6 +18,7 @@ import { MaterialModule } from './materialModule';
   exports: [
     CommonModule,
     FormsModule,
+    NavigationModule,
     RouterModule,
     ReactiveFormsModule
   ],

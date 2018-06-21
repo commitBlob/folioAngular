@@ -8,6 +8,7 @@
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 || Components
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+@import 'components/burger';
 @import 'components/buttons';
 @import 'components/navigation';
 
@@ -38,6 +39,7 @@
 @import 'utils/mixins';
 @import 'utils/respond';
 @import 'utils/variables';
+@import 'utils/z';
 @import 'utils/z-indexes';
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
