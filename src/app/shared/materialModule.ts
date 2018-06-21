@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import {
   DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE,
   MatButtonModule,
+  MatCardModule,
   MatCheckboxModule, MatDatepickerModule,
   MatDialogModule,
   MatInputModule,
@@ -16,11 +17,11 @@ import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-mo
 @NgModule({
   imports: [
     // tslint:disable-next-line
-    MatTabsModule, MatCheckboxModule, MatInputModule, MatSelectModule, MatButtonModule, MatDialogModule, MatTooltipModule, MatDatepickerModule
+    MatTabsModule, MatCardModule, MatCheckboxModule, MatInputModule, MatSelectModule, MatButtonModule, MatDialogModule, MatTooltipModule, MatDatepickerModule
   ],
   exports: [
     // tslint:disable-next-line
-    MatTabsModule, MatCheckboxModule, MatInputModule, MatSelectModule, MatButtonModule, MatDialogModule, MatTooltipModule, MatDatepickerModule
+    MatTabsModule, MatCardModule, MatCheckboxModule, MatInputModule, MatSelectModule, MatButtonModule, MatDialogModule, MatTooltipModule, MatDatepickerModule
   ],
   providers: [
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
