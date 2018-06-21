@@ -1,14 +1,18 @@
+// Core
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+
+// App specific
+import { routerAnimation } from './animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  animations: [routerAnimation]
 })
 export class AppComponent {
-  constructor(private router: Router) {}
+  constructor() {}
 
-  amo() {
-    this.router.navigate(['/about']);
+  getRouteAnimation(outlet) {
+    return outlet.activatedRouteData.animation;
   }
 }

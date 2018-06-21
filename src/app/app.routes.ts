@@ -8,23 +8,28 @@ export const routes: Routes = [
   {
     path: '',
     redirectTo: '',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    data: { animation: 'home' }
   },
   {
     path: 'about',
-    loadChildren: 'app/+about-page/about-page.module#AboutPageModule'
+    loadChildren: 'app/+about-page/about-page.module#AboutPageModule',
+    data: { animation: 'about' }
   },
   {
     path: 'contact',
-    loadChildren: 'app/+contact-page/contact-page.module#ContactPageModule'
+    loadChildren: 'app/+contact-page/contact-page.module#ContactPageModule',
+    data: { animation: 'contact' }
   },
   {
     path: 'portfolio',
-    loadChildren: 'app/+portfolio-page/portfolio-page.module#PortfolioPageModule'
+    loadChildren: 'app/+portfolio-page/portfolio-page.module#PortfolioPageModule',
+    data: { animation: 'portfolio' }
   },
   {
     path: 'skills',
-    loadChildren: 'app/+skills-page/skills-page.module#SkillsPageModule'
+    loadChildren: 'app/+skills-page/skills-page.module#SkillsPageModule',
+    data: { animation: 'skills' }
   },
   {
     path: '**',
