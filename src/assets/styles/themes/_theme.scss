@@ -5,21 +5,21 @@
 // have to load a single css file for Angular Material in your app.
 @include mat-core();
 
-$neo-palette-primary: (
+$folio-palette-primary: (
   50 : #ffffff,
-  100 : #d4e9f7,
-  200 : #a5d1ef,
-  300 : #68b2e4,
-  400 : #4ea5e0,
-  500 : #3498db,
-  600 : #2489cc,
-  700 : #2077b2,
-  800 : #1b6698,
-  900 : #16557e,
+  100 : #f7ffec,
+  200 : #e1ffb4,
+  300 : #c5ff6c,
+  400 : #b9ff4e,
+  500 : #adff2f,
+  600 : #a1ff10,
+  700 : #92f100,
+  800 : #7fd200,
+  900 : #6db400,
   A100 : #ffffff,
-  A200 : #a9dcff,
-  A400 : #51b1f1,
-  A700 : #44a4e4,
+  A200 : #e9ffc8,
+  A400 : #c1ff62,
+  A700 : #b7ff48,
   contrast: (
     50: $black-87-opacity,
     100: $black-87-opacity,
@@ -38,21 +38,21 @@ $neo-palette-primary: (
   )
 );
 
-$neo-palette-secondary: (
-  50 : #95c6e5,
-  100 : #57a5d6,
-  200 : #308bc6,
-  300 : #22638c,
-  400 : #1c5174,
-  500 : #16405b,
-  600 : #102f42,
-  700 : #0a1d2a,
-  800 : #040c11,
-  900 : #000000,
-  A100 : #77c6f9,
-  A200 : #169df4,
-  A400 : #146090,
-  A700 : #174f73,
+$folio-palette-secondary: (
+  50 : #ffffff,
+  100 : #ffbdde,
+  200 : #ff85c2,
+  300 : #ff3d9e,
+  400 : #ff1f8e,
+  500 : #ff007f,
+  600 : #e00070,
+  700 : #c20061,
+  800 : #a30051,
+  900 : #850042,
+  A100 : #ffffff,
+  A200 : #ff99cc,
+  A400 : #ff3399,
+  A700 : #ff1a8c,
   contrast: (
     50: $black-87-opacity,
     100: $black-87-opacity,
@@ -74,16 +74,16 @@ $neo-palette-secondary: (
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue.
-$neo-app-primary: mat-palette($neo-palette-primary);
-$neo-app-accent: mat-palette($neo-palette-secondary, A200, A100, A400);
+$folio-app-primary: mat-palette($folio-palette-primary);
+$folio-app-accent: mat-palette($folio-palette-secondary, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$neo-app-warn: mat-palette($mat-red);
+$folio-app-warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$neo-app-theme: mat-light-theme($neo-app-primary, $neo-app-accent, $neo-app-warn);
+$folio-app-theme: mat-light-theme($folio-app-primary, $folio-app-accent, $folio-app-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($neo-app-theme);
+@include angular-material-theme($folio-app-theme);
