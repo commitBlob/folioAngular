@@ -17,6 +17,7 @@
     flex-flow: column wrap;
     height: 100%;
     justify-content: center;
+    position: relative;
 
       .navigation-element {
         text-decoration: none;
@@ -24,6 +25,10 @@
         max-width: 600px;
         width: 90%;
         margin: 0 auto;
+
+        &:hover .navigation-bottom-border{
+          width:100%;
+        }
 
 
 
@@ -41,18 +46,61 @@
             }
           }
 
-          .navigation-name-container {
+          .navigation-name-container, .navigation-sub-name-container {
             text-align: center;
             font-family: 'Orbitron';
           }
 
-          .navigation-sub-name-container {
-            text-align: center;
-            font-family: 'Orbitron';
+          .navigation-bottom-border {
+            height: 2em;
+            z-index: z('above-siblings');
+            position: absolute;
+            bottom: 0;
+            width: 0;
+            background-color: $back-vari-3;;
+            transition: width 0.3s ease-in-out;
           }
-
-
         }
     }
   }
+}
+
+.hvr-sweep-to-left {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-sweep-to-left:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $back-vari-2;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-sweep-to-left:hover, .hvr-sweep-to-left:focus, .hvr-sweep-to-left:active {
+  color: white;
+}
+.hvr-sweep-to-left:hover:before, .hvr-sweep-to-left:focus:before, .hvr-sweep-to-left:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
 }
