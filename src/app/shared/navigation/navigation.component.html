@@ -1,9 +1,9 @@
 <div class="navigation-wrapper" [ngClass]="{'menu-open': menuOpen}">
   <nav role="navigation" class="navigation">
-    <div class="navigation-element hvr-sweep-to-left" *ngFor="let element of navigationElements">
+    <div class="navigation-element sweep" *ngFor="let element of navigationElements">
       <a [routerLink]="element.linkPath">
         <div class="navigation-icon-container"><i class="navigation-icon" [ngClass]="element.linkIcon"></i></div>
-        <div class="navigation-name-container">{{element.linkName}}</div>
+        <div class="navigation-name-container" [ngClass]="{'skills': element.linkName === 'SUPERPOWERS'}"><span>{{element.linkName}}</span></div>
         <div class="navigation-sub-name-container">{{element.linkSubName}}</div>
         <div class="navigation-bottom-border"></div>
       </a>
