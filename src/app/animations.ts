@@ -15,7 +15,7 @@ export const routerAnimation =  trigger('routerAnimation', [
         width: '100%',
         transform: 'translateX(-100%)'
       }),
-      {optional: true}),
+      {optional: true, delay: 200}),
 
     // move page off screen right on leave
     query(':leave',
@@ -36,6 +36,6 @@ export const routerAnimation =  trigger('routerAnimation', [
           transform: 'translateX(0%)'
         })
       ),
-      {optional: true}),
+      {optional: true, delay: 200}),
   ])
 ]);
