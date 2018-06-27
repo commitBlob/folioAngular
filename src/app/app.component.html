@@ -5,17 +5,7 @@
   </div>
 </div>
 <div class="content-wrapper">
-<nav>
-  <a routerLink="">home</a>
-  <a routerLink="about">about</a>
-  <a routerLink="contact">contact</a>
-  <a routerLink="portfolio">portfolio</a>
-  <a routerLink="skills">skills</a>
-  <a routerLink="experience">experience</a>
-</nav>
-
-<div [@routerAnimation]="getRouteAnimation(route)">
-  <router-outlet #route="outlet"></router-outlet>
-</div>
-
+  <div [@routerAnimation]="getRouteAnimation(route)">
+    <router-outlet #route="outlet"></router-outlet>
+  </div>
 </div>
