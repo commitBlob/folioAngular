@@ -12,11 +12,15 @@ import { routerAnimation } from './animations';
 export class AppComponent {
   menuOpen = false;
 
+  constructor() {}
+
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
 
-  constructor() {}
+  updateMenuState(menuState) {
+    this.menuOpen = menuState;
+  }
 
   getRouteAnimation(outlet) {
     return outlet.activatedRouteData.animation;

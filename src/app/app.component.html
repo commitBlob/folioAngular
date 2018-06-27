@@ -1,5 +1,5 @@
 <div class="header-bar">
-  <folio-navigation [menuOpen]="menuOpen"></folio-navigation>
+  <folio-navigation [menuOpen]="menuOpen" (menuStateUpdated)="updateMenuState($event)"></folio-navigation>
   <div class="burger" (click)="toggleMenu()" [ngClass]="{'cross': menuOpen}">
     <span></span>
   </div>

@@ -36,6 +36,6 @@ export const routerAnimation =  trigger('routerAnimation', [
           transform: 'translateX(0%)'
         })
       ),
-      {optional: true, delay: 200}),
+      {optional: true}),
   ])
 ]);
