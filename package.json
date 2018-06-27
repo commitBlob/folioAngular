@@ -5,7 +5,7 @@
   "author": "Maro Radovic <maro.radovic12@gmail.com",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --open --port 8888",
+    "start": "ng serve --open --port 8888 --host 0.0.0.0",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
