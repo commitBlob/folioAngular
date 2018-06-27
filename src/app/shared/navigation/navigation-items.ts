@@ -19,6 +19,11 @@ export const GlobalNavigation: NavigationInteface[] = [
     linkSubName: 'SKILLS'
   },
   {
+    linkIcon: 'fas fa-road',
+    linkName: 'EXPERIENCE',
+    linkPath: 'experience'
+  },
+  {
     linkIcon: 'fas fa-cubes',
     linkName: 'PORTFOLIO',
     linkPath: 'portfolio'
@@ -27,10 +32,5 @@ export const GlobalNavigation: NavigationInteface[] = [
     linkIcon: 'fas fa-envelope',
     linkName: 'CONTACT',
     linkPath: 'contact'
-  },
-  {
-    linkIcon: 'fas fa-road',
-    linkName: 'EXPERIENCE',
-    linkPath: 'experience'
   }
 ];
