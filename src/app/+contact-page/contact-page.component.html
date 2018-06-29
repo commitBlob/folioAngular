@@ -1,3 +1,35 @@
 <div class="contact-page-wrapper">
-  <p>Contact Page Component Works</p>
+  <div class="contact-page-header">
+    <h2>Say Hello!</h2>
+  </div>
+
+  <div class="envelope-wrapper">
+    <div class="sheet-wrapper">
+      <form (ngSubmit)="submitForm()" [formGroup]="contactForm">
+        <div class="form-element">
+          <mat-form-field>
+            <input matInput placeholder="Your Name" [type]="'text'" required formControlName="name">
+          </mat-form-field>
+        </div>
+        <div class="form-element">
+          <mat-form-field>
+            <input matInput placeholder="Your Email Address" [type]="'email'" required formControlName="email">
+          </mat-form-field>
+        </div>
+        <div class="form-element">
+          <mat-input-container>
+            <textarea matInput #message placeholder="Your Message" align="start" [type]="'text'" rows="6"
+                      formControlName="message" maxlength="500" required></textarea>
+            <mat-hint align="end">{{message.value?.length || 0}}/500</mat-hint>
+          </mat-input-container>
+        </div>
+        <div class="form-element">
+          <button type="button" class="button__submit marginator" mat-button
+                  (click)="submitForm()" [disabled]="!contactForm.valid"><i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
 </div>

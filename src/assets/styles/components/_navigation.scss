@@ -6,7 +6,7 @@
   right: 0;
   transform: translate(0, -100%);
   transition: 1s all cubic-bezier(.05, 1.1, .38, .99);
-  z-index: z(above-default);
+  z-index: 180;
   background-color: $back-vari-1;
 
   &.menu-open {
@@ -87,7 +87,7 @@
 
           .navigation-bottom-border {
             height: 2em;
-            z-index: z('above-siblings');
+            z-index: 10;
             position: absolute;
             bottom: 0;
             width: 0;

@@ -1,3 +1,49 @@
-.contact-page-wrapper{
+$main-wrapper: 850px;
+$main-wrapper-min: 300px;
+
+.contact-page-wrapper {
   border: solid 2px $neon-blue;
+  max-width: $main-wrapper;
+  margin: 0 auto;
+  min-width: $main-wrapper-min;
+
+  .contact-page-header {
+    margin: 1em;
+  }
+
+  .envelope-wrapper {
+    border: solid 2px $neon-green;
+    max-width: calc(#{$main-wrapper } - 30px);
+    margin: 0 auto;
+
+    .sheet-wrapper {
+      border: solid 2px $sun-flower;
+      max-width: calc(#{$main-wrapper } - 80px);
+      margin: 0 auto;
+
+      .form-element {
+        display: flex;
+        width: 100%;
+
+        mat-form-field, mat-input-container {
+          width: inherit;
+          margin: 1em;
+        }
+      }
+    }
+  }
+
 }
+
+mat-input-container label, mat-form-field label, .mat-hint {
+  color: $neon-green !important;
+}
+
+mat-input-container.mat-input-focused label {
+  color: $neon-green !important;
+}
+
+.mat-input-underline, .mat-form-field-underline {
+  background-color: $neon-green !important;
+}
+

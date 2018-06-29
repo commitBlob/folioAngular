@@ -1,0 +1,26 @@
+button {
+  &:focus {
+    outline: none;
+  }
+}
+
+
+.button {
+
+  &__submit {
+    border: solid 1px $neon-green !important;
+    color: $neon-green !important;
+    width: inherit;
+    margin: 1em !important;
+
+    &:hover {
+      background-color: $neon-green !important;
+      color: $back-vari-1 !important;
+    }
+
+    &:disabled:hover {
+      cursor: not-allowed;
+    }
+  }
+
+}

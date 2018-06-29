@@ -1,6 +1,8 @@
 // Core
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import 'rxjs/add/operator/debounceTime';
+import { ContactPageService } from './contact-page.service';
 
 // App specific
 
@@ -12,9 +14,9 @@ export class ContactPageComponent implements OnInit {
 
   contactForm: FormGroup;
 
-  nameError = '';
-  emailError = '';
-  messageError = '';
+  nameError: any[];
+  emailError: any[];
+  messageError: any[];
 
   private nameValidationMessages = {
     required: 'Please fill in your name'
@@ -29,12 +31,31 @@ export class ContactPageComponent implements OnInit {
     required: 'Please insert your message'
   };
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder,
+              private contactService: ContactPageService) {}
 
   private setName(c: AbstractControl): void {
-    this.nameError = '';
     if ((c.touched || c.dirty) && c.errors) {
+      this.nameError = Object.keys(c.errors).map(key => this.nameValidationMessages[key].join(' '));
+    }
+  }
 
+  submitForm() {
+    if (this.contactForm.valid) {
+      const contactFormBody = {
+        name: this.contactForm.value.name,
+        email: this.contactForm.value.email,
+        message: this.contactForm.value.message
+      };
+
+      this.contactService.submitForm(contactFormBody).subscribe(
+        (res) => {
+          console.log('TODO: call dialog with response');
+        },
+        (error) => {
+          console.log('ERROR DIALOG HERE');
+        }
+      );
     }
   }
 
