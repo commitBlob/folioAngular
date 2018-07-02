@@ -2,17 +2,22 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
+
+// App specific
 import { ContactPageService } from './contact-page.service';
 
 // App specific
 
 @Component({
   selector: 'folio-contact',
-  templateUrl: 'contact-page.component.html'
+  templateUrl: 'contact-page.component.html',
 })
 export class ContactPageComponent implements OnInit {
 
   contactForm: FormGroup;
+
+  animateSheet = 'inactive';
+  animateMe = false;
 
   nameError: any[];
   emailError: any[];
@@ -48,14 +53,18 @@ export class ContactPageComponent implements OnInit {
         message: this.contactForm.value.message
       };
 
-      this.contactService.submitForm(contactFormBody).subscribe(
-        (res) => {
-          console.log('TODO: call dialog with response');
-        },
-        (error) => {
-          console.log('ERROR DIALOG HERE');
-        }
-      );
+      this.animateMe = true;
+      this.animateSheet = 'active';
+      console.log('animate?', this.animateSheet);
+
+      // this.contactService.submitForm(contactFormBody).subscribe(
+      //   (res) => {
+      //     console.log('TODO: call dialog with response');
+      //   },
+      //   (error) => {
+      //     console.log('ERROR DIALOG HERE');
+      //   }
+      // );
     }
   }
 

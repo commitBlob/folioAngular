@@ -20,6 +20,7 @@ $main-wrapper-min: 300px;
       border: solid 2px $sun-flower;
       max-width: calc(#{$main-wrapper } - 80px);
       margin: 0 auto;
+      z-index: 2;
 
       .form-element {
         display: flex;
@@ -32,7 +33,6 @@ $main-wrapper-min: 300px;
       }
     }
   }
-
 }
 
 mat-input-container label, mat-form-field label, .mat-hint {
@@ -47,3 +47,37 @@ mat-input-container.mat-input-focused label {
   background-color: $neon-green !important;
 }
 
+
+.slit-out-horizontal {
+  animation: slit-out-horizontal 0.5s ease-in both;
+}
+
+@-webkit-keyframes slit-out-horizontal {
+  0% {
+    transform: translateZ(0) rotateX(0);
+    opacity: 1;
+  }
+  54% {
+
+    transform: translateZ(-160px) rotateX(87deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateZ(-800px) rotateX(90deg);
+    opacity: 0;
+  }
+}
+@keyframes slit-out-horizontal {
+  0% {
+    transform: translateZ(0) rotateX(0);
+    opacity: 1;
+  }
+  54% {
+    transform: translateZ(-160px) rotateX(87deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateZ(-800px) rotateX(90deg);
+    opacity: 0;
+  }
+}

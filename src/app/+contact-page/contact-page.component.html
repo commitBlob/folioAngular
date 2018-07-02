@@ -4,7 +4,7 @@
   </div>
 
   <div class="envelope-wrapper">
-    <div class="sheet-wrapper">
+    <div class="sheet-wrapper" [ngClass]="{'slit-out-horizontal': animateMe}">
       <form (ngSubmit)="submitForm()" [formGroup]="contactForm">
         <div class="form-element">
           <mat-form-field>
@@ -24,7 +24,7 @@
           </mat-input-container>
         </div>
         <div class="form-element">
-          <button type="button" class="button__submit marginator" mat-button
+          <button type="button" class="button__submit" mat-button
                   (click)="submitForm()" [disabled]="!contactForm.valid"><i class="fas fa-paper-plane"></i> Send Message
           </button>
         </div>
