@@ -3,8 +3,7 @@
     <h2>Say Hello!</h2>
   </div>
 
-  <div class="envelope-wrapper">
-    <div class="sheet-wrapper" [ngClass]="{'slit-out-horizontal': animateMe}">
+    <div class="sheet-wrapper" [ngClass]="{'send-animation': animateMe}">
       <form (ngSubmit)="submitForm()" [formGroup]="contactForm">
         <div class="form-element">
           <mat-form-field>
@@ -29,7 +28,6 @@
           </button>
         </div>
       </form>
-    </div>
   </div>
 
 </div>

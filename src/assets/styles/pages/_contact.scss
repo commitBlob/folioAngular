@@ -11,11 +11,6 @@ $main-wrapper-min: 300px;
     margin: 1em;
   }
 
-  .envelope-wrapper {
-    border: solid 2px $neon-green;
-    max-width: calc(#{$main-wrapper } - 30px);
-    margin: 0 auto;
-
     .sheet-wrapper {
       border: solid 2px $sun-flower;
       max-width: calc(#{$main-wrapper } - 80px);
@@ -32,7 +27,7 @@ $main-wrapper-min: 300px;
         }
       }
     }
-  }
+
 }
 
 mat-input-container label, mat-form-field label, .mat-hint {
@@ -48,11 +43,11 @@ mat-input-container.mat-input-focused label {
 }
 
 
-.slit-out-horizontal {
-  animation: slit-out-horizontal 0.5s ease-in both;
+.send-animation {
+  animation: send-animation 0.5s ease-in both;
 }
 
-@-webkit-keyframes slit-out-horizontal {
+@-webkit-keyframes send-animation {
   0% {
     transform: translateZ(0) rotateX(0);
     opacity: 1;
@@ -67,7 +62,7 @@ mat-input-container.mat-input-focused label {
     opacity: 0;
   }
 }
-@keyframes slit-out-horizontal {
+@keyframes send-animation {
   0% {
     transform: translateZ(0) rotateX(0);
     opacity: 1;
