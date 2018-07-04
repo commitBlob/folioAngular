@@ -16,34 +16,47 @@ export class ContactPageComponent implements OnInit {
 
   contactForm: FormGroup;
 
-  animateSheet = 'inactive';
   animateMe = false;
 
-  nameError: any[];
-  emailError: any[];
-  messageError: any[];
-
-  private nameValidationMessages = {
-    required: 'Please fill in your name'
-  };
-
-  private emailValidationMessages = {
-    required: 'Please insert your email address',
-    pattern: 'Email format seems to be invalid'
-  };
+  emailError = '';
 
   private bodyValidationMessages = {
     required: 'Please insert your message'
   };
 
   constructor(private formBuilder: FormBuilder,
-              private contactService: ContactPageService) {}
+              private contactService: ContactPageService) {
+  }
 
-  private setName(c: AbstractControl): void {
-    if ((c.touched || c.dirty) && c.errors) {
-      this.nameError = Object.keys(c.errors).map(key => this.nameValidationMessages[key].join(' '));
+
+  checkName() {
+    return (this.contactForm.controls['name'].errors && !this.contactForm.controls['name'].untouched);
+  }
+
+  doCheckEmail() {
+    this.emailError = 'Please insert your email address';
+    this.checkEmail();
+    return (this.contactForm.controls['email'].errors && !this.contactForm.controls['email'].untouched);
+  }
+
+  checkEmail() {
+    if (this.contactForm.controls.email.status !== 'VALID' && this.contactForm.controls.email.errors.email) {
+      this.emailError = 'Email format seems to be invalid';
+    }
+
+    if (this.contactForm.controls.email.status !== 'VALID' &&  this.contactForm.controls.email.errors.required) {
+      this.emailError = 'Please insert your email address';
+    }
+
+    if (this.contactForm.controls.email.status === 'VALID') {
+      this.emailError = '';
     }
   }
+
+  checkMessage() {
+    return (this.contactForm.controls['message'].errors && !this.contactForm.controls['message'].untouched);
+  }
+
 
   submitForm() {
     if (this.contactForm.valid) {
@@ -54,8 +67,6 @@ export class ContactPageComponent implements OnInit {
       };
 
       this.animateMe = true;
-      this.animateSheet = 'active';
-      console.log('animate?', this.animateSheet);
 
       // this.contactService.submitForm(contactFormBody).subscribe(
       //   (res) => {
@@ -75,7 +86,9 @@ export class ContactPageComponent implements OnInit {
       message: ['', [Validators.required]]
     });
 
-    const nameControl = this.contactForm.get('name');
-    nameControl.valueChanges.debounceTime(800).subscribe();
+    const nameControl = this.contactForm.get('email');
+    nameControl.valueChanges.debounceTime(800).subscribe(val => {
+      this.doCheckEmail();
+    });
   }
 }

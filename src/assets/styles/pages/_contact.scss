@@ -25,6 +25,10 @@ $main-wrapper-min: 300px;
           width: inherit;
           margin: 1em;
         }
+
+        .errors {
+          color: $brand-danger !important;
+        }
       }
     }
 
