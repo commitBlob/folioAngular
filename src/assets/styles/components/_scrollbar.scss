@@ -1,0 +1,16 @@
+.custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: .4em;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $neon-green;
+    border-radius: .4em;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    &:hover {
+      background: $brand-primary-hover;
+    }
+  }
+}

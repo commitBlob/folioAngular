@@ -24,7 +24,7 @@
         <div class="form-element">
           <mat-input-container>
             <textarea matInput #message placeholder="Your Message" align="start" [type]="'text'" rows="6"
-                      formControlName="message" maxlength="500" required></textarea>
+                      formControlName="message" maxlength="500" class="custom-scrollbar" required></textarea>
             <mat-hint class="errors" *ngIf="checkMessage()">
               Please insert your message
             </mat-hint>
