@@ -1,0 +1,13 @@
+.about-page-wrapper {
+  margin: 0 auto;
+
+  .about-page-header {
+    margin: 1em;
+
+    h1 {
+        text-transform: uppercase;
+        animation: colorChange 35s infinite, fadeUpIn 3s;
+    }
+  }
+
+}
