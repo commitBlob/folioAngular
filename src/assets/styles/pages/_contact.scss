@@ -2,7 +2,6 @@ $main-wrapper: 850px;
 $main-wrapper-min: 300px;
 
 .contact-page-wrapper {
-  border: solid 2px $neon-blue;
   max-width: $main-wrapper;
   margin: 0 auto;
   min-width: $main-wrapper-min;
@@ -12,7 +11,6 @@ $main-wrapper-min: 300px;
   }
 
     .sheet-wrapper {
-      border: solid 2px $sun-flower;
       max-width: calc(#{$main-wrapper } - 80px);
       margin: 0 auto;
       z-index: 2;

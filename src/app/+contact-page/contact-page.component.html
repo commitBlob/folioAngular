@@ -1,9 +1,13 @@
+<span class="tag__body-start"></span>
 <div class="contact-page-wrapper">
   <div class="contact-page-header">
+    <span class="tag__header-start"></span>
     <h2>Say Hello!</h2>
+    <span class="tag__header-end"></span>
   </div>
 
     <div class="sheet-wrapper" [ngClass]="{'send-animation': animateMe}">
+      <span class="tag__form-start"></span>
       <form (ngSubmit)="submitForm()" [formGroup]="contactForm">
         <div class="form-element">
           <mat-form-field>
@@ -37,6 +41,8 @@
           </button>
         </div>
       </form>
+      <span class="tag__form-end"></span>
   </div>
 
 </div>
+<span class="tag__body-end"></span>

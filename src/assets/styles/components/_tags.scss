@@ -1,0 +1,62 @@
+.tag {
+
+  &__body-start {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '<component>';
+    }
+  }
+
+  &__body-end {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '</component>';
+    }
+  }
+
+  &__header-start {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '<h1>';
+    }
+  }
+
+  &__header-end {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '</h1>';
+    }
+  }
+
+  &__form-start {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '<form>';
+    }
+  }
+
+  &__form-end {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '</form>';
+    }
+  }
+}

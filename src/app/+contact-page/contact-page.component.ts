@@ -1,12 +1,10 @@
 // Core
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 
 // App specific
 import { ContactPageService } from './contact-page.service';
-
-// App specific
 
 @Component({
   selector: 'folio-contact',
@@ -20,14 +18,9 @@ export class ContactPageComponent implements OnInit {
 
   emailError = '';
 
-  private bodyValidationMessages = {
-    required: 'Please insert your message'
-  };
-
   constructor(private formBuilder: FormBuilder,
               private contactService: ContactPageService) {
   }
-
 
   checkName() {
     return (this.contactForm.controls['name'].errors && !this.contactForm.controls['name'].untouched);
