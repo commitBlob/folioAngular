@@ -9,6 +9,10 @@ import 'rxjs/add/observable/throw';
 export class AboutPageService {
   constructor(private http: HttpClient) {}
 
+  getImages(): Observable<any> {
+    return this.http.get('../../assets/payloads/images.json');
+  }
+
   /**
    * Handle HTTP error
    */

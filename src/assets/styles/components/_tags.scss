@@ -59,4 +59,24 @@
       content: '</form>';
     }
   }
+
+  &__intro-start {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '<intro>';
+    }
+  }
+
+  &__intro-end {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '</intro>';
+    }
+  }
 }
