@@ -79,4 +79,24 @@
       content: '</intro>';
     }
   }
+
+  &__projects-start {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '<projects>';
+    }
+  }
+
+  &__projects-end {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '</projects>';
+    }
+  }
 }

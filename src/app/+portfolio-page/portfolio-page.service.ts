@@ -9,6 +9,10 @@ import 'rxjs/add/observable/throw';
 export class PortfolioPageService {
   constructor(private http: HttpClient) {}
 
+  getProjectsList(): Observable<any> {
+    return this.http.get('../../assets/payloads/projects.json').catch(this.handleError);
+  }
+
   /**
    * Handle HTTP error
    */

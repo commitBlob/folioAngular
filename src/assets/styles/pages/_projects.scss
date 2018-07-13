@@ -1,0 +1,148 @@
+$full-width: 100%;
+
+.projects-page-wrapper {
+  border: solid 2px red;
+  margin: 0 1em;
+
+  .projects-page-content {
+
+    .projects-gallery-wrapper {
+      display: flex;
+      flex-flow: wrap;
+
+      .project-container {
+
+        @include respond((max: 599px)) {
+          width: calc(#{$full-width } / 3);
+        }
+
+        @include respond((max: 449px)) {
+          width: calc(#{$full-width } / 2);
+        }
+
+        @include respond((min: 600px)) {
+          width: calc(#{$full-width } / 4);
+        }
+
+        .project-details {
+
+          img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+      }
+
+      .projects-list {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+
+        &,
+        li {
+          margin: 0;
+          padding: 0;
+          cursor: pointer;
+        }
+
+        li {
+          @include respond((max: 599px)) {
+            width: calc(#{$full-width } / 3);
+          }
+
+          @include respond((max: 449px)) {
+            width: calc(#{$full-width } / 2);
+          }
+
+          @include respond((min: 600px)) {
+            width: calc(#{$full-width } / 4);
+          }
+
+          padding: 0;
+          transition: all 0.5s ease-in-out;
+          position: relative;
+          z-index: 1;
+        }
+
+        img {
+          max-width: 100%;
+          max-height: 100%;
+          vertical-align: bottom;
+          margin: 0;
+          opacity: 1;
+          transition: all 0.7s ease-out;
+        }
+
+        .project-caption {
+          display: table;
+          height: 100%;
+          left: 0;
+          opacity: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 100%;
+
+          .hover-container {
+            display: table-cell;
+            vertical-align: middle;
+
+            .view-project {
+              height: 2em;
+              width: 2em;
+              margin: .2em auto;
+              color: $neon-blue;
+              font-size: 1.5em;
+            }
+
+            .project-caption-name {
+              height: 1.3em;
+              text-align: center;
+              font-size: .8em;
+              color: $clouds;
+              font-weight: bold;
+            }
+          }
+
+
+        }
+
+        &:hover li:not(:hover) img {
+          opacity: 0.3;
+          filter: grayscale(100%);
+          transition: all 0.7s ease-out;
+        }
+
+        li:hover {
+          transform: scale(1.2);
+          transition: all 0.25s cubic-bezier(0.310, -0.105, 0.430, 1.600);
+          z-index: 100;
+          img {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+            transition: all 0.25s cubic-bezier(0.310, -0.105, 0.430, 1.400);
+          }
+
+          .view-project {
+            animation-name: fade-in-down;
+            animation-duration: .3s;
+          }
+
+          .project-caption-name {
+            animation-name: rubber-band;
+            animation-duration: 1s;
+          }
+
+          .project-caption {
+            opacity: 1;
+            background-color: rgba($neon-blue, .3);
+          }
+        }
+      }
+
+    }
+  }
+
+}

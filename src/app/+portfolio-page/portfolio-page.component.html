@@ -1,1 +1,39 @@
-<p>Portfolio Page Component Works</p>
+<span class="tag__body-start" xmlns="http://www.w3.org/1999/html"></span>
+<div class="projects-page-wrapper">
+  <div class="projects-page-header">
+    <span class="tag__header-start"></span>
+    <!--<h2>My Work</h2>-->
+    <span class="tag__header-end"></span>
+  </div>
+  <span class="tag__projects-start"></span>
+  <div class="projects-page-content" *ngIf="projectsList">
+    <div class="projects-gallery-wrapper">
+      <ul class="projects-list">
+        <li *ngFor="let project of projectsList">
+          <img [src]="generateImage(project.projectImage)" alt="project.projectName">
+          <div class="project-caption">
+            <div class="hover-container">
+              <div class="view-project">
+                <span class="fa-stack">
+                  <i class="fas fa-circle fa-stack-2x fa-inverse"></i>
+                  <i class="far fa-eye fa-stack-1x"></i>
+                </span>
+              </div>
+              <p class="project-caption-name">View Project</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!--<div class="projects-description-wrapper">-->
+    <!--<div class="projects-description">-->
+    <!--description here-->
+    <!--</div>-->
+    <!--<div class="projects-technologies">-->
+    <!--technologies stack here-->
+    <!--</div>-->
+    <!--</div>-->
+  </div>
+  <span class="tag__projects-end"></span>
+</div>
+<span class="tag__body-end"></span>
