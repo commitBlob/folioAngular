@@ -16,7 +16,7 @@ export class ProjectDetailsComponent implements OnInit {
   projectId = '';
 
   projectDetails: any;
-  skilsList = [];
+  skillsList = [];
   galleryList = [];
   activeImage: any;
 
@@ -56,7 +56,7 @@ export class ProjectDetailsComponent implements OnInit {
     this.projectsService.getProjectDetails(this.projectId).subscribe((res) => {
       if (res) {
         this.projectDetails = res.payload[0];
-        this.skilsList = res.payload[0].skills;
+        this.skillsList = res.payload[0].skills;
         this.galleryList = res.payload[0].gallery;
         this.setActiveImage(res.payload[0].gallery[0].image);
 
