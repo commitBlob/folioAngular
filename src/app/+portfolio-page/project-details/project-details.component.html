@@ -1,19 +1,26 @@
 <span class="tag__body-start"></span>
-<div class="project-details-page-wrapper">
+<div class="project-details-page-wrapper" *ngIf="projectDetails">
   <div class="project-details-images-wrapper">
     <div class="project-details-active-image">
-      <p>Active Image</p>
+      <img [src]="activeImage" (swipeleft)="swipe($event.type)" (swiperight)="swipe($event.type)">
+      <span class="gallery_chevron_left fas fa-caret-left" (click)="previous()"></span>
+      <span class="gallery_chevron_right fas fa-caret-right" (click)="next()"></span>
     </div>
     <div class="project-details-images-list">
-      <p>Images List</p>
+      <ul class="dot_list">
+        <ng-template ngFor let-image [ngForOf]="galleryList" let-i="index">
+        <li class="dot" (click)="imageSelected(i)"></li>
+        </ng-template>
+      </ul>
     </div>
   </div>
   <div class="project-details-content-wrapper">
     <div class="project-details-description">
-      <p>Description</p>
+      <h3>{{projectDetails.name}}</h3>
+      <p>{{projectDetails.description}}</p>
     </div>
     <div class="project-details-skills-list">
-      <p>Skills List</p>
+      <p>list here</p>
     </div>
   </div>
 </div>
