@@ -1,5 +1,6 @@
 // Core
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 // App specific
 import { PortfolioPageService } from './portfolio-page.service';
@@ -11,11 +12,16 @@ import { PortfolioPageService } from './portfolio-page.service';
 export class PortfolioPageComponent implements OnInit {
   projectsList = [];
 
-  constructor(private portfolioService: PortfolioPageService) {
+  constructor(private portfolioService: PortfolioPageService,
+              private router: Router) {
   }
 
   generateImage(image) {
     return 'data:image/jpeg;base64,' + image;
+  }
+
+  goToProject(project) {
+    this.router.navigate([`portfolio/${project}`]);
   }
 
   ngOnInit(): void {

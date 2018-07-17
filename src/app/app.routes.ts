@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 
 // App specific
 import { PageNotFoundComponent } from './404-page/page-not-found.component';
+import { ProjectDetailsComponent } from './+portfolio-page/project-details/project-details.component';
 
 export const routes: Routes = [
   {
@@ -35,6 +36,11 @@ export const routes: Routes = [
     path: 'experience',
     loadChildren: 'app/+experience-page/experience-page.module#ExperiencePageModule',
     data: { animation: 'experience' }
+  },
+  {
+    path: 'portfolio/:project',
+    component: ProjectDetailsComponent,
+    data: { animation: 'project-details' }
   },
   {
     path: '**',

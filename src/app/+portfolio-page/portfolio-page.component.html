@@ -1,15 +1,15 @@
-<span class="tag__body-start" xmlns="http://www.w3.org/1999/html"></span>
+<span class="tag__body-start"></span>
 <div class="projects-page-wrapper">
   <div class="projects-page-header">
     <span class="tag__header-start"></span>
-    <!--<h2>My Work</h2>-->
+      <h2>Projects List</h2>
     <span class="tag__header-end"></span>
   </div>
   <span class="tag__projects-start"></span>
   <div class="projects-page-content" *ngIf="projectsList">
     <div class="projects-gallery-wrapper">
       <ul class="projects-list">
-        <li *ngFor="let project of projectsList">
+        <li *ngFor="let project of projectsList" (click)="goToProject(project.projectId)">
           <img [src]="generateImage(project.projectImage)" alt="project.projectName">
           <div class="project-caption">
             <div class="hover-container">

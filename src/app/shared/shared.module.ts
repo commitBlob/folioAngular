@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // App specific
 import { MaterialModule } from './materialModule';
 import { NavigationModule } from './navigation/navigation.module';
+import { ProjectDetailsModule } from '../+portfolio-page/project-details/project-details.module';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { NavigationModule } from './navigation/navigation.module';
     CommonModule,
     FormsModule,
     NavigationModule,
+    ProjectDetailsModule,
     RouterModule,
     ReactiveFormsModule
   ],

@@ -1,0 +1,41 @@
+$full-width: 100%;
+
+.project-details-page-wrapper {
+  border: solid 2px silver;
+  margin: 0 1em;
+  display: flex;
+
+  @include respond((max: 599px)) {
+    flex-direction: column;
+  }
+
+  @include respond((min: 600px)) {
+    flex-direction: row;
+  }
+
+  .project-details-images-wrapper {
+    border: solid 2px gold;
+    width: 100%;
+
+    .project-details-active-image {
+      border: solid 2px red;
+    }
+
+    .project-details-images-list {
+      border: solid 2px mediumpurple;
+    }
+  }
+
+  .project-details-content-wrapper {
+    border: solid 2px skyblue;
+    width: 100%;
+
+    .project-details-description {
+      border: solid 2px yellowgreen;
+    }
+
+    .project-details-skills-list {
+      border: solid 2px orange;
+    }
+  }
+}
