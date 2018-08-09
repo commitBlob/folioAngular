@@ -2,6 +2,7 @@
 <div class="project-details-page-wrapper" *ngIf="projectDetails">
   <div class="project-details-images-wrapper">
     <div class="project-details-active-image">
+      <span class="tag__project-gallery-start"></span>
       <img [src]="activeImage" (swipeleft)="swipe($event.type)" (swiperight)="swipe($event.type)">
       <span class="gallery_chevron_left fas fa-caret-left" (click)="previous()"></span>
       <span class="gallery_chevron_right fas fa-caret-right" (click)="next()"></span>
@@ -9,18 +10,31 @@
     <div class="project-details-images-list">
       <ul class="dot_list">
         <ng-template ngFor let-image [ngForOf]="galleryList" let-i="index">
-        <li class="dot" (click)="imageSelected(i)"></li>
+        <li class="dot" (click)="imageSelected(i)" [ngClass]="{'active': activeImageIndex === i}"></li>
         </ng-template>
       </ul>
     </div>
+    <span class="tag__project-gallery-end"></span>
   </div>
   <div class="project-details-content-wrapper">
     <div class="project-details-description">
-      <h3>{{projectDetails.name}}</h3>
-      <p>{{projectDetails.description}}</p>
+      <div class="project-name-wrapper">
+        <span class="tag__project-name-start"></span>
+        <h3>{{projectDetails.name}}</h3>
+        <span class="tag__project-name-end"></span>
+      </div>
+      <div class="project-description-content-wrapper">
+        <span class="tag__project-description-start"></span>
+        <p>{{projectDetails.description}}</p>
+        <span class="tag__project-description-start"></span>
+      </div>
     </div>
     <div class="project-details-skills-list">
-      <p>list here</p>
+      <div class="project-skills-wrapper">
+        <span class="tag__project-stack-start"></span>
+        <p>list here</p>
+        <span class="tag__project-stack-end"></span>
+      </div>
     </div>
   </div>
 </div>

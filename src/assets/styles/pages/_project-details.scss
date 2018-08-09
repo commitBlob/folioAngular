@@ -1,7 +1,6 @@
 $full-width: 100%;
 
 .project-details-page-wrapper {
-  border: solid 2px silver;
   margin: 0 1em;
   display: flex;
 
@@ -14,11 +13,10 @@ $full-width: 100%;
   }
 
   .project-details-images-wrapper {
-    border: solid 2px gold;
     width: 100%;
+    padding:0 .2em;
 
     .project-details-active-image {
-      border: solid 2px red;
       position: relative;
 
       .gallery_chevron_left {
@@ -46,18 +44,23 @@ $full-width: 100%;
     }
 
     .project-details-images-list {
-      border: solid 2px mediumpurple;
       vertical-align: center;
       text-align: center;
+
+      .project-skills-wrapper {
+        margin: 0 .2em;
+      }
     }
   }
 
   .project-details-content-wrapper {
-    border: solid 2px skyblue;
     width: 100%;
 
+    .project-name-wrapper, .project-description-content-wrapper {
+      margin: 0 .2em;
+    }
+
     .project-details-description {
-      border: solid 2px yellowgreen;
 
       p {
         text-align: justify;

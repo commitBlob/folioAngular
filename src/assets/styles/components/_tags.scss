@@ -99,4 +99,84 @@
       content: '</projects>';
     }
   }
+
+  &__project-name-start {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '<project-name>';
+    }
+  }
+
+  &__project-name-end {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '</project-name>';
+    }
+  }
+
+  &__project-description-start {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '<project-description>';
+    }
+  }
+
+  &__project-description-end {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '</project-description>';
+    }
+  }
+
+  &__project-stack-start {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '<project-technologies>';
+    }
+  }
+
+  &__project-stack-end {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '</project-technologies>';
+    }
+  }
+
+  &__project-gallery-start {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '<project-gallery>';
+    }
+  }
+
+  &__project-gallery-end {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '</project-gallery>';
+    }
+  }
 }
