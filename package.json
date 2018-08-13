@@ -1,11 +1,12 @@
 {
-  "name": "angular-cli-starter",
+  "name": "ProjectDissimilar",
   "version": "1.0.0",
   "license": "MIT",
-  "author": "Maro Radovic <maro.radovic12@gmail.com",
+  "author": "Maro Radovic <maro.radovic12@gmail.com>",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open --port 8888 --host 0.0.0.0",
+    "start-dev": "ng serve --open -port 8888 --host 0.0.0.0 --sourcemap=false --proxy-config proxy.config.json",
     "build": "ng build",
     "build:prod": "ng build --prod",
     "test": "ng test",
