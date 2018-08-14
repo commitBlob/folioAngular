@@ -67,12 +67,12 @@ export class ContactPageComponent implements OnInit {
 
       this.contactService.submitForm(contactFormBody).subscribe(
         (res) => {
-          console.log('TODO: call dialog with response');
           this.responsePayload = res;
           this.formSent = true;
         },
         (error) => {
-          console.log('ERROR DIALOG HERE');
+          this.responsePayload = error;
+          this.formSent = true;
         }
       );
     }
