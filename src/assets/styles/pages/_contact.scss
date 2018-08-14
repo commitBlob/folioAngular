@@ -10,25 +10,42 @@ $main-wrapper-min: 300px;
     margin: 1em;
   }
 
-    .sheet-wrapper {
-      max-width: calc(#{$main-wrapper } - 80px);
-      margin: 0 auto;
-      z-index: 2;
+  .sheet-wrapper {
+    max-width: calc(#{$main-wrapper } - 80px);
+    margin: 0 auto;
+    z-index: 2;
 
-      .form-element {
-        display: flex;
-        width: 100%;
+    .form-element {
+      display: flex;
+      width: 100%;
 
-        mat-form-field, mat-input-container {
-          width: inherit;
-          margin: 1em;
-        }
+      mat-form-field, mat-input-container {
+        width: inherit;
+        margin: 1em;
+      }
 
-        .errors {
-          color: $brand-danger !important;
-        }
+      .errors {
+        color: $brand-danger !important;
       }
     }
+  }
+
+  .response-wrapper {
+    p {
+      margin: 1em;
+    }
+
+    .go-back {
+      width: 100%;
+    }
+  }
+
+  .display-status {
+    animation-name: fade-in-up;
+    animation-duration: .3s;
+    animation-delay: .8s;
+    animation-fill-mode: both;
+  }
 
 }
 

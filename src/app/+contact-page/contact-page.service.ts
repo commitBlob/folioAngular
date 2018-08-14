@@ -13,7 +13,7 @@ export class ContactPageService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.http.post('./endpoint/pat/here', JSON.stringify(newFormSubmission), {headers: headers});
+    return this.http.post('./api/notify', JSON.stringify(newFormSubmission), {headers: headers});
   }
 
   /**

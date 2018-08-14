@@ -15,6 +15,8 @@ export class ContactPageComponent implements OnInit {
   contactForm: FormGroup;
 
   animateMe = false;
+  formSent = false;
+  responsePayload;
 
   emailError = '';
 
@@ -61,15 +63,21 @@ export class ContactPageComponent implements OnInit {
 
       this.animateMe = true;
 
-      // this.contactService.submitForm(contactFormBody).subscribe(
-      //   (res) => {
-      //     console.log('TODO: call dialog with response');
-      //   },
-      //   (error) => {
-      //     console.log('ERROR DIALOG HERE');
-      //   }
-      // );
+      this.contactService.submitForm(contactFormBody).subscribe(
+        (res) => {
+          console.log('TODO: call dialog with response');
+          this.responsePayload = res;
+          this.formSent = true;
+        },
+        (error) => {
+          console.log('ERROR DIALOG HERE');
+        }
+      );
     }
+  }
+
+  goBackHome() {
+
   }
 
   ngOnInit(): void {
