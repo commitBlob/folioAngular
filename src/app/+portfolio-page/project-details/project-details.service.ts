@@ -10,7 +10,7 @@ export class ProjectDetailsService {
   constructor(private http: HttpClient) {}
 
   getProjectDetails(projectId): Observable<any> {
-    return this.http.get('../../assets/payloads/project-details.json').catch(this.handleError);
+    return this.http.get('./api/projectdetails/' + projectId).catch(this.handleError);
   }
 
   /**

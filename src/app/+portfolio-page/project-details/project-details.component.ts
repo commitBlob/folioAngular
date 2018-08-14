@@ -75,12 +75,13 @@ export class ProjectDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.projectsService.getProjectDetails(this.projectId).subscribe((res) => {
+    this.projectsService.getProjectDetails(1).subscribe((res) => {
       if (res) {
-        this.projectDetails = res.payload[0];
-        this.skillsList = res.payload[0].skills;
-        this.galleryList = res.payload[0].gallery;
-        this.setActiveImage(res.payload[0].gallery, 0);
+        console.log('res', res);
+        this.projectDetails = res[0];
+        this.skillsList = res[0].skills;
+        this.galleryList = res[0].gallery;
+        this.setActiveImage(res[0].gallery, 0);
         this.activeImageIndex = 0;
       }
     });
