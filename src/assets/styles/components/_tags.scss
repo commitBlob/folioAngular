@@ -179,4 +179,24 @@
       content: '</project-gallery>';
     }
   }
+
+  &__form-message-start {
+    color: $tags;
+    font-family: $font-family-secondary; //
+    font-size: .8em;
+
+    &:after {
+      content: '<form-message>';
+    }
+  }
+
+  &__form-message-end {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '</form-message>';
+    }
+  }
 }

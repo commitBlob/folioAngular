@@ -8,10 +8,12 @@
   </div>
 
   <div class="response-wrapper" *ngIf="formSent" [ngClass]="{'display-status': formSent}">
+    <span class="tag__form-message-start"></span>
     <p>{{responsePayload.message}}</p>
     <button type="button" class="button__submit go-back" mat-button
             (click)="goBackHome()"><i class="fas fa-walking"></i> Back to Profile
     </button>
+    <span class="tag__form-message-end"></span>
   </div>
   <div class="sheet-wrapper" [ngClass]="{'send-animation': animateMe}">
     <span class="tag__form-start"></span>
