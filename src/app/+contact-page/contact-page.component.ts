@@ -1,5 +1,6 @@
 // Core
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 
@@ -21,7 +22,8 @@ export class ContactPageComponent implements OnInit {
   emailError = '';
 
   constructor(private formBuilder: FormBuilder,
-              private contactService: ContactPageService) {
+              private contactService: ContactPageService,
+              private router: Router) {
   }
 
   checkName() {
@@ -77,7 +79,7 @@ export class ContactPageComponent implements OnInit {
   }
 
   goBackHome() {
-
+    this.router.navigate(['/about']);
   }
 
   ngOnInit(): void {
