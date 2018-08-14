@@ -56,10 +56,6 @@ $full-width: 100%;
     .project-details-images-list {
       vertical-align: center;
       text-align: center;
-
-      .project-skills-wrapper {
-        margin: 0 .2em;
-      }
     }
   }
 
@@ -80,6 +76,16 @@ $full-width: 100%;
 
     .project-details-skills-list {
       border: solid 2px orange;
+
+      li {
+        display: inline-block;
+        padding: 5px;
+        font-size: 3em;
+      }
+
+      .stack-icon {
+        height: 1em;
+      }
     }
   }
 }

@@ -32,7 +32,14 @@
     <div class="project-details-skills-list">
       <div class="project-skills-wrapper">
         <span class="tag__project-stack-start"></span>
-        <p>list here</p>
+        <ul>
+          <li *ngFor="let faIcon of fontAwesomeList">
+            <i [class]="faIcon"></i>
+          </li>
+          <li *ngFor="let customIcon of customIconsList">
+            <img [src]="customIcon" class="stack-icon">
+          </li>
+        </ul>
         <span class="tag__project-stack-end"></span>
       </div>
     </div>

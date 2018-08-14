@@ -17,6 +17,8 @@ export class ProjectDetailsComponent implements OnInit {
 
   projectDetails: any;
   skillsList = [];
+  fontAwesomeList = [];
+  customIconsList = [];
   galleryList = [];
   activeImage: any;
   activeImageIndex: any;
@@ -74,15 +76,21 @@ export class ProjectDetailsComponent implements OnInit {
     }
   }
 
+  explodeSkillsList() {
+    this.skillsList.forEach((value) => {
+      value['font-awesome'] ? this.fontAwesomeList.push(value.icon) : this.customIconsList.push(value.icon);
+    });
+  }
+
   ngOnInit(): void {
     this.projectsService.getProjectDetails(1).subscribe((res) => {
       if (res) {
-        console.log('res', res);
         this.projectDetails = res[0];
         this.skillsList = res[0].skills;
         this.galleryList = res[0].gallery;
         this.setActiveImage(res[0].gallery, 0);
         this.activeImageIndex = 0;
+        this.explodeSkillsList();
       }
     });
   }
