@@ -14,7 +14,7 @@ $full-width: 100%;
 
   .project-details-images-wrapper {
     width: 100%;
-    padding:0 .2em;
+    padding: 0 .2em;
 
     .project-details-active-image {
       position: relative;
@@ -48,8 +48,8 @@ $full-width: 100%;
       img {
         max-width: 100%;
         max-height: 100%;
-        display:block;
-        margin:0 auto;
+        display: block;
+        margin: 0 auto;
       }
     }
 
@@ -75,23 +75,44 @@ $full-width: 100%;
     }
 
     .project-details-skills-list {
-      //border: solid 2px orange;
 
       ul {
         display: flex;
+        flex-wrap: wrap;
 
         li {
-          //border: solid 1px cyan;
           list-style: none;
-          width: calc(100% / 4);
           text-align: center;
           border-radius: .5em;
           transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 
+          @include respond((max: 799px)) {
+            width: calc(100% / 2);
+          }
+
+          @include respond((min: 800px)) {
+            width: calc(100% / 3);
+          }
+
+          @include respond((min: 1000px)) {
+            width: calc(100% / 4);
+          }
+
+          @include respond((min: 1220px)) {
+            width: calc(100% / 5);
+          }
+
+          @include respond((min: 1450px)) {
+            width: calc(100% / 6);
+          }
+
+          @include respond((min: 1840px)) {
+            width: calc(100% / 6);
+          }
+
           .icon-wrapper {
             width: 50px;
             height: 50px;
-            //border: solid 1px tomato;
             margin: 5px auto;
             font-size: calc(50px * 0.8);
           }
@@ -102,7 +123,6 @@ $full-width: 100%;
 
           &:hover {
             background-color: $back-vari-4;
-            //color: $clouds; //
             animation-name: pulse;
             animation-duration: .5s;
             box-shadow: 1px -1px 1px 0px $neon-green;
@@ -111,7 +131,7 @@ $full-width: 100%;
               opacity: 1;
               background-color: $clouds;
               color: $back-vari-1;
-              border-radius:0 0 .5em .5em;
+              border-radius: 0 0 .5em .5em;
 
               p {
                 animation-name: fade-in-down;
@@ -125,7 +145,6 @@ $full-width: 100%;
             width: 100%;
           }
         }
-
 
       }
     }
