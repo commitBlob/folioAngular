@@ -10,7 +10,7 @@
     <div class="projects-gallery-wrapper">
       <ul class="projects-list">
         <li *ngFor="let project of projectsList" (click)="goToProject(project.projectId)">
-          <img [src]="generateImage(project.projectImage)" alt="project.projectName">
+          <img [src]="generateImage(project.mainImage)" alt="project.projectName">
           <div class="project-caption">
             <div class="hover-container">
               <div class="view-project">
@@ -19,7 +19,7 @@
                   <i class="far fa-eye fa-stack-1x"></i>
                 </span>
               </div>
-              <p class="project-caption-name">View Project</p>
+              <p class="project-caption-name">View {{project.name}}</p>
             </div>
           </div>
         </li>

@@ -25,9 +25,9 @@ export class PortfolioPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.portfolioService.getProjectsList().subscribe(
+    this.portfolioService.getProjects().subscribe(
       (res) => {
-        this.projectsList = res.payload;
+        this.projectsList = res;
       }
       );
   }
