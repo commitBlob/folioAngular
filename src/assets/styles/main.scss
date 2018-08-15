@@ -43,13 +43,14 @@
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 || Utils
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+@import 'utils/fade-in-animation';
 @import 'utils/functions';
 @import 'utils/hover-animations';
 @import 'utils/mixins';
+@import 'utils/pulse-animation';
 @import 'utils/respond';
 @import 'utils/rubber-animation';
 @import 'utils/variables';
-@import 'utils/fade-in-animation';
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 || Vendors

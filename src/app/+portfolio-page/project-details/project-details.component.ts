@@ -78,7 +78,7 @@ export class ProjectDetailsComponent implements OnInit {
 
   explodeSkillsList() {
     this.skillsList.forEach((value) => {
-      value['font-awesome'] ? this.fontAwesomeList.push(value.icon) : this.customIconsList.push(value.icon);
+      value['font-awesome'] ? this.fontAwesomeList.push(value) : this.customIconsList.push(value);
     });
   }
 

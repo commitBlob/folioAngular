@@ -34,10 +34,16 @@
         <span class="tag__project-stack-start"></span>
         <ul>
           <li *ngFor="let faIcon of fontAwesomeList">
-            <i [class]="faIcon"></i>
+              <div class="icon-wrapper">
+                <i [class]="faIcon.icon"></i>
+              </div>
+            <div class="skill"><p>{{faIcon.name}}</p></div>
           </li>
           <li *ngFor="let customIcon of customIconsList">
-            <img [src]="customIcon" class="stack-icon">
+            <div class="icon-wrapper">
+              <img [src]="customIcon.icon" class="stack-icon">
+            </div>
+            <div class="skill"><p>{{customIcon.name}}</p></div>
           </li>
         </ul>
         <span class="tag__project-stack-end"></span>
