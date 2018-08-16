@@ -182,7 +182,7 @@
 
   &__form-message-start {
     color: $tags;
-    font-family: $font-family-secondary; //
+    font-family: $font-family-secondary;
     font-size: .8em;
 
     &:after {
@@ -197,6 +197,26 @@
 
     &:after {
       content: '</form-message>';
+    }
+  }
+
+  &__project-link-start {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '<project-link>';
+    }
+  }
+
+  &__project-link-end {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '</project-link>';
     }
   }
 }

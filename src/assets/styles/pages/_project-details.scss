@@ -4,11 +4,11 @@ $full-width: 100%;
   margin: 0 1em;
   display: flex;
 
-  @include respond((max: 599px)) {
+  @include respond((max: 799px)) {
     flex-direction: column;
   }
 
-  @include respond((min: 600px)) {
+  @include respond((min: 800px)) {
     flex-direction: row;
   }
 
@@ -86,11 +86,11 @@ $full-width: 100%;
           border-radius: .5em;
           transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 
-          @include respond((max: 799px)) {
+          @include respond((max: 849px)) {
             width: calc(100% / 2);
           }
 
-          @include respond((min: 800px)) {
+          @include respond((min: 850px)) {
             width: calc(100% / 3);
           }
 
@@ -147,6 +147,23 @@ $full-width: 100%;
         }
 
       }
+    }
+  }
+
+  .project-link {
+    a {
+      color: $neon-blue;
+
+      &:hover {
+        color: $neon-pink;
+        animation-name: pulse;
+        animation-duration: .5s;
+      }
+    }
+
+    &:hover {
+      animation-name: pulse;
+      animation-duration: .5s;
     }
   }
 }

@@ -26,7 +26,7 @@
       <div class="project-description-content-wrapper">
         <span class="tag__project-description-start"></span>
         <p>{{projectDetails.description}}</p>
-        <span class="tag__project-description-start"></span>
+        <span class="tag__project-description-end"></span>
       </div>
     </div>
     <div class="project-details-skills-list">
@@ -48,6 +48,12 @@
         </ul>
         <span class="tag__project-stack-end"></span>
       </div>
+    </div>
+    <div >
+      <span class="tag__project-link-start"></span>
+      <br />
+      <div class="project-link"><a  [href]="projectDetails.link">Website - {{projectDetails.link}}</a></div>
+      <span class="tag__project-link-end"></span>
     </div>
   </div>
 </div>
