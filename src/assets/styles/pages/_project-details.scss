@@ -170,3 +170,59 @@ $full-width: 100%;
     }
   }
 }
+
+.return-wrapper {
+  width: 5em;
+  height: 2.5em;
+  margin-left: 1em;
+  line-height: 2.5em;
+  padding: 5px;
+  cursor: pointer;
+
+  &:hover {
+    span, a {
+      color: $neon-pink;
+    }
+
+    a {
+      text-decoration: underline;
+      opacity: 1;
+    }
+
+    span {
+      animation-name: spin;
+      animation-duration: .3s;
+    }
+
+  }
+
+  span {
+    vertical-align: middle;
+    font-size: 1.6em;
+    color: $neon-blue;
+  }
+
+  a {
+    color: $neon-blue;
+    text-decoration: none;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+
+    //&:hover {
+    //  color: $neon-pink;
+    //  animation-name: pulse;
+    //  animation-duration: .5s;
+    //  text-decoration: underline;
+    //}
+  }
+
+  &:hover {
+    animation-name: pulse;
+    animation-duration: .5s;
+  }
+}
+
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(-360deg);}
+}
