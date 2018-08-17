@@ -14,7 +14,7 @@
     <div class="project-details-images-list">
       <ul class="dot_list">
         <ng-template ngFor let-image [ngForOf]="galleryList" let-i="index">
-        <li class="dot" (click)="imageSelected(i)" [ngClass]="{'active': activeImageIndex === i}"></li>
+          <li class="dot" (click)="imageSelected(i)" [ngClass]="{'active': activeImageIndex === i}"></li>
         </ng-template>
       </ul>
     </div>
@@ -38,9 +38,9 @@
         <span class="tag__project-stack-start"></span>
         <ul>
           <li *ngFor="let faIcon of fontAwesomeList">
-              <div class="icon-wrapper">
-                <i [class]="faIcon.icon"></i>
-              </div>
+            <div class="icon-wrapper">
+              <i [class]="faIcon.icon"></i>
+            </div>
             <div class="skill"><p>{{faIcon.name}}</p></div>
           </li>
           <li *ngFor="let customIcon of customIconsList">
@@ -53,10 +53,10 @@
         <span class="tag__project-stack-end"></span>
       </div>
     </div>
-    <div >
+    <div>
       <span class="tag__project-link-start"></span>
-      <br />
-      <div class="project-link"><a  [href]="projectDetails.link">Website - {{projectDetails.link}}</a></div>
+      <br/>
+      <div class="project-link"><a [href]="projectDetails.link">Website - {{projectDetails.link}}</a></div>
       <span class="tag__project-link-end"></span>
     </div>
   </div>

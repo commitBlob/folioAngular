@@ -83,7 +83,7 @@ export class ProjectDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.projectsService.getProjectDetails(1).subscribe((res) => {
+    this.projectsService.getProjectDetails(this.projectId).subscribe((res) => {
       if (res) {
         this.projectDetails = res[0];
         this.skillsList = res[0].skills;
