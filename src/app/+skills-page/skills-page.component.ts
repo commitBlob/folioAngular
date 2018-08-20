@@ -17,6 +17,7 @@ export class SkillsPageComponent implements OnInit {
   skills: SkillsInterface[] = [];
   fontAwesomeList: SkillsInterface[] = [];
   customIconsList: SkillsInterface[] = [];
+  skillsContent: any;
 
   constructor(private skillsService: SkillsPageService) {
   }
@@ -51,6 +52,9 @@ export class SkillsPageComponent implements OnInit {
     this.skillsService.getSkillsList().subscribe((res) => {
       this.skills = res;
       this.explodeSkillsList();
+    });
+    this.skillsService.getSkillsContent().subscribe((res) => {
+      this.skillsContent = res[0];
     });
   }
 }

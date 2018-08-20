@@ -16,6 +16,10 @@ export class SkillsPageService {
     return this.http.get('./api/skills').catch(this.handleError);
   }
 
+  getSkillsContent(): Observable<any> {
+    return this.http.get('./api/skillscontent').catch(this.handleError);
+  }
+
   /**
    * Handle HTTP error
    */

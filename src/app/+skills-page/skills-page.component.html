@@ -1,6 +1,6 @@
 <span class="tag__body-start"></span>
 <div class="skills-container-wrapper">
-  <p>Skills page component works</p>
+  <div *ngIf="skillsContent" [innerHtml]="skillsContent.content"></div>
 
   <span class="tag__skills-list-start"></span>
   <ul>
