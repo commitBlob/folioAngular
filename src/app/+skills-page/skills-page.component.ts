@@ -45,13 +45,10 @@ export class SkillsPageComponent implements OnInit {
       let years = Math.round(duration / 12);
       return years + ' y';
     }
-
-
   }
 
   ngOnInit(): void {
     this.skillsService.getSkillsList().subscribe((res) => {
-      console.log('res', res);
       this.skills = res;
       this.explodeSkillsList();
     });
