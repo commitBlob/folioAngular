@@ -219,4 +219,24 @@
       content: '</project-link>';
     }
   }
+
+  &__skills-list-start {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '<skills-list>';
+    }
+  }
+
+  &__skills-list-end {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '</skills-list>';
+    }
+  }
 }

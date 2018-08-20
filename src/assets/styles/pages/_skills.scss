@@ -1,0 +1,77 @@
+$full-width: 100%;
+
+.skills-container-wrapper {
+  margin: 1em;
+
+  ul {
+    margin: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+
+    li {
+      list-style: none;
+      text-align: center;
+      border-radius: .5em;
+      transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      width: 8em;
+
+      .icon-wrapper {
+        width: 50px;
+        height: 50px;
+        margin: 5px auto;
+        font-size: calc(50px * 0.8);
+        color: $neon-pink;
+      }
+
+      .skill {
+        opacity: 0;
+      }
+
+      .xp {
+        opacity: 0;
+        padding: .2em;
+        float: right;
+        margin: .2em .2em 0 0;
+        font-size: .9em;
+      }
+
+      &:hover {
+        background-color: $back-vari-4;
+        animation-name: pulse;
+        animation-duration: .5s;
+        box-shadow: 1px -1px 1px 0px $neon-pink;
+
+        .skill{
+          opacity: 1;
+          background-color: $clouds;
+          color: $back-vari-1;
+
+          p {
+            animation-name: fade-in-down;
+            animation-duration: .3s;
+          }
+        }
+
+        .skill {
+          border-radius: 0 0 .5em .5em;
+        }
+
+        .xp {
+          opacity: 1;
+          background-color: $clouds;
+          color: $back-vari-1;
+          border-radius: .5em;
+          animation-name: fade-in-down;
+          animation-duration: .3s;
+        }
+      }
+
+      .stack-icon {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+  }
+}

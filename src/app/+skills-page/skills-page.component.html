@@ -1,1 +1,40 @@
-<p>Skills page component works</p>
+<span class="tag__body-start"></span>
+<div class="skills-container-wrapper">
+  <p>Skills page component works</p>
+
+  <span class="tag__skills-list-start"></span>
+  <ul>
+    <li *ngFor="let faIcon of fontAwesomeList">
+      <div *ngIf="faIcon.activeUsage; then activeSkill else inactiveSkill"></div>
+      <ng-template #activeSkill>
+        <p class="xp" [innerHtml]="calculateExperience(faIcon.experience)"></p>
+      </ng-template>
+      <ng-template #inactiveSkill>
+        <p class="xp" [innerHtml]="convertMonths(faIcon.experience)"></p>
+      </ng-template>
+      <div class="icon-wrapper">
+        <i [class]="faIcon.icon"></i>
+      </div>
+      <div class="skill">
+        <p>{{faIcon.name}}</p>
+      </div>
+    </li>
+    <li *ngFor="let customIcon of customIconsList">
+      <div *ngIf="customIcon.activeUsage; then activeSkill else inactiveSkill"></div>
+        <ng-template #activeSkill>
+          <p class="xp" [innerHtml]="calculateExperience(customIcon.experience)"></p>
+        </ng-template>
+        <ng-template #inactiveSkill>
+          <p class="xp" [innerHtml]="convertMonths(customIcon.experience)"></p>
+        </ng-template>
+      <div class="icon-wrapper">
+        <img [src]="customIcon.icon" class="stack-icon">
+      </div>
+      <div class="skill">
+        <p>{{customIcon.name}}</p>
+      </div>
+    </li>
+  </ul>
+  <span class="tag__skills-list-end"></span>
+</div>
+<span class="tag__body-end"></span>
