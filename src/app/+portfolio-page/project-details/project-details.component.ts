@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
+import { Location } from '@angular/common';
 
 // App specific
 import { ProjectDetailsService } from './project-details.service';
@@ -24,7 +25,8 @@ export class ProjectDetailsComponent implements OnInit {
   activeImageIndex: any;
 
   constructor(private activatedRoute: ActivatedRoute,
-              private projectsService: ProjectDetailsService) {
+              private projectsService: ProjectDetailsService,
+              private location: Location) {
     this.projectSubscription = this.activatedRoute.params.subscribe(params => this.projectId = params['project']);
   }
 
@@ -80,6 +82,10 @@ export class ProjectDetailsComponent implements OnInit {
     this.skillsList.forEach((value) => {
       value['font-awesome'] ? this.fontAwesomeList.push(value) : this.customIconsList.push(value);
     });
+  }
+
+  navigateBack() {
+    this.location.back();
   }
 
   ngOnInit(): void {
