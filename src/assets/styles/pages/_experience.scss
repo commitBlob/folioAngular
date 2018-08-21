@@ -1,19 +1,50 @@
+@import '../utils/respond';
+
 .experience-container {
   border: solid 2px silver;
   margin: 1em;
 
-  .jobs-list {
+  .positions-list {
     border: solid 2px cyan;
     margin: 1em;
 
-    .job-wrapper {
+    .position-wrapper {
       border: solid 2px sienna;
-      display: flex;
 
-      .company-image {
-        border: #9b59b6 solid 2px;
-        max-width: 200px;
-        width: 100%;
+      .position-header {
+        display: flex;
+        border: solid 2px green;
+
+        @include respond((min: 700px)) {
+          flex-direction: row;
+        }
+
+        @include respond((max: 699px)) {
+          flex-direction: column;
+        }
+
+        .company-image {
+          border: #9b59b6 solid 2px;
+          max-width: 200px;
+          width: 100%;
+        }
+
+        .position-details {
+          border: solid 2px navajowhite;
+          width: 100%;
+
+          .position {
+            border: solid 2px cyan;
+          }
+
+          .position-period {
+            border: solid 2px red;
+          }
+        }
+      }
+
+      .position-description-container {
+        border: solid 2px orange;
       }
     }
   }
