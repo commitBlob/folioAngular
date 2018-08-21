@@ -13,6 +13,10 @@ export class ExperiencePageService {
     return this.http.get('./api/projectslist').catch(this.handleError);
   }
 
+  getPositions(): Observable<any> {
+    return this.http.get('./api/positions').catch(this.handleError);
+  }
+
   /**
    * Handle HTTP error
    */

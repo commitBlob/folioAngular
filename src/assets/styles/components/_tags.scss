@@ -239,4 +239,24 @@
       content: '</skills-list>';
     }
   }
+
+  &__work-experience-start {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '<work-experience>';
+    }
+  }
+
+  &__work-experience-end {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '</work-experience>';
+    }
+  }
 }

@@ -11,13 +11,31 @@ import { ExperiencePageService } from './experience-page.service';
 export class ExperiencePageComponent implements OnInit {
 
   projectsList = [];
+  positions = [];
 
   constructor(private experienceService: ExperiencePageService) {}
+
+  generateImage(image) {
+    return 'data:image/png;base64,' + image;
+  }
+
+  generatePeriod(current: boolean, period: string) {
+    // if (current) {
+    //   return '<p>' + period + ' Present</p>';
+    // } else {
+    //   return '<p>' + period + '</p>';
+    // }
+
+    return (current ? '<p>' + period + ' Present</p>' : '<p>' + period + '</p>');
+  }
 
   ngOnInit(): void {
     this.experienceService.getProjectsList().subscribe( (res) => {
       this.projectsList = res.payload;
-      console.log('response ', res.payload);
+    });
+    this.experienceService.getPositions().subscribe( (res) => {
+      this.positions = res;
+      console.log('res', res);
     });
   }
 }

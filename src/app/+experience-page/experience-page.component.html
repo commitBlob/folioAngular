@@ -4,17 +4,17 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
   </div>
   <div class="positions-list">
-    <div class="position-wrapper">
+    <span class="tag__work-experience-start"></span>
+    <div class="position-wrapper" *ngFor="let position of positions">
       <div class="position-header">
         <div class="company-image">
-
+          <img [src]="generateImage(position.companyImage)">
         </div>
         <div class="position-details">
           <div class="position">
-            <p>pos here</p>
+            <p>{{position.position}} <span class="company-name">@{{position.companyName}}</span></p>
           </div>
-          <div class="position-period">
-            <p>period here</p>
+          <div class="position-period" [innerHTML]="generatePeriod(position.active, position.period)">
           </div>
         </div>
       </div>
@@ -22,6 +22,7 @@
         <p>desc here</p>
       </div>
     </div>
+    <span class="tag__work-experience-end"></span>
   </div>
 </div>
 <span class="tag__body-end"></span>
