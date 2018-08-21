@@ -9,6 +9,10 @@ import 'rxjs/add/observable/throw';
 export class ExperiencePageService {
   constructor(private http: HttpClient) {}
 
+  getProjectsList(): Observable<any> {
+    return this.http.get('./api/projectslist').catch(this.handleError);
+  }
+
   /**
    * Handle HTTP error
    */
