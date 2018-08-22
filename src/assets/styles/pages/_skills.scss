@@ -8,6 +8,13 @@ $full-width: 100%;
     display: flex;
     flex-wrap: wrap;
     position: relative;
+    opacity: 1;
+    animation-name: zoom-in;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: .5s;
+    animation-fill-mode: both;
+    animation-delay: 1.5s;
 
     li {
       list-style: none;
