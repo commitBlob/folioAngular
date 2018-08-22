@@ -20,12 +20,6 @@ export class ExperiencePageComponent implements OnInit {
   }
 
   generatePeriod(current: boolean, period: string) {
-    // if (current) {
-    //   return '<p>' + period + ' Present</p>';
-    // } else {
-    //   return '<p>' + period + '</p>';
-    // }
-
     return (current ? '<p>' + period + ' Present</p>' : '<p>' + period + '</p>');
   }
 
