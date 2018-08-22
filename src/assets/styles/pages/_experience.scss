@@ -6,11 +6,27 @@
   .positions-list {
     margin: 1em;
 
+    @for $i from 1 through 40 {
+      .position-wrapper:nth-child(#{$i}n) {
+        animation-delay: #{$i * 0.4}s;
+      }
+
+      .position-wrapper:nth-child(even) {
+        animation-name: fade-in-left;
+      }
+
+      .position-wrapper:nth-child(odd) {
+        animation-name: fade-in-right;
+      }
+    }
+
     .position-wrapper {
       margin: 1em auto;
       padding-bottom: .5em;
       background-color: $back-vari-4;
       box-shadow: 2px 2px 5px 0 $neon-pink;
+      animation-duration: .5s;
+      animation-fill-mode: both;
 
       .position-header {
         display: flex;

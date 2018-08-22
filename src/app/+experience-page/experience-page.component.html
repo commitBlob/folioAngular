@@ -3,7 +3,7 @@
   <div class="experience-summary">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
   </div>
-  <div class="positions-list">
+  <div class="positions-list" *ngIf="positions && projectsList">
     <span class="tag__work-experience-start"></span>
     <div class="position-wrapper" *ngFor="let position of positions">
       <div class="position-header">
