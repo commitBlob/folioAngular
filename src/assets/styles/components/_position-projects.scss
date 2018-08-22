@@ -1,0 +1,26 @@
+.position-projects-list {
+  display: inline-block;
+  margin: 1em 0 .5em 1em;
+
+  li {
+    list-style: none;
+    padding: .5em 1em;
+    background-color: $back-vari-2;
+    color: $neon-blue;
+    cursor: pointer;
+    border-radius: .5em;
+
+    &:hover {
+      animation-name: pulse;
+      animation-duration: .5s;
+      box-shadow: 1px -1px 1px 0px $neon-pink;
+      text-decoration: underline;
+      color: $brand-secondary-hover;
+    }
+  }
+}
+
+.position-projects-headline {
+  margin-top: 1em;
+  color: $neon-blue;
+}

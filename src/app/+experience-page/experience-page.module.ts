@@ -6,6 +6,7 @@ import { ExperiencePageComponent } from './experience-page.component';
 import { ExperiencePageRoutes } from './experience-page.routes';
 import { ExperiencePageService } from './experience-page.service';
 import { SharedModule } from '../shared/shared.module';
+import { ExperienceProjectsComponent } from './experience-projects/experience-projects.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { SharedModule } from '../shared/shared.module';
     ExperiencePageRoutes
   ],
   declarations: [
-    ExperiencePageComponent
+    ExperiencePageComponent,
+    ExperienceProjectsComponent
   ],
   providers: [
     ExperiencePageService

@@ -1,5 +1,7 @@
 // Core
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/forkJoin';
 
 // App specific
 import { ExperiencePageService } from './experience-page.service';
@@ -24,12 +26,12 @@ export class ExperiencePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.experienceService.getProjectsList().subscribe( (res) => {
-      this.projectsList = res.payload;
-    });
-    this.experienceService.getPositions().subscribe( (res) => {
-      this.positions = res;
-      console.log('res', res);
+    Observable.forkJoin(
+      this.experienceService.getProjectsList(),
+      this.experienceService.getPositions()
+    ).subscribe( (res) => {
+      this.projectsList = res[0].payload;
+      this.positions = res[1];
     });
   }
 }

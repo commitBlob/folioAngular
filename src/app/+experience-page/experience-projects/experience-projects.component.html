@@ -1,0 +1,6 @@
+<p class="position-projects-headline">Related Projects</p>
+<div *ngIf="filteredProjects">
+  <ul class="position-projects-list" *ngFor="let project of filteredProjects">
+    <li (click)="goToProject(project.id)">{{project.name}}</li>
+  </ul>
+</div>

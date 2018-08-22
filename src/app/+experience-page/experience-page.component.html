@@ -18,8 +18,10 @@
           </div>
         </div>
       </div>
-      <div class="position-description-container">
-        <p>desc here</p>
+      <div class="position-description-container" *ngIf="projectsList">
+        <div [innerHTML]="position.description">
+        </div>
+        <position-projects [companyShortName]="position.companyLink" [projectsList]="projectsList"></position-projects>
       </div>
     </div>
     <span class="tag__work-experience-end"></span>
