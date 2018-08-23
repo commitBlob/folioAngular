@@ -1,0 +1,22 @@
+@keyframes bounce-out {
+  0% {
+    box-shadow: 0 0 0 0.2em $neon-pink;
+    opacity: 1;
+  }
+  25% {
+    box-shadow: 0 0 0 0.1em $neon-pink;
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 0 0.4em $neon-pink;
+    opacity: 1;
+  }
+  75% {
+    box-shadow: 0 0 0 0.2em $neon-pink;
+    opacity: 1;
+  }
+  100% {
+    box-shadow: 0 0 0 0.3em $neon-pink;
+    opacity: 1;
+  }
+}

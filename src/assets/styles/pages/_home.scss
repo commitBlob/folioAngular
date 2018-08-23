@@ -17,6 +17,12 @@
       font-family: $font-family-secondary;
       letter-spacing: .2em;
       animation: colorChange 35s infinite, fadeUpIn 3s;
+      transition: all .3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: all 0.3s ease-in-out;
+      }
     }
   }
 
@@ -24,19 +30,32 @@
     border: solid 1px $neon-blue;
     display: flex;
 
-    @include respond((max: 899px)) {
+    > * {
+      flex: 1 100%;
+    }
+
+    @include respond((max: 799px)) {
       flex-direction: column-reverse;
     }
 
-    @include respond((min: 900px)) {
+    @include respond((min: 800px)) {
       flex-direction: row;
+
+      .about-page-headline {
+        max-width: 450px;
+      }
     }
 
     .about-page-headline {
       border: solid 1px $sun-flower;
-      flex: 1 1 100%;
-      margin: 0 1em;
     }
 
+    .about-page-image-wrapper {
+      border: solid 2px $neon-pink;
+    }
+  }
+
+  .about-page-socials-wrapper {
+    border: solid 2px $carrot;
   }
 }
