@@ -259,4 +259,24 @@
       content: '</work-experience>';
     }
   }
+
+  &__profile-picture-start {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '<profile-picture>';
+    }
+  }
+
+  &__profile-picture-end {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '</profile-picture>';
+    }
+  }
 }

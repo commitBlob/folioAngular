@@ -1,0 +1,41 @@
+@keyframes flip-front {
+  0% {
+    transform: rotateY(0deg);
+  }
+  22.5% {
+    transform: rotateY(0deg);
+  }
+  27.5% {
+    transform: rotateY(180deg);
+  }
+  72.5% {
+    transform: rotateY(180deg);
+  }
+  77.5% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes flip-back {
+  0% {
+    transform: rotateY(-180deg);
+  }
+  22.5% {
+    transform: rotateY(-180deg);
+  }
+  27.5% {
+    transform: rotateY(0deg);
+  }
+  72.5% {
+    transform: rotateY(0deg);
+  }
+  77.5% {
+    transform: rotateY(-180deg);
+  }
+  100% {
+    transform: rotateY(-180deg);
+  }
+}

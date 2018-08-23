@@ -10,12 +10,21 @@
   <div class="about-page-headline-wrapper">
     <div class="about-page-headline">
       <span class="tag__intro-start"></span>
-      <h2>I'm <span class="me-name">Maro Radovic</span>, {{age}} y.o.</h2>
+      <h2>I'm <span class="me-name" (mouseover)="bounceImage($event)" (mouseout)="bounceImage($event)">Maro Radovic</span>, {{age}} y.o.</h2>
       <h3>Web & Software Developer</h3>
       <span class="tag__intro-end"></span>
     </div>
-    <div class="about-page-image-wrapper">
-      <p>image here</p>
+    <div class="about-page-image-wrapper" *ngIf="!isLoading">
+      <span class="tag__profile-picture-start"></span>
+      <div class="images-container">
+        <div class="profile-front">
+          <img class="round-image" [src]="generateImage(profilePictures[0].image)">
+        </div>
+        <div class="profile-back">
+          <img class="round-image" [ngClass]="bouncer" [src]="generateImage(profilePictures[1].image)">
+        </div>
+      </div>
+      <span class="tag__profile-picture-end"></span>
     </div>
   </div>
   <div class="about-page-socials-wrapper">

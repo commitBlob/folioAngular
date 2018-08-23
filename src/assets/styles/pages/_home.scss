@@ -10,7 +10,7 @@
   }
 
   .about-page-header {
-    margin: 1em;
+    margin: 0 1em;
 
     h1 {
       text-transform: uppercase;
@@ -27,7 +27,6 @@
   }
 
   .about-page-headline-wrapper {
-    border: solid 1px $neon-blue;
     display: flex;
 
     > * {
@@ -36,6 +35,18 @@
 
     @include respond((max: 799px)) {
       flex-direction: column-reverse;
+
+      .about-page-image-wrapper {
+
+        .images-container {
+
+          .profile-front, .profile-back {
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+          }
+        }
+      }
     }
 
     @include respond((min: 800px)) {
@@ -47,11 +58,60 @@
     }
 
     .about-page-headline {
-      border: solid 1px $sun-flower;
+
+      padding: 0 1em;
+
+      h3 {
+        color: $neon-blue;
+      }
+
+      .me-name {
+
+        &:hover {
+          text-decoration: underline;
+          color: $neon-pink;
+        }
+      }
     }
 
     .about-page-image-wrapper {
-      border: solid 2px $neon-pink;
+
+      .images-container {
+        position: relative;
+        min-height: 220px;
+
+        .profile-front, .profile-back {
+          animation-duration: 15s;
+          animation-iteration-count: infinite;
+          animation-timing-function: ease;
+          animation-fill-mode: initial;
+          backface-visibility: hidden;
+          position: absolute;
+          top: 1em;
+          left: 1em;
+          width: 200px;
+
+          .round-image {
+            background-color: $neon-pink ;
+            box-shadow: 0 0 0 0.3em $neon-pink ;
+            border-radius: 50%;
+
+            &:hover {
+              animation: bounce-out .4s linear;
+            }
+          }
+        }
+
+        .profile-front {
+          animation-name: flip-front;
+          z-index: 2;
+        }
+
+        .profile-back {
+          animation-name: flip-back;
+          transform: rotateY(-180deg);
+        }
+      }
     }
   }
 

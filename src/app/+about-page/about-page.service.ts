@@ -10,7 +10,7 @@ export class AboutPageService {
   constructor(private http: HttpClient) {}
 
   getImages(): Observable<any> {
-    return this.http.get('../../assets/payloads/images.json');
+    return this.http.get('./api/profilepictures').catch(this.handleError);
   }
 
   /**
