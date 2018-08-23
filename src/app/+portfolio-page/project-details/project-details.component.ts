@@ -7,7 +7,6 @@ import { Location } from '@angular/common';
 // App specific
 import { ProjectDetailsService } from './project-details.service';
 
-
 @Component({
   selector: 'folio-project-details',
   templateUrl: 'project-details.component.html'
@@ -40,7 +39,6 @@ export class ProjectDetailsComponent implements OnInit {
   }
 
   previous(): void {
-    console.log('prev');
     let imageIndex = this.activeImageIndex;
     if (imageIndex > 0) {
       imageIndex--;
@@ -54,7 +52,6 @@ export class ProjectDetailsComponent implements OnInit {
   }
 
   next(): void {
-    console.log('next');
     let imageIndex = this.activeImageIndex;
     const arrayLength = this.galleryList.length - 1;
     if (imageIndex === arrayLength) {

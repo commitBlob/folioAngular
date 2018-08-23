@@ -19,83 +19,83 @@
     justify-content: center;
     position: relative;
 
-      .navigation-element {
+    .navigation-element {
+      text-decoration: none;
+      height: calc(80% / 5);
+      max-width: 600px;
+      width: 90%;
+      margin: 0 auto;
+
+      &:hover .navigation-bottom-border {
+        width: 100%;
+      }
+
+      &:hover .navigation-sub-name-container {
+        display: block;
+        animation-name: fadeIn;
+        animation-duration: .35s;
+      }
+
+      &:hover {
+        .skills > span {
+          position: relative;
+
+          &:after {
+            border-bottom: 0.2em solid $brand-primary;
+            content: "";
+            left: -5%;
+            line-height: 1em;
+            margin-top: calc(0.125em / 2 * -1);
+            position: absolute;
+            right: -5%;
+            top: 50%;
+            animation-name: strike;
+            animation-duration: .2s;
+          }
+        }
+      }
+
+      a {
         text-decoration: none;
-        height: calc(80% / 5);
-        max-width: 600px;
-        width: 90%;
-        margin: 0 auto;
+        color: $brand-primary;
+        letter-spacing: .15em;
+        outline: none;
 
-        &:hover .navigation-bottom-border{
-          width:100%;
-        }
+        .navigation-icon-container {
+          text-align: center;
+          padding: 1em 0;
 
-        &:hover .navigation-sub-name-container{
-          display: block;
-          animation-name: fadeIn;
-          animation-duration: .35s;
-        }
-
-        &:hover {
-         .skills > span {
-           position: relative;
-
-           &:after {
-               border-bottom: 0.2em solid $brand-primary;
-               content: "";
-               left: -5%;
-               line-height: 1em;
-               margin-top: calc(0.125em / 2 * -1);
-               position: absolute;
-               right: -5%;
-               top: 50%;
-             animation-name: strike;
-             animation-duration: .2s;
-           }
+          .navigation-icon {
+            font-size: 3em;
           }
         }
 
-        a {
-          text-decoration: none;
-          color: $brand-primary;
-          letter-spacing: .15em;
-          outline: none;
+        .navigation-name-container, .navigation-sub-name-container {
+          text-align: center;
+          font-family: 'Orbitron';
+        }
 
-          .navigation-icon-container {
-            text-align: center;
-            padding: 1em 0;
-
-            .navigation-icon {
-              font-size: 3em;
-            }
-          }
-
-          .navigation-name-container, .navigation-sub-name-container {
-            text-align: center;
+        .navigation-name-container {
+          span {
             font-family: 'Orbitron';
           }
-
-          .navigation-name-container {
-            span {
-              font-family: 'Orbitron';
-            }
-          }
-
-          .navigation-sub-name-container {
-            display: none;
-          }
-
-          .navigation-bottom-border {
-            height: 2em;
-            z-index: 10;
-            position: absolute;
-            bottom: 0;
-            width: 0;
-            background-color: $back-vari-3;;
-            transition: width 0.4s ease-in-out;
-          }
-
         }
+
+        .navigation-sub-name-container {
+          display: none;
+        }
+
+        .navigation-bottom-border {
+          height: 2em;
+          z-index: 10;
+          position: absolute;
+          bottom: 0;
+          width: 0;
+          background-color: $back-vari-3;;
+          transition: width 0.4s ease-in-out;
+        }
+
+      }
     }
   }
 }
@@ -109,6 +109,7 @@
   transition-property: color;
   transition-duration: 0.4s;
 }
+
 .sweep:before {
   content: "";
   position: absolute;
@@ -124,16 +125,22 @@
   transition-duration: 0.4s;
   transition-timing-function: ease-out;
 }
+
 .sweep:hover, .sweep:focus, .sweep:active {
   color: white;
 }
+
 .sweep:hover:before, .sweep:focus:before, .sweep:active:before {
   transform: scaleX(1);
 }
 
-@keyframes strike{
-  0%   { width : 0; }
-  100% { width: 100%; }
+@keyframes strike {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 @keyframes fadeIn {

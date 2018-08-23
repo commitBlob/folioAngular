@@ -7,7 +7,6 @@ import { AboutPageComponent } from './about-page.component';
 import { AboutPageService } from './about-page.service';
 import { AboutPageRoutes } from './about-page.routes';
 
-
 @NgModule({
   imports: [
     CommonModule,

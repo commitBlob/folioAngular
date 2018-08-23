@@ -1,4 +1,3 @@
-
 .send-animation {
   animation: send-animation 0.5s ease-in both;
 }
@@ -18,6 +17,7 @@
     opacity: 0;
   }
 }
+
 @keyframes send-animation {
   0% {
     transform: translateZ(0) rotateX(0);

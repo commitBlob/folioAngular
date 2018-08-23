@@ -19,7 +19,7 @@ export class ProjectDetailsService {
   private handleError(error: any) {
     const errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-    console.error('Whoops, something went wrong', errMsg); // log to console instead
+    console.error('Whoops, something went wrong', errMsg);
     return Observable.throw(errMsg);
   }
 }

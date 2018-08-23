@@ -1,17 +1,19 @@
-@mixin respond($map){
+@mixin respond($map) {
   $string: "only screen";
 
-  @if (map-get($map, min)){
+  @if (map-get($map, min)) {
     $min: map-get($map, min);
     $string: "#{$string} and (min-width: #{$min})";
   }
 
-  @if (map-get($map, max)){
+  @if (map-get($map, max)) {
     $max: map-get($map, max);
     $string: "#{$string} and (max-width: #{$max})";
   }
 
-  @media #{$string}{ @content; }
+  @media #{$string}{
+    @content;
+  }
 }
 
 // how to use

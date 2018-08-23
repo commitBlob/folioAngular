@@ -1,5 +1,4 @@
 // Core
-
 import { NgModule } from '@angular/core';
 import {
   DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE,

@@ -54,7 +54,6 @@ export class ContactPageComponent implements OnInit {
     return (this.contactForm.controls['message'].errors && !this.contactForm.controls['message'].untouched);
   }
 
-
   submitForm() {
     if (this.contactForm.valid) {
       const contactFormBody = {

@@ -1,17 +1,11 @@
 import { NavigationInteface } from './navigation.inteface';
 
-
 export const GlobalNavigation: NavigationInteface[] = [
   {
     linkIcon: 'fas fa-user',
     linkName: 'ABOUT',
     linkPath: 'about'
   },
-  // {
-  //   linkIcon: 'fas fa-code',
-  //   linkName: 'SKILLS',
-  //   linkPath: 'skills'
-  // },
   {
     linkIcon: 'fab fa-superpowers',
     linkName: 'SUPERPOWERS',

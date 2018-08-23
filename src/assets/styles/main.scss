@@ -25,8 +25,6 @@
 @import 'layout/body';
 @import 'layout/footer';
 @import 'layout/grid';
-@import 'layout/header';
-@import 'layout/sidebar';
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 || Pages
@@ -47,12 +45,9 @@
 || Utils
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 @import 'utils/fade-in-animation';
-@import 'utils/functions';
-@import 'utils/mixins';
 @import 'utils/pulse-animation';
 @import 'utils/respond';
 @import 'utils/rubber-animation';
-@import 'utils/variables';
 @import 'utils/zoom-in-animation';
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<

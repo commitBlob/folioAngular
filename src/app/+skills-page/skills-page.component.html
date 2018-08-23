@@ -1,7 +1,6 @@
 <span class="tag__body-start"></span>
 <div class="skills-container-wrapper">
   <div *ngIf="skillsContent" [innerHtml]="skillsContent.content"></div>
-
   <span class="tag__skills-list-start"></span>
   <ul>
     <li *ngFor="let faIcon of fontAwesomeList">
@@ -21,12 +20,12 @@
     </li>
     <li *ngFor="let customIcon of customIconsList">
       <div *ngIf="customIcon.activeUsage; then activeSkill else inactiveSkill"></div>
-        <ng-template #activeSkill>
-          <p class="xp" [innerHtml]="calculateExperience(customIcon.experience)"></p>
-        </ng-template>
-        <ng-template #inactiveSkill>
-          <p class="xp" [innerHtml]="convertMonths(customIcon.experience)"></p>
-        </ng-template>
+      <ng-template #activeSkill>
+        <p class="xp" [innerHtml]="calculateExperience(customIcon.experience)"></p>
+      </ng-template>
+      <ng-template #inactiveSkill>
+        <p class="xp" [innerHtml]="convertMonths(customIcon.experience)"></p>
+      </ng-template>
       <div class="icon-wrapper">
         <img [src]="customIcon.icon" class="stack-icon">
       </div>

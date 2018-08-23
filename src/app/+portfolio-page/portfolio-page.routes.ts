@@ -5,7 +5,6 @@ import { ModuleWithProviders } from '@angular/core';
 // App specific
 import { PortfolioPageComponent } from './portfolio-page.component';
 
-
 const routes: Routes = [
   {
     path: '',

@@ -15,7 +15,6 @@ export class AboutPageComponent implements OnInit {
   age: number;
   isLoading = true;
 
-
   constructor(private aboutMeService: AboutPageService) {
   }
 

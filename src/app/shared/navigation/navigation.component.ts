@@ -19,7 +19,6 @@ export class NavigationComponent implements OnInit {
 
   constructor(private navigationService: NavigationService) {}
 
-
   menuSelected() {
     let menuState = !this.menuOpen;
     this.menuStateUpdated.emit(menuState);
