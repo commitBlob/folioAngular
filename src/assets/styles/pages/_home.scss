@@ -92,8 +92,8 @@
           width: 200px;
 
           .round-image {
-            background-color: $neon-pink ;
-            box-shadow: 0 0 0 0.3em $neon-pink ;
+            background-color: $neon-pink;
+            box-shadow: 0 0 0 0.3em $neon-pink;
             border-radius: 50%;
 
             &:hover {
@@ -116,6 +116,30 @@
   }
 
   .about-page-socials-wrapper {
-    border: solid 2px $carrot;
+    padding: 0 1em;
+
+    ul {
+      display: inline-flex;
+      padding: 1em .7em;
+
+      li {
+        list-style: none;
+        font-size: calc(35px * 0.8);
+        position: relative;
+
+        &:hover {
+          animation-name:pulse-big;
+          animation-duration: .7s;
+
+          a {
+            color: $neon-blue;
+          }
+        }
+
+        a {
+          color: $neon-pink;
+        }
+      }
+    }
   }
 }

@@ -27,8 +27,16 @@
       <span class="tag__profile-picture-end"></span>
     </div>
   </div>
-  <div class="about-page-socials-wrapper">
-    <p>social here</p>
+  <div class="about-page-socials-wrapper" *ngIf="!isLoading">
+    <span class="tag__socials-start"></span>
+    <div class="icons-wrapper">
+      <ul *ngFor="let social of socialIcons">
+        <li class="social-icon">
+          <a [href]="social.url" target="_blank" [title]="social.name"><i [class]="social.icon"></i></a>
+        </li>
+      </ul>
+    </div>
+    <span class="tag__socials-end"></span>
   </div>
 
   <div class="about-page-content">

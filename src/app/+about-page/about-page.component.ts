@@ -1,5 +1,7 @@
 // Core
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/forkJoin';
 
 // App specific
 import { AboutPageService } from './about-page.service';
@@ -16,6 +18,7 @@ export class AboutPageComponent implements OnInit {
   isLoading = true;
 
   profilePictures = [];
+  socialIcons = [];
 
   bouncer = '';
 
@@ -32,9 +35,12 @@ export class AboutPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.age = moment().diff('1992-05-11', 'years');
-    // FORK JOIN WHEN I CREATE CONTENT ENDPOINT
-    this.aboutMeService.getImages().subscribe( (res) => {
-      this.profilePictures = res;
+    Observable.forkJoin(
+      this.aboutMeService.getImages(),
+      this.aboutMeService.getSocialIcons()
+    ).subscribe( (res) => {
+      this.profilePictures = res[0];
+      this.socialIcons = res[1];
       this.isLoading = false;
     });
   }

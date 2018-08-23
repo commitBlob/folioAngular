@@ -9,3 +9,16 @@
     transform: scaleX(1);
   }
 }
+
+
+@keyframes pulse-big {
+  0% {
+    transform: scaleX(1) rotate(0deg);
+  }
+  50% {
+    transform: scale3d(1.55, 1.55, 1.55) rotate(360deg);
+  }
+  to {
+    transform: scaleX(1) rotate(-360deg);
+  }
+}

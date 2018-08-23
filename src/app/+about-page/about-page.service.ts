@@ -13,6 +13,10 @@ export class AboutPageService {
     return this.http.get('./api/profilepictures').catch(this.handleError);
   }
 
+  getSocialIcons(): Observable<any> {
+    return this.http.get('./api/socials').catch(this.handleError);
+  }
+
   /**
    * Handle HTTP error
    */

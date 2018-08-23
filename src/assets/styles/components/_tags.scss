@@ -279,4 +279,24 @@
       content: '</profile-picture>';
     }
   }
+
+  &__socials-start {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '<socials>';
+    }
+  }
+
+  &__socials-end {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '</socials>';
+    }
+  }
 }
