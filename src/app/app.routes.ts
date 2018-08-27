@@ -38,6 +38,10 @@ export const routes: Routes = [
     data: { animation: 'experience' }
   },
   {
+    path: 'faqs',
+    loadChildren: 'app/+faqs-page/faqs-page.module#FaqsPageModule'
+  },
+  {
     path: 'portfolio/:project',
     component: ProjectDetailsComponent,
     data: { animation: 'project-details' }

@@ -1,0 +1,18 @@
+mat-expansion-panel {
+  background-color: $back-vari-1 !important;
+
+  mat-panel-title {
+    color: $neon-pink !important;
+  }
+
+  .mat-expansion-panel-content {
+    color: $neon-green !important;
+  }
+}
+
+.mat-expansion-indicator {
+
+  &:after {
+    color: $neon-pink !important;
+  }
+}
