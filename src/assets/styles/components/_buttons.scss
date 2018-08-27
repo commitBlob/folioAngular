@@ -6,7 +6,7 @@ button {
 
 .button {
 
-  &__submit {
+  &__submit, &__more {
     border: solid 1px $neon-green !important;
     color: $neon-green !important;
     width: inherit;
@@ -19,6 +19,20 @@ button {
 
     &:disabled:hover {
       cursor: not-allowed;
+    }
+  }
+
+  &__more {
+    background: transparent;
+    font-family: $font-family-secondary;
+    padding: .4em 1em;
+    cursor: pointer;
+    line-height: 3em;
+    vertical-align: middle !important;
+
+    i {
+      font-size: 2em;
+      vertical-align: middle !important;
     }
   }
 }

@@ -1,6 +1,7 @@
 // Core
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 import 'rxjs/add/observable/forkJoin';
 
 // App specific
@@ -22,7 +23,8 @@ export class AboutPageComponent implements OnInit {
 
   bouncer = '';
 
-  constructor(private aboutMeService: AboutPageService) {
+  constructor(private aboutMeService: AboutPageService,
+              private router: Router) {
   }
 
   bounceImage(event) {
@@ -31,6 +33,10 @@ export class AboutPageComponent implements OnInit {
 
   generateImage(image) {
     return 'data:image/jpeg;base64,' + image;
+  }
+
+  doNavigate(route) {
+    this.router.navigate([route]);
   }
 
   ngOnInit(): void {

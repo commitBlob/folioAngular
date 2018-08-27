@@ -40,10 +40,10 @@
   </div>
   <div class="about-page-content">
     <p>Interested in more? Check these out...</p>
-    <button>FAQs</button>
-    <button>Experience</button>
-    <button>Skills</button>
-    <button>Projects</button>
+    <button type="button" class="button__more" mat-button (click)="doNavigate('faqs')">FAQs <i class="fas fa-question"></i></button>
+    <button type="button" class="button__more" mat-button (click)="doNavigate('experience')">Experience <i class="fas fa-road"></i></button>
+    <button type="button" class="button__more" mat-button (click)="doNavigate('skills')">Skills <i class="fab fa-superpowers"></i></button>
+    <button type="button" class="button__more" mat-button (click)="doNavigate('portfolio')">Projects <i class="fas fa-cubes"></i></button>
   </div>
 </div>
 <span class="tag__body-end"></span>

@@ -1,14 +1,21 @@
-<div class="return-wrapper" (click)="navigateBack()">
-  <span class="fas fa-arrow-circle-left"></span>
-  <a>Return</a>
+<span class="tag__body-start"></span>
+<div class="faqs-page-wrapper">
+  <div class="return-wrapper" (click)="navigateBack()">
+    <span class="fas fa-arrow-circle-left"></span>
+    <a>Return</a>
+  </div>
+  <p>Below you can find the list of most popular questions.</p>
+  <span class="tag__faqs-start"></span>
+  <mat-accordion *ngIf="faqs">
+    <mat-expansion-panel *ngFor="let faq of faqs">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{faq.question}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>{{faq.answer}}</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <span class="tag__faqs-end"></span>
 </div>
-<mat-accordion *ngIf="faqs">
-  <mat-expansion-panel *ngFor="let faq of faqs">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        {{faq.question}}
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <p>{{faq.answer}}</p>
-  </mat-expansion-panel>
-</mat-accordion>
+<span class="tag__body-end"></span>
