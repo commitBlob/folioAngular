@@ -6,14 +6,18 @@ import { CommonModule } from '@angular/common';
 import { AboutPageComponent } from './about-page.component';
 import { AboutPageService } from './about-page.service';
 import { AboutPageRoutes } from './about-page.routes';
+import { FaqsBlockComponent } from './faqs-block/faqs-block.component';
+import { MaterialModule } from '../shared/materialModule';
 
 @NgModule({
   imports: [
     CommonModule,
-    AboutPageRoutes
+    AboutPageRoutes,
+    MaterialModule
   ],
   declarations: [
-    AboutPageComponent
+    AboutPageComponent,
+    FaqsBlockComponent
   ],
   providers: [
     AboutPageService
