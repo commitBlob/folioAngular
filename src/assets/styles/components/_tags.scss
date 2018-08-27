@@ -299,4 +299,24 @@
       content: '</socials>';
     }
   }
+
+  &__faqs-start {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '<FAQs>';
+    }
+  }
+
+  &__faqs-end {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '</FAQs>';
+    }
+  }
 }

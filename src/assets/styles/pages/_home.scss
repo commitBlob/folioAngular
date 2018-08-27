@@ -61,15 +61,14 @@
 
       padding: 0 1em;
 
-      h3 {
-        color: $neon-blue;
-      }
-
       .me-name {
+        transition: all .2s ease-in-out;
 
         &:hover {
           text-decoration: underline;
           color: $neon-pink;
+          font-size: 1.2em;
+
         }
       }
     }
@@ -141,5 +140,9 @@
         }
       }
     }
+  }
+
+  .faqs-wrapper {
+    padding: 1em;
   }
 }
