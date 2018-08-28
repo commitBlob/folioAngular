@@ -9,11 +9,11 @@
   <mat-accordion *ngIf="faqs">
     <mat-expansion-panel *ngFor="let faq of faqs">
       <mat-expansion-panel-header>
-        <mat-panel-title>
+        <mat-panel-title class="questions">
           {{faq.question}}
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <p>{{faq.answer}}</p>
+      <div [innerHTML]="faq.answer" class="answers"></div>
     </mat-expansion-panel>
   </mat-accordion>
   <span class="tag__faqs-end"></span>

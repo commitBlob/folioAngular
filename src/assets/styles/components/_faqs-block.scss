@@ -1,6 +1,10 @@
 mat-expansion-panel {
   background-color: $back-vari-1 !important;
 
+  &:hover {
+    background-color: $back-vari-2 !important;
+  }
+
   mat-panel-title {
     color: $neon-pink !important;
   }
