@@ -7,10 +7,10 @@
   <p>Below you can find the list of most popular questions.</p>
   <span class="tag__faqs-start"></span>
   <mat-accordion *ngIf="faqs">
-    <mat-expansion-panel *ngFor="let faq of faqs">
+    <mat-expansion-panel *ngFor="let faq of faqs;let i = index">
       <mat-expansion-panel-header>
         <mat-panel-title class="questions">
-          {{faq.question}}
+          {{i+1}}. {{faq.question}}
         </mat-panel-title>
       </mat-expansion-panel-header>
       <div [innerHTML]="faq.answer" class="answers"></div>
