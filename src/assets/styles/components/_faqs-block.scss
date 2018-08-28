@@ -1,5 +1,7 @@
 mat-expansion-panel {
   background-color: $back-vari-1 !important;
+  animation-duration: .5s !important;
+  animation-fill-mode: both !important;
 
   &:hover {
     background-color: $back-vari-2 !important;
@@ -18,5 +20,19 @@ mat-expansion-panel {
 
   &:after {
     color: $neon-pink !important;
+  }
+}
+
+@for $i from 1 through 40 {
+  mat-expansion-panel:nth-child(#{$i}n) {
+    animation-delay: #{$i * 0.2}s;
+  }
+
+  mat-expansion-panel:nth-child(even) {
+    animation-name: fade-in-left;
+  }
+
+  mat-expansion-panel:nth-child(odd) {
+    animation-name: fade-in-right;
   }
 }
