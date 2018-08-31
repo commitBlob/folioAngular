@@ -53,10 +53,10 @@
         <span class="tag__project-stack-end"></span>
       </div>
     </div>
-    <div>
+    <div *ngIf="projectDetails.link">
       <span class="tag__project-link-start"></span>
       <br/>
-      <div class="project-link"><a [href]="projectDetails.link">Website - {{projectDetails.link}}</a></div>
+      <div class="project-link"><a [href]="projectDetails.link">{{projectDetails.name}}</a></div>
       <span class="tag__project-link-end"></span>
     </div>
   </div>
