@@ -98,18 +98,6 @@ $full-width: 100%;
             width: calc(100% / 4);
           }
 
-          @include respond((min: 1220px)) {
-            width: calc(100% / 5);
-          }
-
-          @include respond((min: 1450px)) {
-            width: calc(100% / 6);
-          }
-
-          @include respond((min: 1840px)) {
-            width: calc(100% / 6);
-          }
-
           .icon-wrapper {
             width: 50px;
             height: 50px;
