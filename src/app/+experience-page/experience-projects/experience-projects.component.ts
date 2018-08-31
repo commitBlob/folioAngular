@@ -16,6 +16,7 @@ export class ExperienceProjectsComponent implements OnInit {
   filteredProjects = [];
 
   projectsFiltered = false;
+  hideAll = false;
 
   constructor(private router: Router) {}
 
@@ -29,6 +30,10 @@ export class ExperienceProjectsComponent implements OnInit {
       }
     });
     this.projectsFiltered = true;
+
+    if ( this.filteredProjects.length === 0) {
+      this.hideAll = true;
+    }
   }
 
   goToProject(projectId) {
