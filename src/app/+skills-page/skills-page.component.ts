@@ -32,7 +32,8 @@ export class SkillsPageComponent implements OnInit {
     if (months < 12) {
       return months + ' m';
     } else {
-      let years = months / 12;
+      // round to one decimal
+      let years = Math.round((months / 12) * 10) / 10;
       return years + ' y';
     }
   }
