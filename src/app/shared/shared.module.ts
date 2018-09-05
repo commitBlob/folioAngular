@@ -19,6 +19,7 @@ import { ProjectDetailsModule } from '../+portfolio-page/project-details/project
   exports: [
     CommonModule,
     FormsModule,
+    MaterialModule,
     NavigationModule,
     ProjectDetailsModule,
     RouterModule,

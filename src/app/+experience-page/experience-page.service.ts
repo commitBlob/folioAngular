@@ -17,6 +17,10 @@ export class ExperiencePageService {
     return this.http.get('./api/positions').catch(this.handleError);
   }
 
+  getEducation(): Observable<any> {
+    return this.http.get('./api/education').catch(this.handleError);
+  }
+
   /**
    * Handle HTTP error
    */

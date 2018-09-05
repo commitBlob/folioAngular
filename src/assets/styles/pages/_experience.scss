@@ -3,7 +3,7 @@
 .experience-container {
   margin: 1em;
 
-  .positions-list {
+  .positions-list, .education-list {
     margin: 1em;
 
     @for $i from 1 through 40 {
@@ -20,7 +20,7 @@
       }
     }
 
-    .position-wrapper {
+    .position-wrapper, .education-wrapper {
       margin: 1em auto;
       padding-bottom: .5em;
       background-color: $back-vari-4;
@@ -28,7 +28,7 @@
       animation-duration: .5s;
       animation-fill-mode: both;
 
-      .position-header {
+      .position-header, .education-header {
         display: flex;
 
         @include respond((min: 700px)) {
@@ -42,12 +42,13 @@
         .company-image {
           max-width: 200px;
           width: 100%;
+          text-align: center;
         }
 
-        .position-details {
+        .position-details, .education-details {
           width: 100%;
 
-          .position {
+          .position, .education {
             padding: .5em .5em 0 .5em;
 
             p {
@@ -60,7 +61,7 @@
             }
           }
 
-          .position-period {
+          .position-period, .education-period {
             padding: 0 .5em;
 
             p {
@@ -71,7 +72,7 @@
         }
       }
 
-      .position-description-container {
+      .position-description-container, .education-description {
         padding: 1em;
 
         p {

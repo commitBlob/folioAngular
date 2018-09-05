@@ -19,12 +19,37 @@
         </div>
       </div>
       <div class="position-description-container" *ngIf="projectsList">
-        <div [innerHTML]="position.description">
-        </div>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title class="questions">
+              Read position description
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div [innerHTML]="position.description" ></div>
+        </mat-expansion-panel>
         <position-projects [companyShortName]="position.companyLink" [projectsList]="projectsList"></position-projects>
       </div>
     </div>
     <span class="tag__work-experience-end"></span>
+  </div>
+  <div class="education-list" *ngIf="education">
+    <span class="tag__education-start"></span>
+    <div class="education-wrapper" *ngFor="let edu of education">
+      <div class="education-header">
+        <div class="company-image">
+          <img [src]="generateImage(edu.image)">
+        </div>
+        <div class="education-details">
+          <div class="education">
+            <p><b>{{edu.education}}</b> <span class="company-name">@{{edu.name}}</span></p>
+          </div>
+          <div class="education-period">
+            <p>{{edu.date}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="tag__education-end"></span>
   </div>
 </div>
 <span class="tag__body-end"></span>

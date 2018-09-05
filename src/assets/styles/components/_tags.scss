@@ -329,4 +329,24 @@
       content: '<words count - 28 >';
     }
   }
+
+  &__education-start {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '<education>';
+    }
+  }
+
+  &__education-end {
+    color: $tags;
+    font-family: $font-family-secondary;
+    font-size: .8em;
+
+    &:after {
+      content: '</education>';
+    }
+  }
 }

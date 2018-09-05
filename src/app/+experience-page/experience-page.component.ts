@@ -14,6 +14,7 @@ export class ExperiencePageComponent implements OnInit {
 
   projectsList = [];
   positions = [];
+  education = [];
 
   constructor(private experienceService: ExperiencePageService) {}
 
@@ -28,10 +29,12 @@ export class ExperiencePageComponent implements OnInit {
   ngOnInit(): void {
     Observable.forkJoin(
       this.experienceService.getProjectsList(),
-      this.experienceService.getPositions()
+      this.experienceService.getPositions(),
+      this.experienceService.getEducation()
     ).subscribe( (res) => {
       this.projectsList = res[0].payload;
       this.positions = res[1];
+      this.education = res[2];
     });
   }
 }
