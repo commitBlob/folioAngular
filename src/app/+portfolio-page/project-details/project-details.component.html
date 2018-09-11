@@ -7,7 +7,7 @@
   <div class="project-details-images-wrapper">
     <div class="project-details-active-image">
       <span class="tag__project-gallery-start"></span>
-      <img [src]="activeImage" (swipeleft)="swipe($event.type)" (swiperight)="swipe($event.type)">
+      <img [src]="activeImage" (swipeleft)="swipe($event.type)" [title]="activeImageTitle" (swiperight)="swipe($event.type)">
       <span class="gallery_chevron_left fas fa-caret-left" (click)="previous()"></span>
       <span class="gallery_chevron_right fas fa-caret-right" (click)="next()"></span>
     </div>

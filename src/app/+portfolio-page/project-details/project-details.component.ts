@@ -21,6 +21,7 @@ export class ProjectDetailsComponent implements OnInit {
   customIconsList = [];
   galleryList = [];
   activeImage: any;
+  activeImageTitle: '';
   activeImageIndex: any;
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -32,10 +33,12 @@ export class ProjectDetailsComponent implements OnInit {
   imageSelected(index): void {
     this.activeImageIndex = index;
     this.activeImage = this.galleryList[index].image;
+    this.activeImageTitle = this.galleryList[index].imageName;
   }
 
   setActiveImage(imageList, index): void {
     this.activeImage = imageList[index].image;
+    this.activeImageTitle = imageList[index].imageName;
   }
 
   previous(): void {
@@ -44,10 +47,12 @@ export class ProjectDetailsComponent implements OnInit {
       imageIndex--;
       this.activeImage = this.galleryList[imageIndex].image;
       this.activeImageIndex = imageIndex;
+      this.activeImageTitle = this.galleryList[imageIndex].imageName;
     } else {
       const arrayLength = this.galleryList.length;
       this.activeImage = this.galleryList[arrayLength - 1].image;
       this.activeImageIndex = arrayLength - 1;
+      this.activeImageTitle = this.galleryList[arrayLength - 1].imageName;
     }
   }
 
@@ -57,10 +62,12 @@ export class ProjectDetailsComponent implements OnInit {
     if (imageIndex === arrayLength) {
       this.activeImageIndex = 0;
       this.activeImage = this.galleryList[0].image;
+      this.activeImageTitle = this.galleryList[0].imageName;
     } else {
       imageIndex++;
       this.activeImage = this.galleryList[imageIndex].image;
       this.activeImageIndex = imageIndex;
+      this.activeImageTitle =  this.galleryList[imageIndex].imageName;
     }
   }
 
