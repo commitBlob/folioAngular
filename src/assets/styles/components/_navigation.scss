@@ -1,3 +1,5 @@
+@import '../utils/height-respond';
+
 .navigation-wrapper {
   height: 100%;
   width: 100%;
@@ -93,6 +95,10 @@
           width: 0;
           background-color: $back-vari-3;;
           transition: width 0.4s ease-in-out;
+
+          @include respondheight((max: 945px)) {
+            display: none;
+          }
         }
 
       }

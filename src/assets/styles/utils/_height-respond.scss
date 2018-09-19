@@ -1,0 +1,17 @@
+@mixin respondheight($map) {
+  $string: "only screen";
+
+  @if (map-get($map, min)) {
+    $min: map-get($map, min);
+    $string: "#{$string} and (min-height: #{$min})";
+  }
+
+  @if (map-get($map, max)) {
+    $max: map-get($map, max);
+    $string: "#{$string} and (max-height: #{$max})";
+  }
+
+  @media #{$string}{
+    @content;
+  }
+}
