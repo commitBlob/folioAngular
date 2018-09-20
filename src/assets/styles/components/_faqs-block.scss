@@ -24,19 +24,9 @@ mat-expansion-panel {
 }
 
 @for $i from 1 through 40 {
-  @if $i == 1 {
-    mat-expansion-panel:nth-child(#{$i}n) {
-      animation-delay: #{$i * 0.5}s;
-      animation-iteration-count: 1;
-    }
-  } @else {
-    mat-expansion-panel:nth-child(#{$i}n) {
-      animation-delay: #{$i * 0.3}s;
-      animation-iteration-count: 1;
-    }
+  mat-expansion-panel:nth-child(#{$i}n) {
+    animation-delay: #{$i * 0.33}s;
   }
-
-
 
   mat-expansion-panel:nth-child(even) {
     animation-name: fade-in-left;
