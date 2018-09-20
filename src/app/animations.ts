@@ -13,13 +13,13 @@ export const routerAnimation =  trigger('routerAnimation', [
       style({
         position: 'fixed',
         width: '100%',
-        transform: 'translateX(-100%)'
+        transform: 'translateX(-200%)'
       }),
       {optional: true}),
 
     // move page off screen right on leave
     query(':leave',
-      animate('500ms ease',
+      animate('800ms ease-in',
         style({
           position: 'fixed',
           width: '100%',
@@ -30,7 +30,7 @@ export const routerAnimation =  trigger('routerAnimation', [
 
     // move page in screen from left to right
     query(':enter',
-      animate('500ms ease',
+      animate('800ms ease-out',
         style({
           opacity: 1,
           transform: 'translateX(0%)'
