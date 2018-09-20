@@ -2,7 +2,6 @@ mat-expansion-panel {
   background-color: $back-vari-1 !important;
   animation-duration: .5s !important;
   animation-fill-mode: both !important;
-  animation-iteration-count: 1;
 
   &:hover {
     background-color: $back-vari-2 !important;
@@ -25,9 +24,19 @@ mat-expansion-panel {
 }
 
 @for $i from 1 through 40 {
-  mat-expansion-panel:nth-child(#{$i}n) {
-    animation-delay: #{$i * 0.4}s;
+  @if $i == 1 {
+    mat-expansion-panel:nth-child(#{$i}n) {
+      animation-delay: #{$i * 0.5}s;
+      animation-iteration-count: 1;
+    }
+  } @else {
+    mat-expansion-panel:nth-child(#{$i}n) {
+      animation-delay: #{$i * 0.3}s;
+      animation-iteration-count: 1;
+    }
   }
+
+
 
   mat-expansion-panel:nth-child(even) {
     animation-name: fade-in-left;

@@ -13,17 +13,17 @@ export const routerAnimation =  trigger('routerAnimation', [
       style({
         position: 'fixed',
         width: '100%',
-        transform: 'translateX(-200%)'
+        transform: 'translateX(-150%)'
       }),
       {optional: true}),
 
     // move page off screen right on leave
     query(':leave',
-      animate('800ms ease-in',
+      animate('500ms ease-in',
         style({
           position: 'fixed',
           width: '100%',
-          transform: 'translateX(100%)'
+          transform: 'translateX(120%)'
         })
       ),
       {optional: true, delay: 100}),
