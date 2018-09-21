@@ -23,9 +23,10 @@ mat-expansion-panel {
   }
 }
 
+// this can be done with angular animations
 @for $i from 1 through 40 {
   mat-expansion-panel:nth-child(#{$i}n) {
-    animation-delay: #{$i * 0.33}s;
+    animation-delay: #{$i * 0.3}s;
   }
 
   mat-expansion-panel:nth-child(even) {

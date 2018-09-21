@@ -39,15 +39,15 @@ $full-width: 100%;
         display: flex;
         flex-wrap: wrap;
         width: 100%;
-        animation-name: fadeIn;
-        animation-duration: .5s;
-        animation-fill-mode: forwards;
 
         &,
         li {
           margin: 0;
           padding: 0;
           cursor: pointer;
+          animation-name: fadeIn;
+          animation-duration: .5s;
+          animation-fill-mode: forwards;
         }
 
         li {

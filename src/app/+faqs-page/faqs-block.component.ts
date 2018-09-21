@@ -19,12 +19,17 @@ export class FaqsBlockComponent implements OnInit {
 
 
   navigateBack(): void {
+
+    // workaround to prevent animation trigger when user leaves the page
+    this.faqs = [];
     this.location.back();
   }
 
   ngOnInit(): void {
     this.faqsService.getFaqs().subscribe((res) => {
-      this.faqs = res;
+      // don't rush
+      setInterval(() => this.faqs = res, 500 );
     });
   }
+
 }
