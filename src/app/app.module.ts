@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 
 // App specific
 import { AppComponent } from './app.component';
+import { GoogleAnalyticsService } from './shared/google-analytics/google-analytics.service';
 import { MaterialModule } from './shared/materialModule';
 import { PageNotFoundModule } from './404-page/page-not-found.module';
 import { routes } from './app.routes';
@@ -33,7 +34,11 @@ import 'hammerjs';
   exports: [
     MaterialModule
   ],
-  providers: [],
+  providers: [
+    GoogleAnalyticsService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(protected  googleAnalyticssService: GoogleAnalyticsService) {}
+}
