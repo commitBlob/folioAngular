@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Meta, Title } from '@angular/platform-browser';
 import 'rxjs/add/operator/debounceTime';
 
 // App specific
@@ -23,7 +24,9 @@ export class ContactPageComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private contactService: ContactPageService,
-              private router: Router) {
+              private router: Router,
+              private title: Title,
+              private meta: Meta) {
   }
 
   checkName() {
@@ -92,5 +95,8 @@ export class ContactPageComponent implements OnInit {
     nameControl.valueChanges.debounceTime(800).subscribe(val => {
       this.doCheckEmail();
     });
+
+    this.title.setTitle('Maro Radovic - Web and Software Developer | Contact Me');
+    this.meta.addTag({name: 'description', content: 'Contact me page'});
   }
 }
