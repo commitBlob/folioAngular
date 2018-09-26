@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
+import { Meta, Title } from '@angular/platform-browser';
 import 'rxjs/add/observable/forkJoin';
 
 // App specific
@@ -24,7 +25,9 @@ export class AboutPageComponent implements OnInit {
   bouncer = '';
 
   constructor(private aboutMeService: AboutPageService,
-              private router: Router) {
+              private router: Router,
+              private title: Title,
+              private meta: Meta) {
   }
 
   bounceImage(event) {
@@ -49,5 +52,8 @@ export class AboutPageComponent implements OnInit {
       this.socialIcons = res[1];
       this.isLoading = false;
     });
+
+    this.title.setTitle('Maro Radovic - Web and Software Developer | About');
+    this.meta.addTag({name: 'description', content: 'About page'});
   }
 }
