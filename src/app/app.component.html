@@ -1,11 +1,14 @@
-<div class="header-bar">
-  <folio-navigation [menuOpen]="menuOpen" (menuStateUpdated)="updateMenuState($event)"></folio-navigation>
-  <div class="burger" (click)="toggleMenu()" [ngClass]="{'cross': menuOpen}">
-    <span></span>
+<app-browser-unsupported *ngIf="!browserSupported else isChromeOrFF"></app-browser-unsupported>
+<ng-template #isChromeOrFF>
+  <div class="header-bar">
+    <folio-navigation [menuOpen]="menuOpen" (menuStateUpdated)="updateMenuState($event)"></folio-navigation>
+    <div class="burger" (click)="toggleMenu()" [ngClass]="{'cross': menuOpen}">
+      <span></span>
+    </div>
   </div>
-</div>
-<div class="content-wrapper">
-  <div [@routerAnimation]="getRouteAnimation(route)">
-    <router-outlet #route="outlet"></router-outlet>
+  <div class="content-wrapper">
+    <div [@routerAnimation]="getRouteAnimation(route)">
+      <router-outlet #route="outlet"></router-outlet>
+    </div>
   </div>
-</div>
+</ng-template>
