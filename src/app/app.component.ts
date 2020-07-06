@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 
 // App specific
+import { BrowserDetectService } from './shared/browser-detect/browser-detect.service';
 import { routerAnimation } from './animations';
 
 @Component({
@@ -11,8 +12,11 @@ import { routerAnimation } from './animations';
 })
 export class AppComponent {
   menuOpen = false;
+  browserSupported: boolean;
 
-  constructor() {}
+  constructor(private browserService: BrowserDetectService) {
+    this.browserSupported = browserService.chromeOrFirefoxCheck();
+  }
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;

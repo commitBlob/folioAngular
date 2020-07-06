@@ -8,6 +8,8 @@ import { RouterModule } from '@angular/router';
 
 // App specific
 import { AppComponent } from './app.component';
+import { BrowserDetectService } from './shared/browser-detect/browser-detect.service';
+import { BrowserUnsupportedComponent } from './shared/browser-unsupported/browser-unsupported.component';
 import { GoogleAnalyticsService } from './shared/google-analytics/google-analytics.service';
 import { MaterialModule } from './shared/materialModule';
 import { PageNotFoundModule } from './404-page/page-not-found.module';
@@ -19,7 +21,8 @@ import 'hammerjs';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BrowserUnsupportedComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ import 'hammerjs';
     MaterialModule
   ],
   providers: [
+    BrowserDetectService,
     GoogleAnalyticsService
   ],
   bootstrap: [AppComponent]
