@@ -1,10 +1,12 @@
 // Core
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/forkJoin';
 
 // App specific
 import { ExperiencePageService } from './experience-page.service';
+import { MetaTagsService } from '../shared/meta-tags/meta-tags.service';
 
 @Component({
   selector: 'folio-xp',
@@ -12,11 +14,15 @@ import { ExperiencePageService } from './experience-page.service';
 })
 export class ExperiencePageComponent implements OnInit {
 
+  pageName = 'Experience';
   projectsList = [];
   positions = [];
   education = [];
 
-  constructor(private experienceService: ExperiencePageService) {}
+  constructor(private experienceService: ExperiencePageService,
+              private metaTagsService: MetaTagsService,
+              private meta: Meta,
+              private title: Title) {}
 
   generateImage(image) {
     return 'data:image/png;base64,' + image;
@@ -27,6 +33,7 @@ export class ExperiencePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setMetaData();
     Observable.forkJoin(
       this.experienceService.getProjectsList(),
       this.experienceService.getPositions(),
@@ -36,5 +43,10 @@ export class ExperiencePageComponent implements OnInit {
       this.positions = res[1];
       this.education = res[2];
     });
+  }
+
+  setMetaData(): void {
+    this.meta.addTag(this.metaTagsService.setMetaTag('description', `${this.pageName} Page`));
+    this.title.setTitle(this.metaTagsService.setPageTitle(this.pageName));
   }
 }
