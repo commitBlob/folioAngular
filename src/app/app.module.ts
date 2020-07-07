@@ -12,6 +12,7 @@ import { BrowserDetectService } from './shared/browser-detect/browser-detect.ser
 import { BrowserUnsupportedComponent } from './shared/browser-unsupported/browser-unsupported.component';
 import { GoogleAnalyticsService } from './shared/google-analytics/google-analytics.service';
 import { MaterialModule } from './shared/materialModule';
+import { MetaTagsService } from './shared/meta-tags/meta-tags.service';
 import { PageNotFoundModule } from './404-page/page-not-found.module';
 import { routes } from './app.routes';
 import { SharedModule } from './shared/shared.module';
@@ -39,7 +40,8 @@ import 'hammerjs';
   ],
   providers: [
     BrowserDetectService,
-    GoogleAnalyticsService
+    GoogleAnalyticsService,
+    MetaTagsService
   ],
   bootstrap: [AppComponent]
 })

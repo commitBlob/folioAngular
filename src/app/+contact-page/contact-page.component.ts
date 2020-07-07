@@ -7,6 +7,7 @@ import 'rxjs/add/operator/debounceTime';
 
 // App specific
 import { ContactPageService } from './contact-page.service';
+import { MetaTagsService } from '../shared/meta-tags/meta-tags.service';
 
 @Component({
   selector: 'folio-contact',
@@ -15,6 +16,7 @@ import { ContactPageService } from './contact-page.service';
 export class ContactPageComponent implements OnInit {
 
   contactForm: FormGroup;
+  pageName = 'Contact Me';
 
   animateMe = false;
   formSent = false;
@@ -26,7 +28,8 @@ export class ContactPageComponent implements OnInit {
               private contactService: ContactPageService,
               private router: Router,
               private title: Title,
-              private meta: Meta) {
+              private meta: Meta,
+              private metaTagsService: MetaTagsService) {
   }
 
   checkName() {
@@ -85,6 +88,7 @@ export class ContactPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setMetaData();
     this.contactForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
@@ -95,8 +99,10 @@ export class ContactPageComponent implements OnInit {
     nameControl.valueChanges.debounceTime(800).subscribe(val => {
       this.doCheckEmail();
     });
+  }
 
-    this.title.setTitle('Maro Radovic - Web and Software Developer | Contact Me');
-    this.meta.addTag({name: 'description', content: 'Contact me page'});
+  setMetaData(): void {
+    this.meta.addTag(this.metaTagsService.setMetaTag('description', `${this.pageName} Page`));
+    this.title.setTitle(this.metaTagsService.setPageTitle(this.pageName));
   }
 }

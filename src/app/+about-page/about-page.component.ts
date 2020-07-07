@@ -7,6 +7,7 @@ import 'rxjs/add/observable/forkJoin';
 
 // App specific
 import { AboutPageService } from './about-page.service';
+import { MetaTagsService } from '../shared/meta-tags/meta-tags.service';
 
 // Moment
 import * as moment from 'moment/moment';
@@ -18,6 +19,7 @@ import * as moment from 'moment/moment';
 export class AboutPageComponent implements OnInit {
   age: number;
   isLoading = true;
+  pageName = 'About';
 
   profilePictures = [];
   socialIcons = [];
@@ -27,23 +29,25 @@ export class AboutPageComponent implements OnInit {
   constructor(private aboutMeService: AboutPageService,
               private router: Router,
               private title: Title,
-              private meta: Meta) {
+              private meta: Meta,
+              private metaTagsService: MetaTagsService) {
   }
 
-  bounceImage(event) {
+  bounceImage(event): void {
     this.bouncer = event.type === 'mouseover' ? 'bounce-out' : 'no-bounce';
   }
 
-  generateImage(image) {
+  generateImage(image): string {
     return 'data:image/jpeg;base64,' + image;
   }
 
-  doNavigate(route) {
+  doNavigate(route): void {
     this.router.navigate([route]);
   }
 
   ngOnInit(): void {
-    this.age = moment().diff('1992-05-11', 'years');
+    this.setMetaData();
+    this.calculateAge();
     Observable.forkJoin(
       this.aboutMeService.getImages(),
       this.aboutMeService.getSocialIcons()
@@ -52,8 +56,15 @@ export class AboutPageComponent implements OnInit {
       this.socialIcons = res[1];
       this.isLoading = false;
     });
-
-    this.title.setTitle('Maro Radovic - Web and Software Developer | About');
-    this.meta.addTag({name: 'description', content: 'About page'});
   }
+
+  setMetaData(): void {
+    this.meta.addTag(this.metaTagsService.setMetaTag('description', `${this.pageName} Page`));
+    this.title.setTitle(this.metaTagsService.setPageTitle(this.pageName));
+  }
+
+  calculateAge(): void {
+    this.age = moment().diff('1992-05-11', 'years');
+  }
+
 }

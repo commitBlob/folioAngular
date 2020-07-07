@@ -1,7 +1,9 @@
 // Core
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 // App specific
+import { MetaTagsService } from '../shared/meta-tags/meta-tags.service';
 import { SkillsPageService } from './skills-page.service';
 import { SkillsInterface } from './skills.interface';
 
@@ -18,8 +20,12 @@ export class SkillsPageComponent implements OnInit {
   fontAwesomeList: SkillsInterface[] = [];
   customIconsList: SkillsInterface[] = [];
   skillsContent: any;
+  pageName = 'Skills';
 
-  constructor(private skillsService: SkillsPageService) {
+  constructor(private skillsService: SkillsPageService,
+              private metaTagsService: MetaTagsService,
+              private title: Title,
+              private meta: Meta) {
   }
 
   explodeSkillsList() {
@@ -50,6 +56,7 @@ export class SkillsPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setMetaData();
     this.skillsService.getSkillsList().subscribe((res) => {
       this.skills = res;
       this.explodeSkillsList();
@@ -57,5 +64,10 @@ export class SkillsPageComponent implements OnInit {
     this.skillsService.getSkillsContent().subscribe((res) => {
       this.skillsContent = res[0];
     });
+  }
+
+  setMetaData(): void {
+    this.meta.addTag(this.metaTagsService.setMetaTag('description', `${this.pageName} Page`));
+    this.title.setTitle(this.metaTagsService.setPageTitle(this.pageName));
   }
 }
