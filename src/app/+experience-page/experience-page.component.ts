@@ -48,5 +48,6 @@ export class ExperiencePageComponent implements OnInit {
   setMetaData(): void {
     this.meta.addTag(this.metaTagsService.setMetaTag('description', `${this.pageName} Page`));
     this.title.setTitle(this.metaTagsService.setPageTitle(this.pageName));
+    this.meta.addTag(this.metaTagsService.setContentType());
   }
 }
