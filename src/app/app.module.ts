@@ -1,6 +1,6 @@
 // Core
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -35,7 +35,8 @@ import 'hammerjs';
     MaterialModule,
     PageNotFoundModule,
     RouterModule.forRoot(routes),
-    SharedModule.forRoot()
+    SharedModule.forRoot(),
+    HammerModule
   ],
   exports: [
     MaterialModule
