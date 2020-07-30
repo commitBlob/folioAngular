@@ -29,7 +29,7 @@ import { ProjectDetailsModule } from '../+portfolio-page/project-details/project
   ]
 })
 export class SharedModule {
-  public static forRoot(): ModuleWithProviders {
+  public static forRoot(): ModuleWithProviders<SharedModule> {
     return {
       ngModule: SharedModule,
       providers: []
