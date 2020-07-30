@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 
 // App specific
 import { AppComponent } from './app.component';
+import { AuthPagesModule } from './auth-pages/auth-pages.module';
 import { BrowserDetectService } from './shared/browser-detect/browser-detect.service';
 import { BrowserUnsupportedComponent } from './shared/browser-unsupported/browser-unsupported.component';
 import { GoogleAnalyticsService } from './shared/google-analytics/google-analytics.service';
@@ -26,6 +27,7 @@ import 'hammerjs';
     BrowserUnsupportedComponent
   ],
   imports: [
+    AuthPagesModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
