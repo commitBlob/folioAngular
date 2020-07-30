@@ -14,32 +14,32 @@ export const routes: Routes = [
   },
   {
     path: 'about',
-    loadChildren: 'app/+about-page/about-page.module#AboutPageModule',
+    loadChildren: () => import('app/+about-page/about-page.module').then(m => m.AboutPageModule),
     data: { animation: 'about' }
   },
   {
     path: 'contact',
-    loadChildren: 'app/+contact-page/contact-page.module#ContactPageModule',
+    loadChildren: () => import('app/+contact-page/contact-page.module').then(m => m.ContactPageModule),
     data: { animation: 'contact' }
   },
   {
     path: 'portfolio',
-    loadChildren: 'app/+portfolio-page/portfolio-page.module#PortfolioPageModule',
+    loadChildren: () => import('app/+portfolio-page/portfolio-page.module').then(m => m.PortfolioPageModule),
     data: { animation: 'portfolio' }
   },
   {
     path: 'skills',
-    loadChildren: 'app/+skills-page/skills-page.module#SkillsPageModule',
+    loadChildren: () => import('app/+skills-page/skills-page.module').then(m => m.SkillsPageModule),
     data: { animation: 'skills' }
   },
   {
     path: 'experience',
-    loadChildren: 'app/+experience-page/experience-page.module#ExperiencePageModule',
+    loadChildren: () => import('app/+experience-page/experience-page.module').then(m => m.ExperiencePageModule),
     data: { animation: 'experience' }
   },
   {
     path: 'faqs',
-    loadChildren: 'app/+faqs-page/faqs-page.module#FaqsPageModule'
+    loadChildren: () => import('app/+faqs-page/faqs-page.module').then(m => m.FaqsPageModule)
   },
   {
     path: 'portfolio/:project',
