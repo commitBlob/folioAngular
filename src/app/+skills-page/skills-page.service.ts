@@ -5,14 +5,11 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
-// App specific
-import { SkillsInterface } from './skills.interface';
-
 @Injectable()
 export class SkillsPageService {
   constructor(private http: HttpClient) {}
 
-  getSkillsList(): Observable<SkillsInterface[]> {
+  getSkillsList(): Observable<any> {
     return this.http.get('./api/skills').catch(this.handleError);
   }
 
