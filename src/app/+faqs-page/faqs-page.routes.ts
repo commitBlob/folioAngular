@@ -11,4 +11,4 @@ const routes: Routes = [
     component: FaqsBlockComponent
   }
 ];
-export const FaqsPageRoutes: ModuleWithProviders = RouterModule.forChild(routes);
+export const FaqsPageRoutes: ModuleWithProviders<RouterModule> = RouterModule.forChild(routes);

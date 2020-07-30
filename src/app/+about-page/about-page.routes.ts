@@ -9,4 +9,4 @@ const routes: Routes = [
     component: AboutPageComponent
   }
 ];
-export const AboutPageRoutes: ModuleWithProviders = RouterModule.forChild(routes);
+export const AboutPageRoutes: ModuleWithProviders<RouterModule> = RouterModule.forChild(routes);

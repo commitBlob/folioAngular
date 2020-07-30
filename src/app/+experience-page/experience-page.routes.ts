@@ -11,4 +11,4 @@ const routes: Routes = [
     component: ExperiencePageComponent
   }
 ];
-export const ExperiencePageRoutes: ModuleWithProviders = RouterModule.forChild(routes);
+export const ExperiencePageRoutes: ModuleWithProviders<RouterModule> = RouterModule.forChild(routes);

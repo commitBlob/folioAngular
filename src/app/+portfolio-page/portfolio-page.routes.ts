@@ -11,4 +11,4 @@ const routes: Routes = [
     component: PortfolioPageComponent
   }
 ];
-export const PortfolioPageRoutes: ModuleWithProviders = RouterModule.forChild(routes);
+export const PortfolioPageRoutes: ModuleWithProviders<RouterModule> = RouterModule.forChild(routes);

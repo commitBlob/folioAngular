@@ -11,4 +11,4 @@ const routes: Routes = [
     component: ContactPageComponent
   }
 ];
-export const ContactPageRoutes: ModuleWithProviders = RouterModule.forChild(routes);
+export const ContactPageRoutes: ModuleWithProviders<RouterModule> = RouterModule.forChild(routes);

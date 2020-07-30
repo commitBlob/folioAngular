@@ -11,4 +11,4 @@ const routes: Routes = [
     component: SkillsPageComponent
   }
 ];
-export const SkillsPageRoutes: ModuleWithProviders = RouterModule.forChild(routes);
+export const SkillsPageRoutes: ModuleWithProviders<RouterModule> = RouterModule.forChild(routes);
