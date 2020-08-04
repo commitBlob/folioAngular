@@ -5,4 +5,6 @@
     left: 0;
     right: 0;
     background-color: $base-background;
+    display: flex;
+    flex-flow: row;
 }

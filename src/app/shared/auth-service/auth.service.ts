@@ -117,7 +117,7 @@ export class AuthService {
       // Call method to log out
       client.logout({
         client_id: environment.client_id,
-        returnTo: `${window.location.origin}/kantun`
+        returnTo: `${window.location.origin}`
       });
     });
   }
