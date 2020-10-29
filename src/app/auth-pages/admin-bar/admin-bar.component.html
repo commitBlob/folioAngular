@@ -15,7 +15,7 @@
     <div class="admin-bar-actions">
 <!--        admin actions-->
     </div>
-    <div class="user-actions" (mouseover)="doorOpen = true" (mouseout)="doorOpen = false" (click)="auth.logout()">
+    <div class="user-actions" (mouseover)="doorOpen = true" (mouseout)="doorOpen = false" (click)="auth.logout()" matTooltip="Log Out">
         <i class="fas fa-door-open" *ngIf="doorOpen else doorClosed"></i>
         <ng-template #doorClosed>
             <div>

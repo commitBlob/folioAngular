@@ -7,4 +7,9 @@
     background-color: $base-background;
     display: flex;
     flex-flow: row;
+
+    .admin-content {
+        width: 100%;
+        padding-top: 50px;
+    }
 }
