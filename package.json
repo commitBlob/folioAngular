@@ -10,6 +10,7 @@
     "build": "ng build",
     "build:prod": "ng build --prod",
     "test": "ng test",
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadlessCI --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -38,7 +39,7 @@
     "@angular/cli": "1.7.3",
     "@angular/compiler-cli": "5.2.10",
     "@angular/language-service": "^5.2.9",
-    "@types/jasmine": "~2.8.6",
+    "@types/jasmine": "2.8.6",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~9.4.7",
     "codelyzer": "~4.2.1",

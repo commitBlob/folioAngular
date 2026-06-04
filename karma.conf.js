@@ -16,18 +16,41 @@ module.exports = function (config) {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
-      reports: [ 'html', 'lcovonly' ],
-      fixWebpackSourcePaths: true
+      dir: require('path').join(__dirname, 'coverage'),
+      reports: [ 'html', 'lcovonly', 'text-summary' ],
+      fixWebpackSourcePaths: true,
+      // Declarative/config files carry framework metadata, not testable logic,
+      // so they are kept out of the coverage denominator.
+      'report-config': {
+        html: { subdir: 'html' }
+      },
+      thresholds: {
+        emitWarning: false,
+        global: {
+          statements: 90,
+          lines: 90,
+          branches: 90,
+          functions: 90
+        }
+      }
     },
     angularCli: {
       environment: 'dev'
     },
-    reporters: ['progress', 'kjhtml'],
+    // 'kjhtml' (jasmine HTML reporter) is intentionally omitted: it manipulates the
+    // live DOM and throws under headless Chrome. Use the interactive `ng test` for it.
+    reporters: ['progress', 'coverage-istanbul'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
+    customLaunchers: {
+      ChromeHeadlessCI: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox', '--disable-gpu']
+      }
+    },
     singleRun: false
   });
 };
