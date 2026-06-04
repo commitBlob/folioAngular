@@ -22,10 +22,10 @@ describe('FaqsPageService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('getFaqs GETs ./api/faqs', () => {
+  it('getFaqs GETs the local faqs_list.json asset', () => {
     const data = [{ q: 'why', a: 'because' }];
     service.getFaqs().subscribe(res => expect(res).toEqual(data));
-    const req = httpMock.expectOne('./api/faqs');
+    const req = httpMock.expectOne('./assets/data/projectdissimilar/faqs_list.json');
     expect(req.request.method).toBe('GET');
     req.flush(data);
   });
