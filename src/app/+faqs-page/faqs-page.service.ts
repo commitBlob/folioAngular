@@ -11,7 +11,7 @@ export class FaqsPageService {
   }
 
   getFaqs(): Observable<any> {
-    return this.http.get('./api/faqs').catch(this.handleError);
+    return this.http.get('./assets/data/projectdissimilar/faqs_list.json').catch(this.handleError);
   }
 
   /**
