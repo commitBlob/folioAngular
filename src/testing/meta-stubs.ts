@@ -15,6 +15,6 @@ export function metaTagsServiceStub(): any {
     setDescriptionMetaTag: () => ({ name: 'description', content: 'desc' }),
     setMetaTag: (name: string, content: string) => ({ name, content }),
     setTwitterCard: () => ({ name: 'twitter:card', value: 'summary' }),
-    setContentType: () => ({ httpEquiv: 'Content-Type', content: 'text/html', charset: 'uft-8' })
+    setContentType: () => ({ httpEquiv: 'Content-Type', content: 'text/html', charset: 'utf-8' })
   };
 }
