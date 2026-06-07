@@ -33,6 +33,6 @@ describe('MetaTagsService', () => {
 
   it('setContentType returns the content-type meta', () => {
     expect(service.setContentType())
-      .toEqual({ httpEquiv: 'Content-Type', content: 'text/html', charset: 'uft-8' });
+      .toEqual({ httpEquiv: 'Content-Type', content: 'text/html', charset: 'utf-8' });
   });
 });
