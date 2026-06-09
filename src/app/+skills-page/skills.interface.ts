@@ -4,5 +4,4 @@ export interface SkillsInterface {
   'font-awesome': boolean;
   icon: string;
   name: string;
-  _id: string;
 }

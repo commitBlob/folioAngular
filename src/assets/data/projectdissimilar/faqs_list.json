@@ -19,7 +19,7 @@
   },
   {
     "question": "How do you stop AI going off the rails?",
-    "answer": "<p>In government, \"it mostly works\" isn't a shipping standard, so a lot of my job is the unglamorous safety scaffolding around the clever bits.</p> <p>That means evaluation frameworks (cosine similarity, ROUGE, readability scores like Flesch-Kincaid), guardrails, audit trails, privacy-by-design and UK data residency, all aligned to standards like ATRS and the EU AI Act. Put simply: I make sure the model is helpful, honest, and can't quietly do something it shouldn't.</p>",
+    "answer": "<p>In government, \"it mostly works\" isn't a shipping standard, so a lot of my job is the unglamorous safety scaffolding around the clever bits.</p> <p>That means evaluation frameworks, guardrails, audit trails, privacy-by-design and UK data residency, all aligned to standards like ATRS and the EU AI Act. Put simply: I make sure the model is helpful, honest, and can't quietly do something it shouldn't.</p>",
     "active": true,
     "position": 4
   },
@@ -43,7 +43,7 @@
   },
   {
     "question": "What do you do when you're not shipping AI?",
-    "answer": "<p>I grow chillies, and I mean the full range, from gentle Anaheims all the way up to the Naga. The hotter the better; my pain tolerance is a work in progress.</p> <p>Beyond the windowsill heat lab: travelling and discovering new places, the gym to stay sane, and a bit of online gaming to keep in touch with friends back home and keep my inner child happy.</p>",
+    "answer": "<p>I grow chillies, and I mean the full range, from gentle Anaheims all the way up to the Naga. The hotter the better; my pain tolerance is a work in progress.</p> <p>Beyond the heat lab (greenhouse), travelling and discovering new places, and a bit of online gaming to keep in touch with friends back home and keep my inner child happy.</p>",
     "active": true,
     "position": 8
   },
@@ -61,13 +61,13 @@
   },
   {
     "question": "What's something that isn't on the CV?",
-    "answer": "<p>The fun stuff. Dubrovnik really is King's Landing. There's the basketball, the chilli-Scoville obsession, and the steady reading habit.</p> <p>And, per the old version of this quiz, if I were an animal I'd be a bull (fittingly, a Taurus): patient, dependable, and far more interested in doing a job right than doing it fastest.</p>",
+    "answer": "<p>The fun stuff. Dubrovnik really is King's Landing. There's the chilli-Scoville obsession, and the steady reading habit.</p> <p>And, per the old version of this FAQ, if I were an animal I'd be a bull: patient, dependable, and far more interested in doing a job right than doing it fastest.</p>",
     "active": true,
     "position": 11
   },
   {
     "question": "How do you stay current when the field moves this fast?",
-    "answer": "<p>Two engines. First, the reading habit above, it keeps the mental models fresh. Second, relentless hands-on learning: I've worked through the full Anthropic Academy track (AI Fluency, Claude Code, MCP, Agent Skills and more), on top of the MSc.</p> <p>The old maxim from my coding days still holds: every day you can learn something new. I just try to treat it as a game rather than a grind.</p>",
+    "answer": "<p>Two engines. First, the reading habit above, it keeps the mental models fresh. Second, relentless hands-on learning: I've worked through the full Anthropic Academy track (AI Fluency, Claude Code, MCP, Agent Skills and more), Transformative Leadership level 5 qualification and MSc all while working full time.</p> <p>The old maxim from my coding days still holds: every day you can learn something new. I just try to treat it as a game rather than a grind.</p>",
     "active": true,
     "position": 12
   }

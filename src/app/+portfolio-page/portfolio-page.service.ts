@@ -10,7 +10,7 @@ export class PortfolioPageService {
   constructor(private http: HttpClient) {}
 
   getProjects(): Observable<any> {
-    return this.http.get('./api/allprojects').catch(this.handleError);
+    return this.http.get('./assets/data/projectdissimilar/projects.json').catch(this.handleError);
   }
 
   /**

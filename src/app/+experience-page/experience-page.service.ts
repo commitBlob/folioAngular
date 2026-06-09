@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
 @Injectable()
@@ -10,15 +11,17 @@ export class ExperiencePageService {
   constructor(private http: HttpClient) {}
 
   getProjectsList(): Observable<any> {
-    return this.http.get('./api/projectslist').catch(this.handleError);
+    return this.http.get('./assets/data/projectdissimilar/projects.json')
+      .map((res: any[]) => ({ payload: res }))
+      .catch(this.handleError);
   }
 
   getPositions(): Observable<any> {
-    return this.http.get('./api/positions').catch(this.handleError);
+    return this.http.get('./assets/data/projectdissimilar/positions.json').catch(this.handleError);
   }
 
   getEducation(): Observable<any> {
-    return this.http.get('./api/education').catch(this.handleError);
+    return this.http.get('./assets/data/projectdissimilar/education.json').catch(this.handleError);
   }
 
   /**

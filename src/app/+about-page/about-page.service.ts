@@ -10,11 +10,11 @@ export class AboutPageService {
   constructor(private http: HttpClient) {}
 
   getImages(): Observable<any> {
-    return this.http.get('./api/profilepictures').catch(this.handleError);
+    return this.http.get('./assets/data/projectdissimilar/profile_pictures.json').catch(this.handleError);
   }
 
   getSocialIcons(): Observable<any> {
-    return this.http.get('./api/socials').catch(this.handleError);
+    return this.http.get('./assets/data/projectdissimilar/social_icons.json').catch(this.handleError);
   }
 
   /**
