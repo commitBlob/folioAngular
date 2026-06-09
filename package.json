@@ -42,7 +42,7 @@
     "@angular/language-service": "^5.2.9",
     "@types/jasmine": "2.5.53",
     "@types/jasminewd2": "~2.0.2",
-    "@types/jest": "^23.3.1",
+    "@types/jest": "^23.3.14",
     "@types/node": "~9.4.7",
     "codelyzer": "~4.2.1",
     "cross-env": "^5.2.1",
