@@ -1,0 +1,32 @@
+[
+  {
+    "icon": "fas fa-at",
+    "url": "/contact",
+    "name": "email",
+    "type": "ex"
+  },
+  {
+    "icon": "fab fa-linkedin-in",
+    "url": "https://www.linkedin.com/pub/maro-radovi%C4%87/a1/715/398",
+    "name": "LinkedIn",
+    "type": "ex"
+  },
+  {
+    "icon": "fab fa-github",
+    "url": "https://github.com/commitBlob",
+    "name": "GitHub",
+    "type": "ex"
+  },
+  {
+    "icon": "fab fa-stack-overflow",
+    "url": "https://stackoverflow.com/users/4078143",
+    "name": "Stack Overflow",
+    "type": "ex"
+  },
+  {
+    "icon": "fas fa-cloud-download-alt",
+    "url": "../assets/CV_MaroRadovic.pdf",
+    "name": "Download CV",
+    "type": "dl"
+  }
+]

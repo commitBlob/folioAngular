@@ -13,11 +13,11 @@ export class SkillsPageService {
   constructor(private http: HttpClient) {}
 
   getSkillsList(): Observable<SkillsInterface[]> {
-    return this.http.get('./api/skills').catch(this.handleError);
+    return this.http.get('./assets/data/projectdissimilar/skills_list.json').catch(this.handleError);
   }
 
   getSkillsContent(): Observable<any> {
-    return this.http.get('./api/skillscontent').catch(this.handleError);
+    return this.http.get('./assets/data/projectdissimilar/skills_content.json').catch(this.handleError);
   }
 
   /**

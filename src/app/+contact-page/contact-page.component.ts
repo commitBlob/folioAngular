@@ -21,6 +21,7 @@ export class ContactPageComponent implements OnInit {
   animateMe = false;
   formSent = false;
   responsePayload;
+  contactDisabled = true;
 
   emailError = '';
 

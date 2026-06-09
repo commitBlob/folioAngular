@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
 @Injectable()
@@ -10,7 +11,9 @@ export class ProjectDetailsService {
   constructor(private http: HttpClient) {}
 
   getProjectDetails(projectId): Observable<any> {
-    return this.http.get('./api/projectdetails/' + projectId).catch(this.handleError);
+    return this.http.get('./assets/data/projectdissimilar/project_details.json')
+      .map((res: any[]) => res.filter(item => item.id === projectId))
+      .catch(this.handleError);
   }
 
   /**

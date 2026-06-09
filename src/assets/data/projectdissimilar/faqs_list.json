@@ -1,0 +1,74 @@
+[
+  {
+    "question": "Tell me about yourself.",
+    "answer": "<p>I'm an AI Solution Architect and Lead Forward Deployed Engineer with 11+ years in software. These days I spend my time turning generative AI from an interesting demo into something that actually runs in production. <span class=\"resize-icon fas fa-smile\"></span></p> <p>I grew up in Dubrovnik (King's Landing, for the Game of Thrones fans <span class=\"resize-icon fas fa-globe\"></span>) and earned a double degree in Information Technology at RIT Croatia. I've since put down roots in Swindon and become a British citizen.</p> <p>The short version: I went from building websites to embedding AI inside UK Government, and I still get a kick out of shipping things people actually use.</p>",
+    "active": true,
+    "position": 1
+  },
+  {
+    "question": "What on earth is a \"Forward Deployed Engineer\"?",
+    "answer": "<p>Fair question, it's not a job title you see every day. A Forward Deployed Engineer is the one who sits <i>with</i> the customer and ships the actual thing, rather than writing slideware about the thing. <span class=\"resize-icon fas fa-robot\"></span></p> <p>Right now I'm embedded in DSIT's AI Engineering Lab, helping scale AI coding assistants, Claude Code, GitHub Copilot, Amazon Kiro and Gemini, across 1,000+ engineers in UK Government departments. Part engineer, part translator, part coach.</p>",
+    "active": true,
+    "position": 2
+  },
+  {
+    "question": "What's a project you're genuinely proud of?",
+    "answer": "<p>Cafcass Scribe. I led it from a rough proof-of-concept all the way to production: 1,500+ family-court advisors now use it, generating 80,000+ letters a month.</p> <p>The part I'm proudest of is the multi-modal output, text and audio, built for neurodiverse children and families facing language barriers. It was runner-up for a Gartner \"Eye on Innovation\" award, but honestly the real prize is that it makes a genuinely hard, human process a little kinder.</p>",
+    "active": true,
+    "position": 3
+  },
+  {
+    "question": "How do you stop AI going off the rails?",
+    "answer": "<p>In government, \"it mostly works\" isn't a shipping standard, so a lot of my job is the unglamorous safety scaffolding around the clever bits.</p> <p>That means evaluation frameworks, guardrails, audit trails, privacy-by-design and UK data residency, all aligned to standards like ATRS and the EU AI Act. Put simply: I make sure the model is helpful, honest, and can't quietly do something it shouldn't.</p>",
+    "active": true,
+    "position": 4
+  },
+  {
+    "question": "What's in your toolbox these days?",
+    "answer": "<p>Day-to-day it's Python and TypeScript, with Claude and Claude Code never far from reach. For the AI plumbing: LangChain and LangGraph, RAG, and agentic patterns; for the infrastructure: Azure and AWS.</p> <p>And yes, this very website is a lovingly-preserved Angular 5 time capsule. Some things you keep for sentiment rather than because they're current. <span class=\"resize-icon fas fa-smile\"></span></p>",
+    "active": true,
+    "position": 5
+  },
+  {
+    "question": "Where do you see yourself 5 years from now?",
+    "answer": "<p><i>(This was my answer back in 2018. I've left it exactly as it was.)</i></p> <p>\"The future is approaching with an enormous speed driven by technology, and I want to keep up with it, hence my interest lately lies in AI. I would like to complete a Master degree in Artificial Intelligence, and be part of changing our future. Staying in the UK whilst I become eligible for nationality.\"</p> <p><b>Update, 2026:</b> Turns out past me set the bar and present me cleared it. MSc in Artificial Intelligence at the University of Bath, done. British citizenship, done. \"Part of changing our future\" with AI, that's literally the day job now, inside UK Government. <span class=\"resize-icon fas fa-smile\"></span></p>",
+    "active": true,
+    "position": 6
+  },
+  {
+    "question": "Is it true you're a book nerd?",
+    "answer": "<p>Guilty. I get through roughly a book every one to two months, parked right at the intersection of Gladwellian narrative non-fiction and Tegmark-style AI futurism. <span class=\"resize-icon fas fa-book\"></span></p> <p>I have a soft spot for the foundational, argument-driving texts, Kahneman, Stuart Russell, Brian Christian, over the derivative synthesis that just repackages them. And every so often I'll happily disappear into a properly technical AI book.</p>",
+    "active": true,
+    "position": 7
+  },
+  {
+    "question": "What do you do when you're not shipping AI?",
+    "answer": "<p>I grow chillies, and I mean the full range, from gentle Anaheims all the way up to the Naga. The hotter the better; my pain tolerance is a work in progress.</p> <p>Beyond the heat lab (greenhouse), travelling and discovering new places, and a bit of online gaming to keep in touch with friends back home and keep my inner child happy.</p>",
+    "active": true,
+    "position": 8
+  },
+  {
+    "question": "What makes you a good teammate?",
+    "answer": "<p>I played basketball for nine years, where my nickname was \"minister of defence\", I was the one sent to shut down the other team's best player. <span class=\"resize-icon fas fa-basketball-ball\"></span> My teammates always knew I had their back, whether I was on the court or on the bench.</p> <p>That instinct never left. These days it looks like coaching Senior Forward Deployed Engineers from shadowing on day one to leading their own department within a single quarter.</p>",
+    "active": true,
+    "position": 9
+  },
+  {
+    "question": "What are your strengths?",
+    "answer": "<p>A stubborn bias for simplicity. As Plato put it, \"beauty of style and harmony and grace and good rhythm depend on Simplicity.\" Add a critical eye and a cross-cultural lens from having lived and worked in more than one country.</p> <p>My newest superpower is translation: moving fluently between deeply technical engineers and non-technical stakeholders so both feel understood. It's the heart of the Forward Deployed job.</p>",
+    "active": true,
+    "position": 10
+  },
+  {
+    "question": "What's something that isn't on the CV?",
+    "answer": "<p>The fun stuff. Dubrovnik really is King's Landing. There's the chilli-Scoville obsession, and the steady reading habit.</p> <p>And, per the old version of this FAQ, if I were an animal I'd be a bull: patient, dependable, and far more interested in doing a job right than doing it fastest.</p>",
+    "active": true,
+    "position": 11
+  },
+  {
+    "question": "How do you stay current when the field moves this fast?",
+    "answer": "<p>Two engines. First, the reading habit above, it keeps the mental models fresh. Second, relentless hands-on learning: I've worked through the full Anthropic Academy track (AI Fluency, Claude Code, MCP, Agent Skills and more), Transformative Leadership level 5 qualification and MSc all while working full time.</p> <p>The old maxim from my coding days still holds: every day you can learn something new. I just try to treat it as a game rather than a grind.</p>",
+    "active": true,
+    "position": 12
+  }
+]

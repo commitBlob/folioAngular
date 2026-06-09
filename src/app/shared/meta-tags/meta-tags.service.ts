@@ -13,7 +13,7 @@ export class MetaTagsService {
   }
 
   setDescriptionMetaTag(): any {
-    // tslint:disable-next-line
+     // tslint:disable-next-line
     const description = `Hello, and welcome. I'm ${this.name}. Currently I work in ${this.currentCompany} as a ${this.roleTitle}. This website is an extension of my CV`;
     return {name: 'description', content: description};
   }
@@ -27,6 +27,6 @@ export class MetaTagsService {
   }
 
   setContentType(): any {
-    return {httpEquiv: 'Content-Type', content: 'text/html', charset: 'uft-8'};
+    return {httpEquiv: 'Content-Type', content: 'text/html', charset: 'utf-8'};
   }
 }

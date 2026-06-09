@@ -33,7 +33,7 @@ export class FaqsBlockComponent implements OnInit {
     this.setMetaData();
     this.faqsService.getFaqs().subscribe((res) => {
       // don't rush
-      setInterval(() => this.faqs = res, 500 );
+      setTimeout(() => this.faqs = res, 500);
     });
   }
 
