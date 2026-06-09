@@ -2,12 +2,22 @@
 <div class="contact-page-wrapper">
   <div class="contact-page-header">
     <span class="tag__header-start"></span>
-    <h2 *ngIf="!formSent">Say Hello!</h2>
+    <h2 *ngIf="!formSent && !contactDisabled">Say Hello!</h2>
     <h2 *ngIf="formSent">{{responsePayload.header}}</h2>
+    <h2 *ngIf="contactDisabled">Get In Touch</h2>
     <span class="tag__header-end"></span>
   </div>
 
-  <div class="response-wrapper" *ngIf="formSent" [ngClass]="{'display-status': formSent}">
+  <div class="response-wrapper" *ngIf="contactDisabled" [ngClass]="{'display-status': true}">
+    <span class="tag__form-message-start"></span>
+    <p>The contact form is currently unavailable. Reach out directly via <a href="https://www.linkedin.com/in/maro-radovic/" target="_blank">LinkedIn</a> or email at <a href="mailto:maro.radovic12@gmail.com">maro.radovic12@gmail.com</a>.</p>
+    <button type="button" class="button__submit go-back" mat-button
+            (click)="goBackHome()"><i class="fas fa-walking"></i> Back to Profile
+    </button>
+    <span class="tag__form-message-end"></span>
+  </div>
+
+  <div class="response-wrapper" *ngIf="formSent && !contactDisabled" [ngClass]="{'display-status': formSent}">
     <span class="tag__form-message-start"></span>
     <p>{{responsePayload.message}}</p>
     <button type="button" class="button__submit go-back" mat-button
@@ -15,7 +25,7 @@
     </button>
     <span class="tag__form-message-end"></span>
   </div>
-  <div class="sheet-wrapper" [ngClass]="{'send-animation': animateMe}">
+  <div class="sheet-wrapper" *ngIf="!contactDisabled" [ngClass]="{'send-animation': animateMe}">
     <span class="tag__form-start"></span>
     <form (ngSubmit)="submitForm()" [formGroup]="contactForm">
       <div class="form-element">

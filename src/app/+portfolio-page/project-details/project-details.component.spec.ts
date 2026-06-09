@@ -10,8 +10,8 @@ import { ProjectDetailsService } from './project-details.service';
 
 describe('ProjectDetailsComponent', () => {
   let component: ProjectDetailsComponent;
-  let projectsService: jasmine.SpyObj<ProjectDetailsService>;
-  let location: jasmine.SpyObj<Location>;
+  let projectsService: { getProjectDetails: jest.Mock };
+  let location: { back: jest.Mock };
 
   const gallery = [
     { image: 'i0', imageName: 'n0' },
@@ -24,8 +24,8 @@ describe('ProjectDetailsComponent', () => {
   }];
 
   beforeEach(() => {
-    projectsService = jasmine.createSpyObj('ProjectDetailsService', ['getProjectDetails']);
-    location = jasmine.createSpyObj('Location', ['back']);
+    projectsService = { getProjectDetails: jest.fn() };
+    location = { back: jest.fn() };
 
     TestBed.configureTestingModule({
       declarations: [ProjectDetailsComponent],
@@ -91,8 +91,8 @@ describe('ProjectDetailsComponent', () => {
   });
 
   it('swipe right calls next and swipe left calls previous', () => {
-    const next = spyOn(component, 'next');
-    const previous = spyOn(component, 'previous');
+    const next = jest.spyOn(component, 'next').mockImplementation(() => {});
+    const previous = jest.spyOn(component, 'previous').mockImplementation(() => {});
     component.swipe('swiperight');
     expect(next).toHaveBeenCalled();
     component.swipe('swipeleft');
@@ -112,7 +112,7 @@ describe('ProjectDetailsComponent', () => {
   });
 
   it('ngOnInit populates the project details when data is returned', () => {
-    projectsService.getProjectDetails.and.returnValue(Observable.of(details));
+    projectsService.getProjectDetails.mockReturnValue(Observable.of(details));
     component.ngOnInit();
     expect(component.projectDetails).toBe(details[0]);
     expect(component.skillsList).toBe(details[0].skills);
@@ -123,7 +123,7 @@ describe('ProjectDetailsComponent', () => {
   });
 
   it('ngOnInit does nothing when no data is returned', () => {
-    projectsService.getProjectDetails.and.returnValue(Observable.of(null));
+    projectsService.getProjectDetails.mockReturnValue(Observable.of(null));
     component.ngOnInit();
     expect(component.projectDetails).toBeUndefined();
   });

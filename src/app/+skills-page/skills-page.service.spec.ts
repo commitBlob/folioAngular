@@ -13,7 +13,7 @@ describe('SkillsPageService', () => {
     });
     service = TestBed.get(SkillsPageService);
     httpMock = TestBed.get(HttpTestingController);
-    spyOn(console, 'error');
+    jest.spyOn(console, 'error').mockImplementation(() => {});
   });
 
   afterEach(() => httpMock.verify());
@@ -22,20 +22,28 @@ describe('SkillsPageService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('getSkillsList GETs ./api/skills', () => {
+  it('getSkillsList GETs ./assets/data/projectdissimilar/skills_list.json', () => {
     const data = [{ name: 'TypeScript' }];
     service.getSkillsList().subscribe(res => expect(res).toEqual(data as any));
-    const req = httpMock.expectOne('./api/skills');
+    const req = httpMock.expectOne('./assets/data/projectdissimilar/skills_list.json');
     expect(req.request.method).toBe('GET');
     req.flush(data);
   });
 
-  it('getSkillsContent GETs ./api/skillscontent', () => {
+  it('getSkillsContent GETs ./assets/data/projectdissimilar/skills_content.json', () => {
     const data = [{ blurb: 'hi' }];
     service.getSkillsContent().subscribe(res => expect(res).toEqual(data));
-    const req = httpMock.expectOne('./api/skillscontent');
+    const req = httpMock.expectOne('./assets/data/projectdissimilar/skills_content.json');
     expect(req.request.method).toBe('GET');
     req.flush(data);
+  });
+
+  it('getSkillsList surfaces errors through the catch handler', () => {
+    let didError = false;
+    service.getSkillsList().subscribe(null, () => didError = true);
+    const req = httpMock.expectOne('./assets/data/projectdissimilar/skills_list.json');
+    req.error(new ErrorEvent('network error', { message: 'down' }));
+    expect(didError).toBe(true);
   });
 
   it('handleError maps message, status and the server-error fallback', () => {

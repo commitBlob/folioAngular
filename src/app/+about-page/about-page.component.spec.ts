@@ -13,7 +13,7 @@ import { metaSpy, titleSpy, metaTagsServiceStub } from '../../testing/meta-stubs
 describe('AboutPageComponent', () => {
   let component: AboutPageComponent;
   let aboutService: any;
-  let router: jasmine.SpyObj<Router>;
+  let router: { navigate: jest.Mock };
   let meta: any;
   let title: any;
 
@@ -22,7 +22,7 @@ describe('AboutPageComponent', () => {
       getImages: () => Observable.of(['pic1', 'pic2']),
       getSocialIcons: () => Observable.of(['twitter'])
     };
-    router = jasmine.createSpyObj('Router', ['navigate']);
+    router = { navigate: jest.fn() };
     meta = metaSpy();
     title = titleSpy();
 
@@ -64,6 +64,7 @@ describe('AboutPageComponent', () => {
   it('calculateAge produces a positive number of years', () => {
     component.calculateAge();
     expect(component.age).toBeGreaterThan(0);
+    expect(component.age).toBeLessThan(60);
   });
 
   it('ngOnInit loads pictures and icons and clears the loading flag', () => {
@@ -75,8 +76,8 @@ describe('AboutPageComponent', () => {
 
   it('setMetaData wires up title, description, og and twitter tags', () => {
     component.setMetaData();
-    expect(title.setTitle).toHaveBeenCalled();
-    expect(meta.addTag).toHaveBeenCalled();
+    expect(title.setTitle).toHaveBeenCalledWith('TITLE | About');
+    expect(meta.addTag).toHaveBeenCalledWith({ name: 'description', content: 'desc' });
     expect(meta.addTags).toHaveBeenCalled();
   });
 });

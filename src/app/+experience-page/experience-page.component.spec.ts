@@ -59,7 +59,7 @@ describe('ExperiencePageComponent', () => {
 
   it('setMetaData sets the title, description and content type', () => {
     component.setMetaData();
-    expect(title.setTitle).toHaveBeenCalled();
-    expect(meta.addTag).toHaveBeenCalled();
+    expect(title.setTitle).toHaveBeenCalledWith('TITLE | Experience');
+    expect(meta.addTag).toHaveBeenCalledWith({ name: 'description', content: 'Experience Page' });
   });
 });

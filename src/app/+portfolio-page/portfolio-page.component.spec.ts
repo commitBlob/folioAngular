@@ -12,12 +12,12 @@ import { metaSpy, titleSpy, metaTagsServiceStub } from '../../testing/meta-stubs
 
 describe('PortfolioPageComponent', () => {
   let component: PortfolioPageComponent;
-  let router: jasmine.SpyObj<Router>;
+  let router: { navigate: jest.Mock };
   let meta: any;
   let title: any;
 
   beforeEach(() => {
-    router = jasmine.createSpyObj('Router', ['navigate']);
+    router = { navigate: jest.fn() };
     meta = metaSpy();
     title = titleSpy();
 
@@ -58,7 +58,7 @@ describe('PortfolioPageComponent', () => {
 
   it('setMetaData sets the title, description and content type', () => {
     component.setMetaData();
-    expect(title.setTitle).toHaveBeenCalled();
-    expect(meta.addTag).toHaveBeenCalled();
+    expect(title.setTitle).toHaveBeenCalledWith('TITLE | Projects List');
+    expect(meta.addTag).toHaveBeenCalledWith({ name: 'description', content: 'Projects List Page' });
   });
 });

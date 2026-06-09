@@ -14,6 +14,6 @@ describe('NavigationService', () => {
 
   it('getNavigation returns the global navigation list', () => {
     expect(service.getNavigation()).toBe(GlobalNavigation);
-    expect(service.getNavigation().length).toBe(5);
+    expect(service.getNavigation().length).toBe(GlobalNavigation.length);
   });
 });

@@ -1,12 +1,12 @@
-// Shared jasmine stubs for the metadata plumbing reused by the page components.
+// Shared jest stubs for the metadata plumbing reused by the page components.
 // Lives outside the coverage scope (src/testing is not imported by production code).
 
 export function metaSpy(): any {
-  return jasmine.createSpyObj('Meta', ['addTag', 'addTags']);
+  return { addTag: jest.fn(), addTags: jest.fn() };
 }
 
 export function titleSpy(): any {
-  return jasmine.createSpyObj('Title', ['setTitle']);
+  return { setTitle: jest.fn() };
 }
 
 export function metaTagsServiceStub(): any {

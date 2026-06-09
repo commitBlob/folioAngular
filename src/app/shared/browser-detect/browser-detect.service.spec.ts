@@ -5,7 +5,7 @@ describe('BrowserDetectService', () => {
   let service: BrowserDetectService;
 
   const stubParser = (name: string) => {
-    spyOn(Bowser, 'getParser').and.returnValue({ getBrowserName: () => name } as any);
+    jest.spyOn(Bowser, 'getParser').mockReturnValue({ getBrowserName: () => name } as any);
   };
 
   beforeEach(() => {

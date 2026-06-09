@@ -13,7 +13,7 @@ describe('PortfolioPageService', () => {
     });
     service = TestBed.get(PortfolioPageService);
     httpMock = TestBed.get(HttpTestingController);
-    spyOn(console, 'error');
+    jest.spyOn(console, 'error').mockImplementation(() => {});
   });
 
   afterEach(() => httpMock.verify());
@@ -22,12 +22,20 @@ describe('PortfolioPageService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('getProjects GETs ./api/allprojects', () => {
+  it('getProjects GETs ./assets/data/projectdissimilar/projects.json', () => {
     const data = [{ id: 'p1' }];
     service.getProjects().subscribe(res => expect(res).toEqual(data));
-    const req = httpMock.expectOne('./api/allprojects');
+    const req = httpMock.expectOne('./assets/data/projectdissimilar/projects.json');
     expect(req.request.method).toBe('GET');
     req.flush(data);
+  });
+
+  it('getProjects surfaces errors through the catch handler', () => {
+    let didError = false;
+    service.getProjects().subscribe(null, () => didError = true);
+    const req = httpMock.expectOne('./assets/data/projectdissimilar/projects.json');
+    req.error(new ErrorEvent('network error', { message: 'down' }));
+    expect(didError).toBe(true);
   });
 
   it('handleError maps message, status and the server-error fallback', () => {

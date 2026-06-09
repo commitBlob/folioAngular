@@ -5,10 +5,10 @@ import { ExperienceProjectsComponent } from './experience-projects.component';
 
 describe('ExperienceProjectsComponent', () => {
   let component: ExperienceProjectsComponent;
-  let router: jasmine.SpyObj<Router>;
+  let router: { navigate: jest.Mock };
 
   beforeEach(() => {
-    router = jasmine.createSpyObj('Router', ['navigate']);
+    router = { navigate: jest.fn() };
 
     TestBed.configureTestingModule({
       declarations: [ExperienceProjectsComponent],

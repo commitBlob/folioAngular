@@ -13,7 +13,7 @@ describe('ProjectDetailsService', () => {
     });
     service = TestBed.get(ProjectDetailsService);
     httpMock = TestBed.get(HttpTestingController);
-    spyOn(console, 'error');
+    jest.spyOn(console, 'error').mockImplementation(() => {});
   });
 
   afterEach(() => httpMock.verify());
@@ -22,12 +22,20 @@ describe('ProjectDetailsService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('getProjectDetails interpolates the project id into the URL', () => {
-    const data = [{ id: 'abc' }];
-    service.getProjectDetails('abc').subscribe(res => expect(res).toEqual(data));
-    const req = httpMock.expectOne('./api/projectdetails/abc');
+  it('getProjectDetails returns only the item matching the given id', () => {
+    const allItems = [{ id: 'abc' }, { id: 'xyz' }];
+    service.getProjectDetails('abc').subscribe(res => expect(res).toEqual([{ id: 'abc' }]));
+    const req = httpMock.expectOne('./assets/data/projectdissimilar/project_details.json');
     expect(req.request.method).toBe('GET');
-    req.flush(data);
+    req.flush(allItems);
+  });
+
+  it('getProjectDetails surfaces errors through the catch handler', () => {
+    let didError = false;
+    service.getProjectDetails('abc').subscribe(null, () => didError = true);
+    const req = httpMock.expectOne('./assets/data/projectdissimilar/project_details.json');
+    req.error(new ErrorEvent('network error', { message: 'down' }));
+    expect(didError).toBe(true);
   });
 
   it('handleError maps message, status and the server-error fallback', () => {

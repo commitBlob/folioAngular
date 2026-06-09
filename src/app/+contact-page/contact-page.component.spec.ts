@@ -14,12 +14,12 @@ import { metaSpy, titleSpy, metaTagsServiceStub } from '../../testing/meta-stubs
 
 describe('ContactPageComponent', () => {
   let component: ContactPageComponent;
-  let contactService: jasmine.SpyObj<ContactPageService>;
-  let router: jasmine.SpyObj<Router>;
+  let contactService: { submitForm: jest.Mock };
+  let router: { navigate: jest.Mock };
 
   beforeEach(() => {
-    contactService = jasmine.createSpyObj('ContactPageService', ['submitForm']);
-    router = jasmine.createSpyObj('Router', ['navigate']);
+    contactService = { submitForm: jest.fn() };
+    router = { navigate: jest.fn() };
 
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule],
@@ -80,7 +80,7 @@ describe('ContactPageComponent', () => {
   });
 
   it('submitForm posts the form and records a successful response', () => {
-    contactService.submitForm.and.returnValue(Observable.of({ status: 'ok' }));
+    contactService.submitForm.mockReturnValue(Observable.of({ status: 'ok' }));
     component.contactForm.setValue({ name: 'Ada', email: 'ada@example.com', message: 'hello' });
 
     component.submitForm();
@@ -92,7 +92,7 @@ describe('ContactPageComponent', () => {
   });
 
   it('submitForm records an error response', () => {
-    contactService.submitForm.and.returnValue(Observable.throw('boom'));
+    contactService.submitForm.mockReturnValue(Observable.throw('boom'));
     component.contactForm.setValue({ name: 'Ada', email: 'ada@example.com', message: 'hello' });
 
     component.submitForm();
@@ -112,7 +112,7 @@ describe('ContactPageComponent', () => {
   });
 
   it('debounced email changes trigger validation after 800ms', fakeAsync(() => {
-    const spy = spyOn(component, 'doCheckEmail').and.callThrough();
+    const spy = jest.spyOn(component, 'doCheckEmail');
     component.contactForm.controls['email'].setValue('bad');
     tick(800);
     expect(spy).toHaveBeenCalled();

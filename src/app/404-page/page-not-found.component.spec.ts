@@ -5,10 +5,10 @@ import { PageNotFoundComponent } from './page-not-found.component';
 
 describe('PageNotFoundComponent', () => {
   let component: PageNotFoundComponent;
-  let router: jasmine.SpyObj<Router>;
+  let router: { navigate: jest.Mock };
 
   beforeEach(() => {
-    router = jasmine.createSpyObj('Router', ['navigate']);
+    router = { navigate: jest.fn() };
 
     TestBed.configureTestingModule({
       declarations: [PageNotFoundComponent],

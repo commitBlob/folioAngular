@@ -1,5 +1,5 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { TestBed, fakeAsync, tick, discardPeriodicTasks } from '@angular/core/testing';
+import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { Location } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 import { Observable } from 'rxjs/Observable';
@@ -12,12 +12,12 @@ import { metaSpy, titleSpy, metaTagsServiceStub } from '../../testing/meta-stubs
 
 describe('FaqsBlockComponent', () => {
   let component: FaqsBlockComponent;
-  let location: jasmine.SpyObj<Location>;
+  let location: { back: jest.Mock };
   let meta: any;
   let title: any;
 
   beforeEach(() => {
-    location = jasmine.createSpyObj('Location', ['back']);
+    location = { back: jest.fn() };
     meta = metaSpy();
     title = titleSpy();
 
@@ -49,17 +49,16 @@ describe('FaqsBlockComponent', () => {
     expect(location.back).toHaveBeenCalled();
   });
 
-  it('ngOnInit loads faqs after the interval fires', fakeAsync(() => {
+  it('ngOnInit loads faqs after the delay fires', fakeAsync(() => {
     component.ngOnInit();
     expect(component.faqs).toEqual([]);
     tick(500);
     expect(component.faqs).toEqual([{ q: 'why', a: 'because' }]);
-    discardPeriodicTasks();
   }));
 
   it('setMetaData sets the title, description and content type', () => {
     component.setMetaData();
-    expect(title.setTitle).toHaveBeenCalled();
-    expect(meta.addTag).toHaveBeenCalled();
+    expect(title.setTitle).toHaveBeenCalledWith('TITLE | FAQs');
+    expect(meta.addTag).toHaveBeenCalledWith({ name: 'description', content: 'FAQs Page' });
   });
 });

@@ -6,11 +6,11 @@ import { BrowserDetectService } from './shared/browser-detect/browser-detect.ser
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
   let component: AppComponent;
-  let browserService: jasmine.SpyObj<BrowserDetectService>;
+  let browserService: { chromeOrFirefoxCheck: jest.Mock };
 
   beforeEach(() => {
-    browserService = jasmine.createSpyObj('BrowserDetectService', ['chromeOrFirefoxCheck']);
-    browserService.chromeOrFirefoxCheck.and.returnValue(true);
+    browserService = { chromeOrFirefoxCheck: jest.fn() };
+    browserService.chromeOrFirefoxCheck.mockReturnValue(true);
 
     TestBed.configureTestingModule({
       declarations: [AppComponent],
