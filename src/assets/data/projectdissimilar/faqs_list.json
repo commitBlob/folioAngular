@@ -25,7 +25,7 @@
   },
   {
     "question": "What's in your toolbox these days?",
-    "answer": "<p>Day-to-day it's Python and TypeScript, with Claude and Claude Code never far from reach. For the AI plumbing: LangChain and LangGraph, RAG, and agentic patterns; for the infrastructure: Azure and AWS.</p> <p>And yes, this very website is a lovingly-preserved Angular 5 time capsule. Some things you keep for sentiment rather than because they're current. <span class=\"resize-icon fas fa-smile\"></span></p>",
+    "answer": "<p>Day-to-day it's Python and TypeScript, with Claude and Claude Code never far from reach. For the AI plumbing: LangChain and LangGraph, RAG, and agentic patterns; for the infrastructure: Azure and AWS.</p>",
     "active": true,
     "position": 5
   },
@@ -67,7 +67,7 @@
   },
   {
     "question": "How do you stay current when the field moves this fast?",
-    "answer": "<p>Two engines. First, the reading habit above, it keeps the mental models fresh. Second, relentless hands-on learning: I've worked through the full Anthropic Academy track (AI Fluency, Claude Code, MCP, Agent Skills and more), Transformative Leadership level 5 qualification and MSc all while working full time.</p> <p>The old maxim from my coding days still holds: every day you can learn something new. I just try to treat it as a game rather than a grind.</p>",
+    "answer": "<p>Two engines. First, the reading habit. It keeps the mental models fresh. Second, relentless hands-on learning: I became the first Claude Certified Architect at Version 1, worked through the full Anthropic Academy track (AI Fluency, Claude Code, MCP, Agent Skills and more), earned a Transformative Leadership level 5 qualification, and completed an MSc. All while working full time.</p><p>The old maxim from my coding days still holds: every day you can learn something new. I just try to treat it as a game rather than a grind.</p>",
     "active": true,
     "position": 12
   }

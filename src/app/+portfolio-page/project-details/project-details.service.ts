@@ -12,7 +12,7 @@ export class ProjectDetailsService {
 
   getProjectDetails(projectId): Observable<any> {
     return this.http.get('./assets/data/projectdissimilar/project_details.json')
-      .map((res: any[]) => res.filter(item => item.id === projectId))
+      .map((res: any[]) => res.filter(item => String(item.id) === String(projectId)))
       .catch(this.handleError);
   }
 

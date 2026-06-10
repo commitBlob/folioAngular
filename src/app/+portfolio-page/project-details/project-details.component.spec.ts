@@ -127,4 +127,11 @@ describe('ProjectDetailsComponent', () => {
     component.ngOnInit();
     expect(component.projectDetails).toBeUndefined();
   });
+
+  it('ngOnInit does nothing when an empty array is returned', () => {
+    projectsService.getProjectDetails.mockReturnValue(Observable.of([]));
+    component.ngOnInit();
+    expect(component.projectDetails).toBeUndefined();
+    expect(component.skillsList).toEqual([]);
+  });
 });

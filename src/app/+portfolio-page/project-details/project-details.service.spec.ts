@@ -30,6 +30,20 @@ describe('ProjectDetailsService', () => {
     req.flush(allItems);
   });
 
+  it('getProjectDetails matches a numeric id against the string route param', () => {
+    const allItems = [{ id: 8 }, { id: 9 }];
+    service.getProjectDetails('8').subscribe(res => expect(res).toEqual([{ id: 8 }]));
+    const req = httpMock.expectOne('./assets/data/projectdissimilar/project_details.json');
+    req.flush(allItems);
+  });
+
+  it('getProjectDetails returns an empty array when no item matches', () => {
+    const allItems = [{ id: 8 }, { id: 9 }];
+    service.getProjectDetails('99').subscribe(res => expect(res).toEqual([]));
+    const req = httpMock.expectOne('./assets/data/projectdissimilar/project_details.json');
+    req.flush(allItems);
+  });
+
   it('getProjectDetails surfaces errors through the catch handler', () => {
     let didError = false;
     service.getProjectDetails('abc').subscribe(null, () => didError = true);
