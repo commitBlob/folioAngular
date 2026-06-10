@@ -7,7 +7,7 @@
   },
   {
     "icon": "fab fa-linkedin-in",
-    "url": "https://www.linkedin.com/pub/maro-radovi%C4%87/a1/715/398",
+    "url": "https://www.linkedin.com/in/maro-398715a1/",
     "name": "LinkedIn",
     "type": "ex"
   },
@@ -15,12 +15,6 @@
     "icon": "fab fa-github",
     "url": "https://github.com/commitBlob",
     "name": "GitHub",
-    "type": "ex"
-  },
-  {
-    "icon": "fab fa-stack-overflow",
-    "url": "https://stackoverflow.com/users/4078143",
-    "name": "Stack Overflow",
     "type": "ex"
   },
   {
