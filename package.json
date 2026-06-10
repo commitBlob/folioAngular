@@ -8,6 +8,7 @@
     "start": "ng serve --open --port 8888 --host 0.0.0.0",
     "build": "ng build",
     "build:prod": "ng build --prod",
+    "build:gh-pages": "ng build --prod --base-href /folioAngular/",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:ci": "jest --ci --coverage --runInBand",
