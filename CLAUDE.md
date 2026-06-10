@@ -2,16 +2,20 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Toolchain
+
+Node 10 required (see `.nvmrc`) — node-sass 4.x in the lockfile does not build on newer Node versions. Run `nvm use` before installing.
+
 ## Commands
 
 ```bash
 npm start              # Dev server on port 8888 (open, host 0.0.0.0)
-npm run start-dev      # Dev server + proxy to backend at localhost:7777
 npm run build          # Dev build → dist/
 npm run build:prod     # Production build → dist/
-npm test               # Karma/Jasmine unit tests
+npm run build:gh-pages # Production build with --base-href /folioAngular/ (used by CI)
+npm test               # Jest unit tests
+npm run test:ci        # Jest with coverage (CI mode; thresholds in jest.config.js)
 npm run lint           # TSLint
-npm run e2e            # Protractor end-to-end tests
 ```
 
 Docker:
@@ -22,11 +26,11 @@ docker run -p 80:80 $imageName
 
 ## Architecture
 
-Angular 5 portfolio SPA (Angular CLI 1.7.3). All data comes from a backend API at `./api/*` — in dev, proxied to `localhost:7777` via `proxy.config.json`. In production, deployed to Azure Static Web Apps (master branch auto-deploys via `.github/workflows/`).
+Angular 5 portfolio SPA (Angular CLI 1.7.3). Fully static — all data is local JSON in `src/assets/data/projectdissimilar/`, fetched by page services via relative `./assets/...` URLs (which resolve against the document base href). There is no backend.
 
 ### Feature modules (`src/app/+*-page/`)
 
-Each page is a lazy-loaded feature module using the `+` prefix convention. Every page folder contains the same four files: `*.component.ts`, `*.module.ts`, `*.routes.ts`, `*.service.ts`. Services fetch from the backend API; components are presentational.
+Each page is a lazy-loaded feature module using the `+` prefix convention. Every page folder contains the same four files: `*.component.ts`, `*.module.ts`, `*.routes.ts`, `*.service.ts`. Services fetch the JSON assets; components are presentational.
 
 Routes are registered in `app.routes.ts` via string-based `loadChildren` (Angular 5 pre-Ivy syntax). Each route carries a `data: { animation: '...' }` key consumed by the router animation in `app.component.ts`.
 
@@ -43,7 +47,15 @@ Routes are registered in `app.routes.ts` via string-based `loadChildren` (Angula
 
 No component-level styles. All SCSS lives in `src/assets/styles/` and is imported through `src/assets/styles/main.scss` (the single entry point configured in `.angular-cli.json`). Structure: `base/`, `components/`, `layout/`, `pages/`, `themes/`, `utils/`, `vendors/`. FontAwesome is self-hosted in `src/assets/fonts/`.
 
-### Deployment
+### CI / Deployment / Releases
 
-- **Docker**: nginx serves the `dist/` folder; `nginx-custom.conf` uses `try_files $uri $uri/ /index.html` for SPA routing.
-- **Azure Static Web Apps**: GitHub Actions workflow auto-deploys on push to `master`; PRs get preview environments.
+Single pipeline in `.github/workflows/ci.yml` (push + PR to `master`):
+
+- **lint** and **test** run in parallel on Node 10.
+- **build** (Node 10) runs `build:gh-pages`, adds `404.html` (copy of `index.html`, the GitHub Pages SPA fallback) and `.nojekyll`, and uploads the Pages artifact.
+- **deploy** (master pushes only) publishes to GitHub Pages: <https://commitblob.github.io/folioAngular/>.
+- **release** (master pushes only, Node 22 — semantic-release needs ≥ 20) runs semantic-release via npx (deliberately *not* in devDependencies, to keep the Node 10 lockfile clean). Config in `.releaserc.json`: analyses Conventional Commits, bumps `package.json`, writes `CHANGELOG.md`, pushes a `chore(release): x.y.z [skip ci]` commit, tags `vX.Y.Z`, and publishes a GitHub Release. The version lives only in `package.json` — nothing in the app reads it.
+
+Use Conventional Commit messages (`fix:` → patch, `feat:` → minor, `feat!:`/`BREAKING CHANGE` → major); other types don't trigger releases.
+
+- **Docker** (alternative deployment): nginx serves the `dist/` folder; `nginx-custom.conf` uses `try_files $uri $uri/ /index.html` for SPA routing.
