@@ -1,36 +1,62 @@
-# AngularCliStarter
+# folioAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.6.
+[![CI](https://github.com/commitBlob/folioAngular/actions/workflows/ci.yml/badge.svg)](https://github.com/commitBlob/folioAngular/actions/workflows/ci.yml)
+[![Latest release](https://img.shields.io/github/v/release/commitBlob/folioAngular)](https://github.com/commitBlob/folioAngular/releases)
 
-## Development server
+Personal portfolio SPA built with Angular 5, live at <https://commitblob.github.io/folioAngular/>.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Requirements
 
-## Code scaffolding
+Node 10 (see `.nvmrc`) — the Angular 5 / node-sass toolchain does not build on newer Node versions.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+nvm use
+npm ci
+```
+
+## Development
+
+```bash
+npm start              # Dev server on port 8888
+npm run lint           # TSLint
+npm test               # Jest unit tests
+npm run test:ci        # Jest with coverage (CI mode)
+```
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+```bash
+npm run build:prod     # Production build → dist/
+npm run build:gh-pages # Production build with the GitHub Pages base href
+```
 
-## Running unit tests
+## CI / Deployment
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Every push and pull request to `master` runs the pipeline in
+[`.github/workflows/ci.yml`](.github/workflows/ci.yml): lint and tests in
+parallel, then a production build. On pushes to `master` the build is
+deployed to GitHub Pages and a release is published automatically.
 
-## Running end-to-end tests
+## Releases
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Versioning is fully automated with
+[semantic-release](https://github.com/semantic-release/semantic-release):
+the version in `package.json`, the git tag, the GitHub Release, and
+[`CHANGELOG.md`](CHANGELOG.md) are all derived from
+[Conventional Commits](https://www.conventionalcommits.org/) on `master`:
 
-## Further help
+| Commit message                          | Release  |
+| --------------------------------------- | -------- |
+| `fix: ...`                               | patch    |
+| `feat: ...`                              | minor    |
+| `feat!: ...` / `BREAKING CHANGE:` footer | major    |
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Commits that don't follow the convention (or types like `chore:`, `docs:`,
+`refactor:`) don't trigger a release on their own.
 
+## Docker
 
-### Docker
-
-## Build and tag the image
-Run `docker build -t $imageName .`
-
-## Spin up docker instance on both internal and external port 80
-Run `docker run -p 80:80 $imageName`
+```bash
+docker build -t $imageName .       # Build and tag the image
+docker run -p 80:80 $imageName     # Serve on port 80 via nginx
+```
