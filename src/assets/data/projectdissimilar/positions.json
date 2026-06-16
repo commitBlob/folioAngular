@@ -24,7 +24,7 @@
       "period":"May 2021 - April 2024",
       "position":"Senior Software / Frontend Engineer",
       "companyLink":"hmcts",
-      "description":"<p>Delivered across multiple high-impact UK Government programmes as a senior engineer at Version 1.</p><ul><li><b>Home Office / MAPPS (2022–2024):</b> Authentication and document upload on multi-agency offender management platform projected to save <b>£76m/year</b>.</li><li><b>HMCTS Future Hearings & Civil/Citizen (2021–2022):</b> Modernised Small Claims Court portal; implemented Future Hearings platform components.</li></ul>"
+      "description":"<p>Owned critical features of a multi-agency offender management platform projected to save <b>£76M annually</b>; led secure integration of multiple legacy systems into a <b>unified architecture.</b></p><br /><p>Implemented a <b>standardised solution for HMCTS</b>, presenting list information consistently to the public and legal professionals.</p><br /><p><b>Modernised</b> the Small Claims Court platform, standardising UI with MoJ Component library, <b>improving performance</b>, and introducing structured internationalisation aligned with <b>GDS standards.</b></p><br /><p>Established key <b>reporting metrics</b> and automated development metric collection to track progress and improve delivery transparency.</p><br /><p>Reduced technical debt and <b>improved performance</b> across justice platforms, ensuring <b>scalability</b> and future <b>extensibility.</b></p><br />"
    },
    {
       "active":false,
@@ -33,7 +33,7 @@
       "period":"April 2019 - May 2021",
       "position":"Senior Software Developer & Research Lead",
       "companyLink":"ntegra",
-      "description":"<p>Developed high-impact platforms and championed engineering best practices at a specialist digital consultancy.</p><ul><li>Connected over <b>8,000 employees globally</b> by delivering a knowledge-discovery portal with semantic search, relevance scoring, and Microsoft Teams integration (RAG pipeline using Azure QnA Maker and LUIS).</li><li>Developed sales management platforms for two clients.</li><li>Researched and championed <b>Test-Driven Development</b> best practices.</li><li>Completed penetration and security testing and code reviews.</li></ul>"
+      "description":"<p>Connected over <b>8,000 employees globally</b> by delivering a knowledge-discovery portal with semantic search, relevance scoring, and Microsoft Teams integration (RAG pipeline using Azure QnA Maker and LUIS).</p><br /><p>Developed sales management platforms for two clients.</p><br /><p>Researched and championed <b>Test-Driven Development</b> best practices.</p><br /><p>Completed penetration and security testing and code reviews.</p>"
    },
    {
       "active":false,
@@ -42,7 +42,7 @@
       "period":"January 2019 - April 2019",
       "position":"Software Engineer",
       "companyLink":"sms",
-      "description":"<p>Lead developer of a <b>water treatment compliance portal</b> for an environmental services company.</p><ul><li>Achieved better platform performance through reusable components across the whole project.</li><li>Implemented a new automation process <b>reducing client-specific delivery time from 6–7 to 2 weeks</b>.</li></ul>"
+      "description":"<p>Lead developer of a <b>water treatment compliance portal</b> for an environmental services company.</p><br /><p>Achieved better platform performance through reusable components across the whole project.</p><br /><p>Implemented a new automation process <b>reducing client-specific delivery time from 6–7 to 2 weeks</b>.</p>"
    },
    {
       "active":false,
