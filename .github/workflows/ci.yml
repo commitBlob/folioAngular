@@ -49,13 +49,15 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build:gh-pages
-      - name: Add SPA fallback and disable Jekyll
+      - name: Prepare GitHub Pages artifact
         run: |
-          cp dist/index.html dist/404.html
-          touch dist/.nojekyll
+          mkdir -p pages
+          cp -r dist/. pages/
+          cp pages/index.html pages/404.html
+          touch pages/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: pages
 
   # semantic-release needs Node >= 20, while the Angular 5 toolchain is pinned
   # to Node 10 — hence the separate job and explicit node-version.
