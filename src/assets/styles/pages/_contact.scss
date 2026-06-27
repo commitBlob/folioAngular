@@ -2,6 +2,18 @@ $main-wrapper: 850px;
 $main-wrapper-min: 300px;
 
 .contact-page-wrapper {
+  a {
+    color: #ff007f;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:visited {
+      color: #52e3f6;
+    }
+  }
+
+
   max-width: $main-wrapper;
   margin: 0 auto;
   min-width: $main-wrapper-min;
