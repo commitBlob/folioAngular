@@ -52,7 +52,7 @@ Single pipeline in `.github/workflows/ci.yml` (push + PR to `master`):
 - **lint** and **test** run in parallel on Node 10.
 - **build** (Node 10) runs `build:gh-pages`, adds `404.html` (copy of `index.html`, the GitHub Pages SPA fallback) and `.nojekyll`, and uploads the Pages artifact.
 - **deploy** (master pushes only) publishes to GitHub Pages: <https://commitblob.github.io/folioAngular/>.
-- **release** (master pushes only, Node 22 — semantic-release needs ≥ 20) runs semantic-release via npx (deliberately *not* in devDependencies, to keep the Node 10 lockfile clean). Config in `.releaserc.json`: analyses Conventional Commits, bumps `package.json`, writes `CHANGELOG.md`, pushes a `chore(release): x.y.z [skip ci]` commit, tags `vX.Y.Z`, and publishes a GitHub Release. The version lives only in `package.json` — nothing in the app reads it.
+- **release** (master pushes only, Node 22 — semantic-release needs ≥ 20) runs semantic-release via npx (deliberately *not* in devDependencies, to keep the Node 10 lockfile clean). Config in `.releaserc.json`: analyses Conventional Commits, then creates a git tag `vX.Y.Z` and publishes a GitHub Release with auto-generated notes via `@semantic-release/github`. It does **not** commit anything back to the repo (no `@semantic-release/git`/`changelog`/`npm` plugins) — `master` is a protected branch, so the source of truth for versions is the git tags + GitHub Releases page, not `package.json`. Nothing in the app reads the version.
 
 Use Conventional Commit messages (`fix:` → patch, `feat:` → minor, `feat!:`/`BREAKING CHANGE` → major); other types don't trigger releases.
 
