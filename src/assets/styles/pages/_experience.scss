@@ -20,6 +20,10 @@
       }
     }
 
+    .position-wrapper.position-wrapper--highlight {
+      animation: card-highlight 2s ease-out both;
+    }
+
     .position-wrapper, .education-wrapper {
       margin: 1em auto;
       padding-bottom: .5em;
@@ -84,5 +88,15 @@
         }
       }
     }
+  }
+}
+
+@keyframes card-highlight {
+  0%, 60% {
+    box-shadow: 0 0 12px 3px $neon-blue;
+  }
+
+  100% {
+    box-shadow: 2px 2px 5px 0 $neon-pink;
   }
 }

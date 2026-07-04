@@ -7,6 +7,7 @@ import { ExperiencePageRoutes } from './experience-page.routes';
 import { ExperiencePageService } from './experience-page.service';
 import { SharedModule } from '../shared/shared.module';
 import { ExperienceProjectsComponent } from './experience-projects/experience-projects.component';
+import { CareerTimelineComponent } from './career-timeline/career-timeline.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ExperienceProjectsComponent } from './experience-projects/experience-pr
   ],
   declarations: [
     ExperiencePageComponent,
-    ExperienceProjectsComponent
+    ExperienceProjectsComponent,
+    CareerTimelineComponent
   ],
   providers: [
     ExperiencePageService
