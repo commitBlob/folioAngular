@@ -1,0 +1,10 @@
+a {
+    color: #ff007f;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:visited {
+      color: #52e3f6;
+    }
+}
