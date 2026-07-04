@@ -32,7 +32,8 @@ describe('ExperiencePageService', () => {
 
   const cases: { method: keyof ExperiencePageService; url: string }[] = [
     { method: 'getPositions', url: './assets/data/projectdissimilar/positions.json' },
-    { method: 'getEducation', url: './assets/data/projectdissimilar/education.json' }
+    { method: 'getEducation', url: './assets/data/projectdissimilar/education.json' },
+    { method: 'getCareerProgression', url: './assets/data/projectdissimilar/career_progression.json' }
   ];
 
   cases.forEach(({ method, url }) => {

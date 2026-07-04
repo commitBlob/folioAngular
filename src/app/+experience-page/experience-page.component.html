@@ -5,7 +5,10 @@
   </div>
   <div class="positions-list" *ngIf="positions && projectsList">
     <span class="tag__work-experience-start"></span>
-    <div class="position-wrapper" *ngFor="let position of positions">
+    <div class="position-wrapper" *ngFor="let position of positions"
+         #positionCard
+         [attr.data-company-link]="position.companyLink"
+         [class.position-wrapper--highlight]="highlightedCompanyLink === position.companyLink">
       <div class="position-header">
         <div class="company-image">
           <img [src]="generateImage(position.companyImage)">
@@ -26,6 +29,16 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div [innerHTML]="position.description" ></div>
+        </mat-expansion-panel>
+        <mat-expansion-panel *ngIf="showTimeline(position.companyName)">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="questions">
+              Career progression @{{careerProgression.employer}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <career-timeline [roles]="careerProgression.roles"
+                           [currentCompanyLink]="position.companyLink"
+                           (engagementSelected)="scrollToPosition($event)"></career-timeline>
         </mat-expansion-panel>
         <position-projects [companyShortName]="position.companyLink" [projectsList]="projectsList"></position-projects>
       </div>

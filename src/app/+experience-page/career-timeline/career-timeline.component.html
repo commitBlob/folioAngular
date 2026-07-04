@@ -1,0 +1,15 @@
+<ul class="career-timeline">
+  <li class="career-timeline__role"
+      *ngFor="let role of roles"
+      [class.career-timeline__role--here]="isCurrentCard(role)"
+      [class.career-timeline__role--active]="role.active">
+    <span class="career-timeline__node"></span>
+    <div class="career-timeline__details">
+      <p class="career-timeline__title">{{role.title}}</p>
+      <p class="career-timeline__period">{{role.period}}<span *ngIf="role.active"> Present</span></p>
+      <span class="career-timeline__engagement"
+            *ngFor="let eng of role.engagements"
+            (click)="selectEngagement(eng.companyLink)">{{eng.name}}</span>
+    </div>
+  </li>
+</ul>

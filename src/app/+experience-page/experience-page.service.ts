@@ -24,6 +24,10 @@ export class ExperiencePageService {
     return this.http.get('./assets/data/projectdissimilar/education.json').catch(this.handleError);
   }
 
+  getCareerProgression(): Observable<any> {
+    return this.http.get('./assets/data/projectdissimilar/career_progression.json').catch(this.handleError);
+  }
+
   /**
    * Handle HTTP error
    */

@@ -1,0 +1,76 @@
+@import '../utils/respond';
+
+.career-timeline {
+  margin: 1em 0 0 .5em;
+  padding-left: 1.5em;
+  border-left: 2px solid $neon-blue;
+
+  .career-timeline__role {
+    position: relative;
+    list-style: none;
+    padding-bottom: 1.25em;
+
+    .career-timeline__node {
+      position: absolute;
+      left: -1.95em;
+      top: .25em;
+      width: .8em;
+      height: .8em;
+      border-radius: 50%;
+      background-color: $back-vari-2;
+      border: 2px solid $neon-pink;
+    }
+
+    .career-timeline__title {
+      color: $clouds;
+      font-weight: bolder;
+    }
+
+    .career-timeline__period {
+      font-size: .8em;
+      color: $clouds;
+    }
+
+    .career-timeline__engagement {
+      display: inline-block;
+      margin: .3em .5em 0 0;
+      padding: .2em .8em;
+      background-color: $back-vari-2;
+      color: $neon-blue;
+      border-radius: .5em;
+      cursor: pointer;
+      font-size: .85em;
+
+      &:hover {
+        animation-name: pulse;
+        animation-duration: .5s;
+        box-shadow: 1px -1px 1px 0 $neon-pink;
+        text-decoration: underline;
+        color: $brand-secondary-hover;
+      }
+    }
+
+    &.career-timeline__role--here {
+      .career-timeline__node {
+        border-color: $neon-green;
+      }
+
+      .career-timeline__title {
+        color: $neon-green;
+      }
+    }
+
+    &.career-timeline__role--active .career-timeline__node {
+      background-color: $neon-green;
+      animation: pulse 2s infinite;
+    }
+  }
+
+  @include respond((max: 699px)) {
+    margin-left: .25em;
+
+    .career-timeline__role .career-timeline__title {
+      font-size: .95em;
+    }
+  }
+}
