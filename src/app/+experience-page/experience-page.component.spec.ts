@@ -66,14 +66,10 @@ describe('ExperiencePageComponent', () => {
     expect(component.careerProgression).toEqual(progressionFixture);
   });
 
-  it('showTimeline is true only for company links present in the progression roles', () => {
-    component.ngOnInit();
-    expect(component.showTimeline('v1client')).toBe(true);
-    expect(component.showTimeline('other')).toBe(false);
-  });
-
-  it('showTimeline is false before the progression data loads', () => {
-    expect(component.showTimeline('v1client')).toBe(false);
+  it('showTimeline is true only for the exact "Version 1" company name', () => {
+    expect(component.showTimeline('Version 1')).toBe(true);
+    expect(component.showTimeline('DSIT — via Version 1')).toBe(false);
+    expect(component.showTimeline('Ntegra Limited')).toBe(false);
   });
 
   it('scrollToPosition scrolls to the matching card and highlights it temporarily', () => {
@@ -86,10 +82,6 @@ describe('ExperiencePageComponent', () => {
     component.scrollToPosition('v1client');
 
     expect(scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth', block: 'start' });
-    expect(component.highlightedCompanyLink).toBe('v1client');
-    jest.runAllTimers();
-    expect(component.highlightedCompanyLink).toBe('');
-    jest.useRealTimers();
   });
 
   it('scrollToPosition does nothing when no card matches', () => {

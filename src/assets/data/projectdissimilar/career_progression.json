@@ -1,0 +1,49 @@
+{
+  "employer": "Version 1",
+  "period": "May 2021 -",
+  "active": true,
+  "roles": [
+    {
+      "title": "AI Solution Architect",
+      "period": "May 2026 -",
+      "active": true,
+      "engagements": [
+        { "name": "DSIT", "companyLink": "dsit" }
+      ]
+    },
+    {
+      "title": "AI Technical Lead",
+      "period": "July 2025 - May 2026",
+      "active": false,
+      "engagements": [
+        { "name": "Cafcass", "companyLink": "cafcass" },
+        { "name": "DSIT", "companyLink": "dsit" }
+      ]
+    },
+    {
+      "title": "Senior AI Engineer",
+      "period": "April 2024 - July 2025",
+      "active": false,
+      "engagements": [
+        { "name": "Cafcass", "companyLink": "cafcass" }
+      ]
+    },
+    {
+      "title": "Senior Frontend Engineer",
+      "period": "July 2022 - April 2024",
+      "active": false,
+      "engagements": [
+        { "name": "HMCTS Civil Citizen Claims portal", "companyLink": "hmcts" },
+        { "name": "Home Office Public Protection", "companyLink": "hmcts" }
+      ]
+    },
+    {
+      "title": "Angular & Azure Frontend Developer",
+      "period": "May 2021 - July 2022",
+      "active": false,
+      "engagements": [
+        { "name": "HMCTS Court and Tribunal Hearings", "companyLink": "hmcts" }
+      ]
+    }
+  ]
+}

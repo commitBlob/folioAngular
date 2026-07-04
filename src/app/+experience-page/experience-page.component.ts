@@ -30,7 +30,7 @@ export class ExperiencePageComponent implements OnInit {
               private meta: Meta,
               private title: Title) {}
 
-  generateImage(image) {
+  generateImage(image: string): string {
     return 'data:image/png;base64,' + image;
   }
 
@@ -38,9 +38,8 @@ export class ExperiencePageComponent implements OnInit {
     return (current ? '<p>' + period + ' Present</p>' : '<p>' + period + '</p>');
   }
 
-  showTimeline(companyLink: string): boolean {
-    return !!this.careerProgression && this.careerProgression.roles
-      .some((role) => role.engagements.some((eng) => eng.companyLink === companyLink));
+  showTimeline(companyName: string): boolean {
+    return companyName === 'Version 1';
   }
 
   scrollToPosition(companyLink: string): void {
@@ -50,9 +49,6 @@ export class ExperiencePageComponent implements OnInit {
       return;
     }
     card.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    this.highlightedCompanyLink = companyLink;
-    clearTimeout(this.highlightTimer);
-    this.highlightTimer = setTimeout(() => this.highlightedCompanyLink = '', 2000);
   }
 
   ngOnInit(): void {

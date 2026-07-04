@@ -30,7 +30,7 @@
           </mat-expansion-panel-header>
           <div [innerHTML]="position.description" ></div>
         </mat-expansion-panel>
-        <mat-expansion-panel *ngIf="showTimeline(position.companyLink)">
+        <mat-expansion-panel *ngIf="showTimeline(position.companyName)">
           <mat-expansion-panel-header>
             <mat-panel-title class="questions">
               Career progression @{{careerProgression.employer}}
