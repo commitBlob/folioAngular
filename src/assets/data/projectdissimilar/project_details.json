@@ -659,5 +659,45 @@
          }
       ],
       "active":true
+   },
+   {
+      "id":12,
+      "name":"CCA Foundations Practice Quiz",
+      "gallery":[
+         {
+            "image":"iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAJ0lEQVR42u3NMQ0AAAwDoPpXU4lVsWMJGCA9FoFAIBAIBAKBQPAlGPp6QHkBIDyeAAAAAElFTkSuQmCC",
+            "imageName":"CCA Foundations Practice Quiz"
+         }
+      ],
+      "description":"<p>An open-source <b>Claude Certified Architect (CCA) Foundations</b> practice quiz, built to help colleagues prepare and to support Version 1's initiative to reach <b>100 Claude Certified Architects</b>. Runs entirely in the browser — no backend, free to host on GitHub Pages.</p><p>Built end-to-end with an <b>agentic workflow</b>:</p><ul><li><b>Question sourcing</b>: Claude Fable scoured public sources for practice questions (~650 raw); Claude Sonnet deduplicated and cleaned them into a <b>594-question</b> bank, verified by random sampling.</li><li><b>Build</b>: Opus for planning, Sonnet for implementation and the GitHub Pages deployment pipeline — requirements were simplicity and zero running cost.</li><li><b>Quality assurance</b>: Opus backfilled ~120 missing explanations strictly from official documentation, validated by a custom <b>LLM-as-judge</b> — which also flagged a genuine error in an official practice question whose explanation contradicted the documented skills-precedence behaviour.</li></ul><p><b>Features</b>: 60 randomly selected questions per session; Immediate-Feedback and Review-at-End modes; localStorage progress that survives refresh; load more questions without repeats.</p>",
+      "link":"https://github.com/commitBlob/CCA-quiz",
+      "skills":[
+         {
+            "font-awesome":true,
+            "icon":"fab fa-js",
+            "name":"Javascript"
+         },
+         {
+            "font-awesome":true,
+            "icon":"fab fa-html5",
+            "name":"HTML5"
+         },
+         {
+            "font-awesome":true,
+            "icon":"fab fa-css3-alt",
+            "name":"CSS3"
+         },
+         {
+            "font-awesome":false,
+            "icon":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxEAAAsRAX9kX5EAAAGHaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49J++7vycgaWQ9J1c1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCc/Pg0KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyI+PHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj48cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0idXVpZDpmYWY1YmRkNS1iYTNkLTExZGEtYWQzMS1kMzNkNzUxODJmMWIiIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIj48dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPjwvcmRmOkRlc2NyaXB0aW9uPjwvcmRmOlJERj48L3g6eG1wbWV0YT4NCjw/eHBhY2tldCBlbmQ9J3cnPz4slJgLAAAC3ElEQVRYR+2Wu24TQRSGvzO7XsdrRcrlBZB4BKpQ0kAPTV6ABokGESEgF0OBlChBlFTwFgSBRAGKeAcUiQqakCgk3tjx7hyKdeL1XuxNIMgCf9JI638u5x/P2bMDY8aMGfN/I2nBcq+uXu2FFTNpsJruvwgsrmilc+jOte6ad+vNZF+OweUZYEeYFAjT3RdEBVvZ5+DKwezU5+e7yR6T/AEgtBV0DwLg6C+1AEX3cFuZE8sYHDVKGhTAB+pABchstATanVvvrpXJrlxKGBQU21KCNWg21Bx/BC89qAQeao4/QbOhHK4pelTGZAmDBiAwNBaExop1dROq6UElqGJdfSs0VgxPF0CDMuGHjwBApPt2I4p/3iOO54LyYLrsGecYrOZGFya6uuT2l8GePuXHUMfL6DkGvzezJkS/8C0AUNFOyc2nEAwcx895MdDt9U99RRpALMvv+wRwFa4KUomPUlBsCGyBdBC9LOpegig5rQQOKuFXVLZBKyBzyRhWohBkS1Q6yVmiPEvtRIk3mt5gtZs2IdApm0IJTsqMWxBDiKtD/7oGWvS3do45unqra/Cs5khsriiGJmL0Wk4OjhYmrurJVjvnP/S7SDd2vx8J64/u9I1T8SUwKwbHTxaGi8WgREHoRw0jDL5uAViWdgR39uxv6nlxUMJdw5PZdE8mB89S5f8sva9VkozBUSNjUKmKYGb6r1Yn1y2/QBvWJFEH87Q6gpmGaubkMoKyPBG59jbGTIi1103oX1NaR+rYVXW0KVZunGoVu6pCAJpZJ0ZU1PrSce4LNd+6Rx/U2DcSaV2ipCab2KjthM5LodFKr1JI6C0+VDbUsvRjkDYMy9KOsqGht/h4kJZH5oiT9K5Wedet/KRO03vp8q5bPa2IgQZHgSEGtYbUAKZ6CZynFaPxmCnEj+cWaEUMNBh6vI6qP+fx7E2hfVCkDULgMPL0VlTdnw+96FWRNmbMmH+VX1YPVAlgUwzmAAAAAElFTkSuQmCC",
+            "name":"Claude Code"
+         },
+         {
+            "font-awesome":false,
+            "icon":"data:image/png;base64,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",
+            "name":"Prompting"
+         }
+      ],
+      "active":true
    }
 ]
