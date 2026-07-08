@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Wiki
+
+For a dense map of this repo (directory ToC, convention/gotcha registry, file/test/fixture matrix) and 4 domain pages on routing/animation, the feature-page pattern (and its real deviations), shared infrastructure, and testing, start at **[docs/wiki/index.md](./docs/wiki/index.md)**. It is anchored to git SHAs and checked for staleness by `node docs/wiki/lint/lint.js` (see [docs/wiki/lint/README.md](./docs/wiki/lint/README.md)) — if that command reports `STALE` pages, treat their claims as unverified until re-checked against current code.
+
 ## Toolchain
 
 Node 10 required (see `.nvmrc`) — node-sass 4.x in the lockfile does not build on newer Node versions. Run `nvm use` before installing.
@@ -25,7 +29,7 @@ Angular 5 portfolio SPA (Angular CLI 1.7.3). All data is static JSON fetched via
 
 ### Feature modules (`src/app/+*-page/`)
 
-Each page is a lazy-loaded feature module using the `+` prefix convention. Every page folder contains the same four files: `*.component.ts`, `*.module.ts`, `*.routes.ts`, `*.service.ts`. Services fetch static JSON from `src/assets/data/`; components are presentational.
+Each page is a lazy-loaded feature module using the `+` prefix convention. Most page folders follow a four-file shape — `*.component.ts`, `*.module.ts`, `*.routes.ts`, `*.service.ts` — but several deviate (e.g. `+faqs-page` has no `faqs-page.component.ts`; `+portfolio-page/project-details` has no `.routes.ts` and is routed eagerly). See [feature-page-pattern.md](./docs/wiki/feature-page-pattern.md) for the full pattern and every deviation before assuming uniformity. Services fetch static JSON from `src/assets/data/`; components are presentational.
 
 Routes are registered in `app.routes.ts` via string-based `loadChildren` (Angular 5 pre-Ivy syntax). Each route carries a `data: { animation: '...' }` key consumed by the router animation in `app.component.ts`.
 
@@ -56,4 +60,10 @@ Single pipeline in `.github/workflows/ci.yml` (push + PR to `master`):
 
 Use Conventional Commit messages (`fix:` → patch, `feat:` → minor, `feat!:`/`BREAKING CHANGE` → major); other types don't trigger releases.
 
-- **Docker** (alternative deployment): nginx serves the `dist/` folder; `nginx-custom.conf` uses `try_files $uri $uri/ /index.html` for SPA routing.
+- **Docker**: no `Dockerfile` or nginx config exists in this repo as of the current wiki anchor SHA — a prior version of this file described an nginx-based deployment that is not present in the tracked tree. Verify before relying on it; GitHub Pages (above) is the only deployment path currently wired in CI.
+
+## Definition of Done
+
+- `npm run lint` exits 0.
+- `npm run test:ci` exits 0 (enforces the coverage thresholds in `jest.config.js`).
+- `node docs/wiki/lint/lint.js` exits 0 (no stale wiki anchors) if `docs/wiki/` or any file it anchors changed.
