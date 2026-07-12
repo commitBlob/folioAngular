@@ -60,9 +60,31 @@ describe('SkillsPageComponent', () => {
     expect(component.convertMonths(18)).toBe('1.5 y');
   });
 
+  it('convertMonths returns raw months just below the 1-year rounding range', () => {
+    expect(component.convertMonths(9)).toBe('9 m');
+  });
+
+  it('convertMonths rounds 10-12 months up to 1 year', () => {
+    expect(component.convertMonths(10)).toBe('1 y');
+    expect(component.convertMonths(11)).toBe('1 y');
+    expect(component.convertMonths(12)).toBe('1 y');
+  });
+
   it('calculateExperience reports months for recent dates', () => {
     const recent = moment().subtract(2, 'months').format('DD-MM-YYYY');
     expect(component.calculateExperience(recent)).toMatch(/ m$/);
+  });
+
+  it('calculateExperience reports raw months just below the 1-year rounding range', () => {
+    const nineMonthsAgo = moment().subtract(9, 'months').format('DD-MM-YYYY');
+    expect(component.calculateExperience(nineMonthsAgo)).toMatch(/ m$/);
+  });
+
+  it('calculateExperience rounds 10-11 months up to 1 year', () => {
+    const tenMonthsAgo = moment().subtract(10, 'months').format('DD-MM-YYYY');
+    const elevenMonthsAgo = moment().subtract(11, 'months').format('DD-MM-YYYY');
+    expect(component.calculateExperience(tenMonthsAgo)).toBe('1 y');
+    expect(component.calculateExperience(elevenMonthsAgo)).toBe('1 y');
   });
 
   it('calculateExperience reports years for old dates', () => {

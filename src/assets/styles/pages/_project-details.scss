@@ -56,6 +56,24 @@ $full-width: 100%;
     .project-details-images-list {
       vertical-align: center;
       text-align: center;
+
+      .gallery-hint {
+        margin-top: .5em;
+        font-size: .8em;
+        opacity: .6;
+
+        span.fas {
+          color: $neon-blue;
+          font-size: 1.2em;
+          vertical-align: middle;
+        }
+
+        .gallery-hint__text {
+          font-size: 1em;
+          margin: 0 .4em;
+          vertical-align: middle;
+        }
+      }
     }
   }
 
