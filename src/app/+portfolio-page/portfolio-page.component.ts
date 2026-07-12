@@ -16,6 +16,10 @@ export class PortfolioPageComponent implements OnInit {
   pageName = 'Projects List';
   projectsList = [];
 
+  get activeProjects() {
+    return this.projectsList.filter((project) => project.active);
+  }
+
   constructor(private portfolioService: PortfolioPageService,
               private router: Router,
               private metaTagsService: MetaTagsService,
