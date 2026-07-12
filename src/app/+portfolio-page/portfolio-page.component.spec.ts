@@ -62,3 +62,48 @@ describe('PortfolioPageComponent', () => {
     expect(meta.addTag).toHaveBeenCalledWith({ name: 'description', content: 'Projects List Page' });
   });
 });
+
+describe('PortfolioPageComponent (rendered template)', () => {
+  const projectsFixture = [
+    { projectId: 3, name: 'Some Project', mainImage: 'XYZ', active: true },
+    { projectId: 7, name: 'Portfolio Migration', mainImage: 'ABC', active: true }
+  ];
+
+  let fixture;
+
+  beforeEach(() => {
+    const router = { navigate: jest.fn() };
+    const portfolioService = { getProjects: () => Observable.of(projectsFixture) };
+
+    TestBed.configureTestingModule({
+      declarations: [PortfolioPageComponent],
+      providers: [
+        { provide: PortfolioPageService, useValue: portfolioService },
+        { provide: Router, useValue: router },
+        { provide: Meta, useValue: metaSpy() },
+        { provide: Title, useValue: titleSpy() },
+        { provide: MetaTagsService, useValue: metaTagsServiceStub() }
+      ]
+    });
+
+    fixture = TestBed.createComponent(PortfolioPageComponent);
+    fixture.detectChanges();
+  });
+
+  it('sets each image alt attribute to the project name, not project.projectName', () => {
+    const images: NodeListOf<HTMLImageElement> = fixture.nativeElement.querySelectorAll('img');
+
+    expect(images.length).toBe(projectsFixture.length);
+    images.forEach((img, index) => {
+      expect(img.alt).toBe(projectsFixture[index].name);
+      expect(img.alt).not.toBe('project.projectName');
+    });
+  });
+
+  it('sets the alt attribute of the Portfolio Migration project (id 7) correctly', () => {
+    const images: NodeListOf<HTMLImageElement> = fixture.nativeElement.querySelectorAll('img');
+    const portfolioMigrationImage = images[projectsFixture.findIndex((project) => project.projectId === 7)];
+
+    expect(portfolioMigrationImage.alt).toBe('Portfolio Migration');
+  });
+});
