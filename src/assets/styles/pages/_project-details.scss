@@ -66,6 +66,10 @@ $full-width: 100%;
       margin: 0 .2em;
     }
 
+    ul {
+      padding-left: 1.5em;
+    }
+
     .project-details-description {
 
       p {
@@ -79,6 +83,7 @@ $full-width: 100%;
       ul {
         display: flex;
         flex-wrap: wrap;
+        padding-left: 0;
 
         li {
           list-style: none;
