@@ -99,6 +99,45 @@ describe('ProjectDetailsComponent', () => {
     expect(previous).toHaveBeenCalled();
   });
 
+  it('ArrowRight key calls next and ArrowLeft key calls previous', () => {
+    component.galleryList = gallery;
+    const next = jest.spyOn(component, 'next').mockImplementation(() => {});
+    const previous = jest.spyOn(component, 'previous').mockImplementation(() => {});
+
+    const rightEvent = { key: 'ArrowRight', preventDefault: jest.fn() } as any;
+    component.handleKeyboard(rightEvent);
+    expect(next).toHaveBeenCalled();
+    expect(rightEvent.preventDefault).toHaveBeenCalled();
+
+    const leftEvent = { key: 'ArrowLeft', preventDefault: jest.fn() } as any;
+    component.handleKeyboard(leftEvent);
+    expect(previous).toHaveBeenCalled();
+    expect(leftEvent.preventDefault).toHaveBeenCalled();
+  });
+
+  it('handleKeyboard ignores non-arrow keys', () => {
+    component.galleryList = gallery;
+    const next = jest.spyOn(component, 'next').mockImplementation(() => {});
+    const previous = jest.spyOn(component, 'previous').mockImplementation(() => {});
+
+    const enterEvent = { key: 'Enter', preventDefault: jest.fn() } as any;
+    component.handleKeyboard(enterEvent);
+    expect(next).not.toHaveBeenCalled();
+    expect(previous).not.toHaveBeenCalled();
+    expect(enterEvent.preventDefault).not.toHaveBeenCalled();
+  });
+
+  it('handleKeyboard does nothing when there are fewer than 2 images', () => {
+    component.galleryList = [gallery[0]];
+    const next = jest.spyOn(component, 'next').mockImplementation(() => {});
+    const previous = jest.spyOn(component, 'previous').mockImplementation(() => {});
+
+    component.handleKeyboard({ key: 'ArrowRight', preventDefault: jest.fn() } as any);
+    component.handleKeyboard({ key: 'ArrowLeft', preventDefault: jest.fn() } as any);
+    expect(next).not.toHaveBeenCalled();
+    expect(previous).not.toHaveBeenCalled();
+  });
+
   it('explodeSkillsList splits font-awesome from custom icons', () => {
     component.skillsList = details[0].skills;
     component.explodeSkillsList();

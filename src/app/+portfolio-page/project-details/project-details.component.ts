@@ -1,5 +1,5 @@
 // Core
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { Location } from '@angular/common';
@@ -78,6 +78,21 @@ export class ProjectDetailsComponent implements OnInit {
         break;
       case 'swipeleft':
         this.previous();
+        break;
+    }
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeyboard(event: KeyboardEvent): void {
+    if (!this.galleryList || this.galleryList.length < 2) { return; }
+    switch (event.key) {
+      case 'ArrowLeft':
+        event.preventDefault();
+        this.previous();
+        break;
+      case 'ArrowRight':
+        event.preventDefault();
+        this.next();
         break;
     }
   }
