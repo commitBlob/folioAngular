@@ -35,23 +35,29 @@ export class SkillsPageComponent implements OnInit {
   }
 
   convertMonths(months) {
-    if (months < 12) {
-      return months + ' m';
-    } else {
-      // round to one decimal
-      let years = Math.round((months / 12) * 10) / 10;
-      return years + ' y';
+    switch (true) {
+      case months < 10:
+        return months + ' m';
+      case months < 12:
+        return '1 y';
+      default:
+        // round to one decimal
+        let years = Math.round((months / 12) * 10) / 10;
+        return years + ' y';
     }
   }
 
   calculateExperience(startDate) {
     let momentObj = moment(startDate, 'DD-MM-YYYY');
     let duration = moment().diff(momentObj, 'months');
-    if (duration < 12) {
-      return duration + ' m';
-    } else {
-      let years = Math.round(duration / 12);
-      return years + ' y';
+    switch (true) {
+      case duration < 10:
+        return duration + ' m';
+      case duration < 12:
+        return '1 y';
+      default:
+        let years = Math.round(duration / 12);
+        return years + ' y';
     }
   }
 
