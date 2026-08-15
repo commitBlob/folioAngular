@@ -19,8 +19,9 @@ anchors:
   - src/app/shared/navigation/navigation-items.ts@c4391ece5b07a47b84f5591808f3588a37f9ea7c
   - src/app/shared/navigation/navigation.inteface.ts@c4391ece5b07a47b84f5591808f3588a37f9ea7c
   - src/app/shared/browser-detect/browser-detect.service.ts@c4391ece5b07a47b84f5591808f3588a37f9ea7c
-  - src/app/shared/meta-tags/meta-tags.service.ts@c4391ece5b07a47b84f5591808f3588a37f9ea7c
+  - src/app/shared/meta-tags/meta-tags.service.ts@73eaf99e33f220552a4eb003b02186ded2c33715
   - src/app/+about-page/about-page.service.ts@c4391ece5b07a47b84f5591808f3588a37f9ea7c
+  - src/app/shared/profile/profile.ts@73eaf99e33f220552a4eb003b02186ded2c33715
 ---
 
 # folioAngular — Dense Map
