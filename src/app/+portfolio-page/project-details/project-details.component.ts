@@ -21,7 +21,7 @@ export class ProjectDetailsComponent implements OnInit {
   customIconsList = [];
   galleryList = [];
   activeImage: any;
-  activeImageTitle: '';
+  activeImageTitle = '';
   activeImageIndex: any;
 
   constructor(private activatedRoute: ActivatedRoute,

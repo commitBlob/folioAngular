@@ -15,7 +15,17 @@ const WIKI_DIR = path.resolve(__dirname, '..');
 const REPO_ROOT = path.resolve(WIKI_DIR, '..', '..');
 
 function git(args) {
-  return execFileSync('git', args, { cwd: REPO_ROOT, encoding: 'utf8' });
+  return execFileSync('git', args, { cwd: REPO_ROOT, encoding: 'utf8' }).replace(/\r\n/g, '\n');
+}
+
+// Reads a file as utf8 and normalizes CRLF -> LF so every downstream regex
+// and split('\n') in this file can assume a single, consistent line-ending
+// convention. Without this, a CRLF checkout (e.g. Windows with
+// core.autocrlf=true) breaks the frontmatter fence regex (`^---\n`), leaves
+// a trailing \r on split lines, and generally makes anything anchored to
+// `\n` line-ending-sensitive.
+function readFileNormalized(filePath) {
+  return fs.readFileSync(filePath, 'utf8').replace(/\r\n/g, '\n');
 }
 
 function listWikiPages() {
@@ -84,7 +94,7 @@ function fileAtSha(sha, filePath) {
 function currentFileContent(filePath) {
   const abs = path.join(REPO_ROOT, filePath);
   if (!fs.existsSync(abs)) return null;
-  return fs.readFileSync(abs, 'utf8');
+  return readFileNormalized(abs);
 }
 
 function lastCommitTouching(sha, filePath) {
@@ -113,7 +123,7 @@ function runStaleness() {
   const results = [];
 
   for (const pagePath of pages) {
-    const raw = fs.readFileSync(pagePath, 'utf8');
+    const raw = readFileNormalized(pagePath);
     const fm = parseFrontmatter(raw);
     const pageName = path.relative(WIKI_DIR, pagePath);
 
@@ -194,7 +204,7 @@ function runStaleness() {
 function runProse() {
   const pages = listWikiPages();
   const pageMeta = pages.map((p) => {
-    const raw = fs.readFileSync(p, 'utf8');
+    const raw = readFileNormalized(p);
     return { file: p, name: path.basename(p), raw, fm: parseFrontmatter(raw) };
   });
 

@@ -49,13 +49,13 @@ describe('ProjectDetailsComponent', () => {
     component.imageSelected(1);
     expect(component.activeImageIndex).toBe(1);
     expect(component.activeImage).toBe('i1');
-    expect(component.activeImageTitle as any).toBe('n1');
+    expect(component.activeImageTitle).toBe('n1');
   });
 
   it('setActiveImage sets the active image and title from a list', () => {
     component.setActiveImage(gallery, 2);
     expect(component.activeImage).toBe('i2');
-    expect(component.activeImageTitle as any).toBe('n2');
+    expect(component.activeImageTitle).toBe('n2');
   });
 
   it('previous moves back one image', () => {
