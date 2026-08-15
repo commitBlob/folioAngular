@@ -8,6 +8,7 @@ import 'rxjs/add/observable/forkJoin';
 // App specific
 import { AboutPageService } from './about-page.service';
 import { MetaTagsService } from '../shared/meta-tags/meta-tags.service';
+import { profile } from '../shared/profile/profile';
 
 // Moment
 import * as moment from 'moment/moment';
@@ -20,6 +21,7 @@ export class AboutPageComponent implements OnInit {
   age: number;
   isLoading = true;
   pageName = 'About';
+  profile = profile;
 
   profilePictures = [];
   socialIcons = [];
@@ -70,18 +72,18 @@ export class AboutPageComponent implements OnInit {
   setOpenGraphMetaData(): void {
     this.meta.addTag(this.metaTagsService.setMetaTag('og:title', this.metaTagsService.setPageTitle(this.pageName)));
     this.meta.addTag(this.metaTagsService.setMetaTag('og:type', 'website'));
-    this.meta.addTag(this.metaTagsService.setMetaTag('og:url', 'http://maro.guru'));
-    this.meta.addTag(this.metaTagsService.setMetaTag('og:image', `http://maro.guru/assets/maro.png`));
+    this.meta.addTag(this.metaTagsService.setMetaTag('og:url', this.profile.siteUrl));
+    this.meta.addTag(this.metaTagsService.setMetaTag('og:image', this.profile.ogImage));
     this.meta.addTag(this.metaTagsService.setMetaTag('og:description', this.metaTagsService.setDescriptionMetaTag().content));
   }
 
   setTwitterMetaData(): void {
     this.meta.addTags([
       this.metaTagsService.setMetaTag('twitter:card', 'summary_large_image'),
-      this.metaTagsService.setMetaTag('twitter:url', 'http://maro.guru'),
+      this.metaTagsService.setMetaTag('twitter:url', this.profile.siteUrl),
       this.metaTagsService.setMetaTag('twitter:title', this.metaTagsService.setPageTitle(this.pageName)),
       this.metaTagsService.setMetaTag('twitter:description', this.metaTagsService.setDescriptionMetaTag().content),
-      this.metaTagsService.setMetaTag('twitter:image', 'http://maro.guru/assets/maro.png')
+      this.metaTagsService.setMetaTag('twitter:image', this.profile.ogImage)
     ]);
   }
 

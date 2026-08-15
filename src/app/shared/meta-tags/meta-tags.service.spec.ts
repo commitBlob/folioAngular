@@ -13,14 +13,14 @@ describe('MetaTagsService', () => {
 
   it('setPageTitle composes name, role and page', () => {
     expect(service.setPageTitle('About'))
-      .toBe('Maro Radovic - Senior Software Developer & Research Lead | About');
+      .toBe('Maro Radovic - AI Solution Architect & Lead Forward Deployed Engineer | About');
   });
 
   it('setDescriptionMetaTag returns a description tag', () => {
     const tag = service.setDescriptionMetaTag();
     expect(tag.name).toBe('description');
     expect(tag.content).toContain('Maro Radovic');
-    expect(tag.content).toContain('Ntegra');
+    expect(tag.content).toContain('Version 1');
   });
 
   it('setMetaTag returns the given name/content pair', () => {
