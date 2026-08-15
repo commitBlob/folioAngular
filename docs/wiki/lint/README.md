@@ -2,6 +2,8 @@
 
 Zero-dependency Node script (`lint.js`, runs on Node 10 and Node 22 — no syntax beyond what both support). Lives in `docs/wiki/lint/`, checks pages in `docs/wiki/`.
 
+Line-ending agnostic: every file it reads is normalized CRLF→LF immediately after `fs.readFileSync`, so results are identical on a Windows checkout (`core.autocrlf=true` gives CRLF working-tree files) and on Linux/macOS/CI (LF).
+
 **The linter flags. It does not fix.** Re-verifying a stale page against current code and re-anchoring it to a new SHA is a deliberate step — done by a human or a follow-up agent run that reads the diff, confirms the wiki's claims still hold (or updates them), and bumps the `anchors` frontmatter to the new SHA. Never automate that step away; that's what keeps the wiki trustworthy at query time.
 
 **Drift is the primary failure mode of this whole system.** Expect the linter to flag pages after unrelated commits touch an anchored file — that's it working as intended, not a bug. Treat "run the linter, see red, go fix or acknowledge" as a normal loop, not an exception.
