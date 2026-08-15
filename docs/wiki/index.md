@@ -19,8 +19,9 @@ anchors:
   - src/app/shared/navigation/navigation-items.ts@c4391ece5b07a47b84f5591808f3588a37f9ea7c
   - src/app/shared/navigation/navigation.inteface.ts@c4391ece5b07a47b84f5591808f3588a37f9ea7c
   - src/app/shared/browser-detect/browser-detect.service.ts@c4391ece5b07a47b84f5591808f3588a37f9ea7c
-  - src/app/shared/meta-tags/meta-tags.service.ts@c4391ece5b07a47b84f5591808f3588a37f9ea7c
+  - src/app/shared/meta-tags/meta-tags.service.ts@73eaf99e33f220552a4eb003b02186ded2c33715
   - src/app/+about-page/about-page.service.ts@c4391ece5b07a47b84f5591808f3588a37f9ea7c
+  - src/app/shared/profile/profile.ts@73eaf99e33f220552a4eb003b02186ded2c33715
 ---
 
 # folioAngular — Dense Map
@@ -90,7 +91,7 @@ Facts an agent cannot get from a single grep — read this before editing.
 | `SharedModule` depends on a feature subfolder | `SharedModule` imports/exports `ProjectDetailsModule` from `../+portfolio-page/project-details/...` — shared infra reaching into a specific feature page. `ProjectDetailsComponent` is also routed **eagerly** (not lazy) directly from root `app.routes.ts:6,45-47`, unlike every other page. | `src/app/shared/shared.module.ts:10,24` |
 | CLAUDE.md's "same four files" claim is not accurate | See [feature-page-pattern.md](./feature-page-pattern.md) for every deviation (faqs has no `*-page.component`; contact service does no HTTP; project-details has no `.routes.ts`; experience's nested components have no per-folder module). Code wins — treat the four-file shape as the common case, not an invariant. | n/a — cross-file finding |
 | Docker deployment section in CLAUDE.md is unverified | CLAUDE.md (root) mentions `nginx-custom.conf` and an nginx Docker deployment; **no `Dockerfile` or `nginx*` file exists anywhere in the tracked tree** (confirmed via `git ls-files` glob, this run). Treat that CLAUDE.md paragraph as stale/aspirational until such a file is added. | n/a — absence confirmed against `git ls-files` |
-| Page `<title>` vs `MetaTagsService.roleTitle` disagree | `src/index.html:5` title says "AI Solution Architect & Lead Forward Deployed Engineer"; `MetaTagsService.roleTitle` (used by every page's dynamic `<title>` via `Title.setTitle`) says `'Senior Software Developer & Research Lead'`. Two sources of truth for the same fact — pick one before editing either. | `src/index.html:5`, `src/app/shared/meta-tags/meta-tags.service.ts:7` |
+| Page `<title>` vs `MetaTagsService.roleTitle` — resolved | Was flagged as two disagreeing sources of truth (`src/index.html:5` vs `meta-tags.service.ts:7`); fixed by extracting name/role/company/site-URL into `src/app/shared/profile/profile.ts`, which `MetaTagsService` and `AboutPageComponent` both read. `index.html` itself is static (outside Angular's DI, overwritten by `Title.setTitle` on bootstrap) so it still can't import the constant — it stays a manually-synced third copy, currently in sync. | `src/app/shared/profile/profile.ts`, `src/index.html:5`, `src/app/shared/meta-tags/meta-tags.service.ts:7-9` |
 | Browser gate is a string-equality allowlist, not a UA regex | `BrowserDetectService.chromeOrFirefoxCheck()` uses Bowser's `getBrowserName()` and passes only for the literal strings `'Chrome'` or `'Firefox'` — every other browser (including Edge, Safari, Chromium forks Bowser doesn't label exactly "Chrome") renders `BrowserUnsupportedComponent` instead of the app. | `src/app/shared/browser-detect/browser-detect.service.ts:8-13` |
 
 ## File / test / fixture matrix

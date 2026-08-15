@@ -13,9 +13,10 @@ anchors:
   - src/app/shared/navigation/navigation.service.ts@c4391ece5b07a47b84f5591808f3588a37f9ea7c
   - src/app/shared/navigation/navigation.module.ts@c4391ece5b07a47b84f5591808f3588a37f9ea7c
   - src/app/shared/browser-detect/browser-detect.service.ts@c4391ece5b07a47b84f5591808f3588a37f9ea7c
-  - src/app/shared/meta-tags/meta-tags.service.ts@c4391ece5b07a47b84f5591808f3588a37f9ea7c
+  - src/app/shared/meta-tags/meta-tags.service.ts@73eaf99e33f220552a4eb003b02186ded2c33715
   - src/app/app.component.ts@c4391ece5b07a47b84f5591808f3588a37f9ea7c
   - src/app/app.component.html@c4391ece5b07a47b84f5591808f3588a37f9ea7c
+  - src/app/shared/profile/profile.ts@73eaf99e33f220552a4eb003b02186ded2c33715
 ---
 
 # Shared Infrastructure
@@ -49,12 +50,16 @@ Single-barrel import from `@angular/material` (Angular 5 style — this pattern 
 - Consumed once, in `AppComponent`'s constructor: `this.browserSupported = browserService.chromeOrFirefoxCheck();` (`app.component.ts:17-18`) — computed once at app bootstrap, not reactive to anything.
 - Template gate: `app.component.html:1-2` — `<app-browser-unsupported *ngIf="!browserSupported else isChromeOrFF">`, with the entire real UI (nav, burger menu, animated router-outlet) inside the `#isChromeOrFF` `ng-template`. Failing the check means `BrowserUnsupportedComponent` renders and nothing else in the app tree ever mounts (no router, no nav).
 
+## `profile` constant (`src/app/shared/profile/profile.ts`)
+
+Plain exported const (same shape as `navigation-items.ts`'s `GlobalNavigation` — no `@Injectable`, no DI): `{ name, roleTitle, currentCompany, siteUrl, ogImage }`. Single source of truth for "who this site is about" — added to de-duplicate a value that `MetaTagsService` and `AboutPageComponent` previously each hardcoded independently and let drift out of sync (see resolved gotcha in [index.md](./index.md)). `AboutPageComponent` imports it directly for template display (`{{profile.name}}`/`{{profile.roleTitle}}` in `about-page.component.html`) and for the OG/Twitter `url`/`image` tags it builds in `setOpenGraphMetaData()`/`setTwitterMetaData()` (`about-page.component.ts`) — those previously hardcoded the stale `http://maro.guru` domain four times in one file; now `profile.siteUrl`/`profile.ogImage` point at the real GitHub Pages host.
+
 ## `MetaTagsService` (`src/app/shared/meta-tags/meta-tags.service.ts`)
 
-Stateless helper (no HTTP), fields: `roleTitle = 'Senior Software Developer & Research Lead'`, `name = 'Maro Radovic'`, `currentCompany = 'Ntegra'` (lines 7-9). Methods build Angular `Meta`/`Title` payloads (never call `Meta`/`Title` themselves — callers do that):
+Stateless helper (no HTTP), fields sourced from `profile` (above): `roleTitle = profile.roleTitle`, `name = profile.name`, `currentCompany = profile.currentCompany` (lines 7-9). Methods build Angular `Meta`/`Title` payloads (never call `Meta`/`Title` themselves — callers do that):
 - `setPageTitle(page)` → `` `${name} - ${roleTitle} | ${page}` `` (11-13).
 - `setDescriptionMetaTag()` → `{name: 'description', content: ...}` interpolating `name`/`currentCompany`/`roleTitle` (15-19).
 - `setMetaTag(tagName, tagContent)` → generic `{name, content}` passthrough (21-23).
 - `setTwitterCard()` → `{name: 'twitter:card', value: 'summary'}` — **uses `value`, not `content`**, inconsistent with every other method here and with the real `content` key Angular's `Meta.addTag` expects for a `<meta>` tag; verify before relying on this for actual Twitter Card rendering. (21-27)
 - `setContentType()` → `{httpEquiv: 'Content-Type', content: 'text/html', charset: 'utf-8'}` (29-31).
-- **Cross-file mismatch:** `roleTitle` here (`'Senior Software Developer & Research Lead'`) disagrees with the static `<title>` in `src/index.html:5` (`'AI Solution Architect & Lead Forward Deployed Engineer'`). The dynamic per-page title (via `setPageTitle`, used by e.g. `FaqsBlockComponent.setMetaData()`, `faqs-block.component.ts:40-43`) overwrites the static one after bootstrap, so which string a user sees depends on timing/JS execution — treat both as sources of truth that need to agree, not just one.
+- **Resolved cross-file mismatch:** `roleTitle` previously disagreed with the static `<title>` in `src/index.html:5`. Both now trace to the same `profile.roleTitle` value — `MetaTagsService` by import, `index.html` by manual sync (it's outside Angular's DI, can't import the constant; currently in sync, verify by eye if either changes).

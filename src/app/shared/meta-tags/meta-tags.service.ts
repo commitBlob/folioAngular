@@ -1,12 +1,15 @@
 // Core
 import { Injectable } from '@angular/core';
 
+// App specific
+import { profile } from '../profile/profile';
+
 @Injectable()
 export class MetaTagsService {
 
-  roleTitle = 'Senior Software Developer & Research Lead';
-  name = 'Maro Radovic';
-  currentCompany = 'Ntegra';
+  roleTitle = profile.roleTitle;
+  name = profile.name;
+  currentCompany = profile.currentCompany;
 
   setPageTitle(page: string): string {
     return `${this.name} - ${this.roleTitle} | ${page}`;

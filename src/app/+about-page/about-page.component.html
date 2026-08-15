@@ -10,8 +10,8 @@
   <div class="about-page-headline-wrapper">
     <div class="about-page-headline">
       <span class="tag__intro-start"></span>
-      <h2>I'm <span class="me-name" (mouseover)="bounceImage($event)" (mouseout)="bounceImage($event)">Maro Radovic</span>, {{age}} y.o.</h2>
-      <h3>AI Solution Architect & Lead Forward Deployed Engineer</h3>
+      <h2>I'm <span class="me-name" (mouseover)="bounceImage($event)" (mouseout)="bounceImage($event)">{{profile.name}}</span>, {{age}} y.o.</h2>
+      <h3>{{profile.roleTitle}}</h3>
       <span class="tag__intro-end"></span>
     </div>
     <div class="about-page-image-wrapper" *ngIf="!isLoading">

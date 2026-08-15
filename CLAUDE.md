@@ -40,6 +40,7 @@ Routes are registered in `app.routes.ts` via string-based `loadChildren` (Angula
 - `animations.ts` — defines `routerAnimation` (slide-in/out), applied at the `AppComponent` level.
 - `BrowserDetectService` — checks for Chrome/Firefox; `AppComponent` shows `BrowserUnsupportedComponent` if unsupported.
 - Navigation items are defined statically in `src/app/shared/navigation/navigation-items.ts`.
+- Profile data (name, role title, current company, site URL/OG image) is defined once in `src/app/shared/profile/profile.ts`, consumed by `MetaTagsService` and `AboutPageComponent` — the two previously had independent, drifted copies.
 
 ### Styling
 
